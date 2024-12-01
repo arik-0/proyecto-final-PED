@@ -21,5 +21,10 @@ namespace proyecto_final_PED
         {
             this.Close();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
