@@ -9,29 +9,18 @@ namespace proyecto_final_PED
 {
     public class Pregunta
     {
-        /*PreguntaId, txtPregunta, Lista de respuestas, respuestaCorrecta, asignatura, unidad, subunidad.*/
-        public int PreguntaId{ get; set; }
+        public int PreguntaId { get; set; }
         public string TxtPregunta { get; set; }
-        public List<string> Opciones { get; set; }
-        public int RespuestaCorrecta { get; set; }
+        public string Respuesta1 { get; set; }
+        public string Respuesta2 { get; set; }
+        public string Respuesta3 { get; set; }
+        public string Respuesta4 { get; set; }
+        public int RespuestaCorrecta { get; set; } // Índice basado en 0 (0 = Respuesta1, 1 = Respuesta2, etc.)
         public string Asignatura { get; set; }
         public int Unidad { get; set; }
-        public int SubUnidad { get; set; }
+        public int Subunidad { get; set; }
 
-        public Pregunta(int preguntaId, string textoPregunta, List<string> opciones, int respuestaCorrecta, string asignatura, int unidad, int subunidad)
-        {
-            if (opciones.Count > 4)
-                throw new ArgumentException("La pregunta no puede tener más de 4 opciones.");
-
-            PreguntaId = preguntaId;
-            TxtPregunta = textoPregunta;
-            Opciones = opciones;
-            RespuestaCorrecta = respuestaCorrecta;
-            Asignatura = asignatura;
-            Unidad = unidad;
-            SubUnidad = subunidad;
-        }
-
+        // Método para verificar si una respuesta proporcionada es correcta
         public bool EsRespuestaCorrecta(int indiceRespuesta)
         {
             return RespuestaCorrecta == indiceRespuesta;
@@ -39,13 +28,7 @@ namespace proyecto_final_PED
 
         public override string ToString()
         {
-            string opcionesTexto = "";
-            for (int i = 0; i < Opciones.Count; i++)
-            {
-                opcionesTexto += $"{i + 1}. {Opciones[i]}\n";
-            }
-
-            return $"ID: {PreguntaId}\nPregunta: {TxtPregunta}\nOpciones:\n{opcionesTexto}Asignatura: {Asignatura}\nUnidad: {Unidad}, Subunidad: {SubUnidad}";
+            return $"ID: {PreguntaId}\nPregunta: {TxtPregunta}\n1) {Respuesta1}\n2) {Respuesta2}\n3) {Respuesta3}\n4) {Respuesta4}\nAsignatura: {Asignatura}, Unidad: {Unidad}, Subunidad: {Subunidad}";
         }
     }
 }

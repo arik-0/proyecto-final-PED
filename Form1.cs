@@ -12,5 +12,12 @@ namespace proyecto_final_PED
 
         }
 
+        private void adminPregbtn_Click(object sender, EventArgs e)
+        {
+            Form2 nuevoFormulario = new Form2();
+
+            // Mostrar el formulario
+            nuevoFormulario.Show();
+        }
     }
 }
