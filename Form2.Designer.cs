@@ -50,11 +50,16 @@
             respuesta2txt = new TextBox();
             modificarPregbtn = new Button();
             borrarPregbtn = new Button();
-            numericUpDown1 = new NumericUpDown();
+            correctaupdown = new NumericUpDown();
             label6 = new Label();
+            label7 = new Label();
+            unidadupdown = new NumericUpDown();
+            subunidadupdown = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)preguntaBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)correctaupdown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)unidadupdown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)subunidadupdown).BeginInit();
             SuspendLayout();
             // 
             // volverAlMenubtn
@@ -120,6 +125,7 @@
             crearpreguntabtn.TabIndex = 2;
             crearpreguntabtn.Text = "Crear pregunta";
             crearpreguntabtn.UseVisualStyleBackColor = true;
+            crearpreguntabtn.Click += crearpreguntabtn_Click;
             // 
             // preguntatxt
             // 
@@ -220,32 +226,64 @@
             borrarPregbtn.Text = "Borrar pregunta";
             borrarPregbtn.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // correctaupdown
             // 
-            numericUpDown1.Location = new Point(341, 174);
-            numericUpDown1.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
-            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(39, 23);
-            numericUpDown1.TabIndex = 15;
-            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            correctaupdown.Location = new Point(319, 118);
+            correctaupdown.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            correctaupdown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            correctaupdown.Name = "correctaupdown";
+            correctaupdown.Size = new Size(39, 23);
+            correctaupdown.TabIndex = 15;
+            correctaupdown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(310, 141);
+            label6.Location = new Point(288, 85);
             label6.Name = "label6";
             label6.Size = new Size(106, 15);
             label6.TabIndex = 16;
             label6.Text = "Respuesta correcta";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(314, 173);
+            label7.Name = "label7";
+            label7.Size = new Size(112, 15);
+            label7.TabIndex = 18;
+            label7.Text = "unidad y subunidad";
+            // 
+            // unidadupdown
+            // 
+            unidadupdown.Location = new Point(319, 206);
+            unidadupdown.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            unidadupdown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            unidadupdown.Name = "unidadupdown";
+            unidadupdown.Size = new Size(39, 23);
+            unidadupdown.TabIndex = 17;
+            unidadupdown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // subunidadupdown
+            // 
+            subunidadupdown.Location = new Point(375, 206);
+            subunidadupdown.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            subunidadupdown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            subunidadupdown.Name = "subunidadupdown";
+            subunidadupdown.Size = new Size(39, 23);
+            subunidadupdown.TabIndex = 19;
+            subunidadupdown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(subunidadupdown);
+            Controls.Add(label7);
+            Controls.Add(unidadupdown);
             Controls.Add(label6);
-            Controls.Add(numericUpDown1);
+            Controls.Add(correctaupdown);
             Controls.Add(borrarPregbtn);
             Controls.Add(modificarPregbtn);
             Controls.Add(label5);
@@ -265,7 +303,9 @@
             Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)preguntaBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)correctaupdown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)unidadupdown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)subunidadupdown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -294,7 +334,10 @@
         private TextBox respuesta2txt;
         private Button modificarPregbtn;
         private Button borrarPregbtn;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown correctaupdown;
         private Label label6;
+        private Label label7;
+        private NumericUpDown unidadupdown;
+        private NumericUpDown subunidadupdown;
     }
 }
