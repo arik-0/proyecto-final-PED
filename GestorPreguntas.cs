@@ -1,79 +1,53 @@
-﻿using System;
+﻿using proyecto_final_PED;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace proyecto_final_PED
+namespace ProyectoFinal
 {
-
     public class GestorPreguntas
     {
-        private string archivoPreguntas = "Preguntas.txt";
-        public List<Pregunta> Preguntas { get; private set; }
+        string archivoPreguntas = "Preguntas.txt";
 
-        public GestorPreguntas()
+        // Leer preguntas desde el archivo
+        public List<Pregunta> LeerPreguntas()
         {
-            Preguntas = new List<Pregunta>();
-            CargarPreguntas();
-        }
+            List<Pregunta> lista = new List<Pregunta>();
 
-        public void AgregarPregunta(Pregunta pregunta)
-        {
-            Preguntas.Add(pregunta);
-            GuardarPreguntas();
-        }
-
-        public void EliminarPregunta(int preguntaId)
-        {
-            Preguntas.RemoveAll(p => p.PreguntaId == preguntaId);
-            GuardarPreguntas();
-        }
-
-        public void GuardarPreguntas()
-        {
-            using (StreamWriter sw = new StreamWriter(archivoPreguntas))
+            if (File.Exists(archivoPreguntas))
             {
-                foreach (var pregunta in Preguntas)
+                using (StreamReader reader = new StreamReader(archivoPreguntas))
                 {
-                    // Formato: PreguntaId, TextoPregunta, Respuesta1, Respuesta2, Respuesta3, Respuesta4, RespuestaCorrecta, Asignatura, Unidad, Subunidad
-                    string linea = $"{pregunta.PreguntaId},{pregunta.TxtPregunta},{pregunta.Respuesta1},{pregunta.Respuesta2},{pregunta.Respuesta3},{pregunta.Respuesta4},{pregunta.RespuestaCorrecta},{pregunta.Asignatura},{pregunta.Unidad},{pregunta.Subunidad}";
-                    sw.WriteLine(linea);
-                }
-            }
-        }
-
-
-        public void CargarPreguntas()
-        {
-            // Verifica si el archivo existe antes de intentar leerlo
-            if (!File.Exists(archivoPreguntas)) return;
-
-            using (StreamReader sr = new StreamReader(archivoPreguntas))
-            {
-                string linea;
-                while ((linea = sr.ReadLine()) != null)
-                {
-                    // Divide la línea en campos separados por comas
-                    var datos = linea.Split(',');
-
-                    // Crea una nueva instancia de Pregunta con los campos individuales
-                    Preguntas.Add(new Pregunta
+                    string linea;
+                    while ((linea = reader.ReadLine()) != null)
                     {
-                        PreguntaId = int.Parse(datos[0]),
-                        TxtPregunta = datos[1],
-                        Respuesta1 = datos[2],
-                        Respuesta2 = datos[3],
-                        Respuesta3 = datos[4],
-                        Respuesta4 = datos[5],
-                        RespuestaCorrecta = int.Parse(datos[6]),
-                        Asignatura = datos[7],
-                        Unidad = int.Parse(datos[8]),
-                        Subunidad = int.Parse(datos[9])
-                    });
+                        lista.Add(new Pregunta(linea));
+                    }
                 }
+            }
+
+            return lista;
+        }
+
+        // Guardar una nueva pregunta en el archivo
+        public void GuardarPregunta(Pregunta nuevaPregunta)
+        {
+            using (StreamWriter writer = new StreamWriter(archivoPreguntas, true))
+            {
+                writer.WriteLine(nuevaPregunta.GenerarRegistro());
             }
         }
 
+        // Sobreescribe el archivo con una nueva lista de preguntas
+        public void GuardarListaPreguntas(List<Pregunta> preguntas)
+        {
+            using (StreamWriter writer = new StreamWriter(archivoPreguntas, false))
+            {
+                foreach (var pregunta in preguntas)
+                {
+                    writer.WriteLine(pregunta.GenerarRegistro());
+                }
+            }
+        }
     }
 }

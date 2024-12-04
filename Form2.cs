@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,8 @@ namespace proyecto_final_PED
     public partial class Form2 : Form
     {
         //variables globales
-        private List<Pregunta> Preguntas;
+        public List<Pregunta> Preguntas;
+        GestorPreguntas gestor = new GestorPreguntas();
 
         public Form2()
         {
@@ -38,7 +40,10 @@ namespace proyecto_final_PED
             string respuesta2 = respuesta2txt.Text.Trim();
             string respuesta3 = respuesta3txt.Text.Trim();
             string respuesta4 = respuesta4txt.Text.Trim();
-            int respuestaCorrecta = (int)correctaupdown.Value - 1;
+            int respuestaCorrecta = Convert.ToInt32(correctaupdown.Value - 1);
+            string asignatura = string.Join(", ", asignaturaselect.CheckedItems.Cast<string>());
+            int unidad = (int)unidadupdown.Value;
+            int subunidad = (int)subunidadupdown.Value;
             // Crear una nueva pregunta
             Pregunta nuevaPregunta = new Pregunta
             {
@@ -48,13 +53,38 @@ namespace proyecto_final_PED
                 Respuesta2 = respuesta2,
                 Respuesta3 = respuesta3,
                 Respuesta4 = respuesta4,
-                RespuestaCorrecta = respuestaCorrecta,
-                Asignatura = "Por definir", // Opcional: agregar campo para asignatura en el formulario
-                Unidad = 0,                // Opcional: agregar unidad y subunidad en el formulario
-                Subunidad = 0
+                Asignatura = asignatura, // Opcional: agregar campo para asignatura en el formulario
+                Unidad = unidad,                // Opcional: agregar unidad y subunidad en el formulario
+                Subunidad = subunidad,
+                RespuestaCorrecta = respuestaCorrecta
             };
 
-            GestorPreguntas.AgregarPregunta(Pregunta nuevaPregunta);
+            gestor.AgregarPregunta(nuevaPregunta);
+
+        }
+        private void asignaturaselect_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            // Desmarcar todos los demás elementos excepto el que se está marcando
+            if (e.NewValue == CheckState.Checked)
+            {
+                for (int i = 0; i < asignaturaselect.Items.Count; i++)
+                {
+                    if (i != e.Index) // No modificar el elemento actual
+                    {
+                        asignaturaselect.SetItemChecked(i, false);
+                    }
+                }
+            }
+        }
+
+        private void asignaturaselect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

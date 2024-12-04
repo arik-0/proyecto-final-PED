@@ -4,31 +4,45 @@ using System.Linq;
 using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
+using System;
 
-namespace proyecto_final_PED
+namespace ProyectoFinal
 {
     public class Pregunta
     {
         public int PreguntaId { get; set; }
-        public string TxtPregunta { get; set; }
+        public string Texto { get; set; }
         public string Respuesta1 { get; set; }
         public string Respuesta2 { get; set; }
         public string Respuesta3 { get; set; }
         public string Respuesta4 { get; set; }
-        public int RespuestaCorrecta { get; set; } // Índice basado en 0 (0 = Respuesta1, 1 = Respuesta2, etc.)
+        public int RespuestaCorrecta { get; set; } // Índice de la respuesta correcta
         public string Asignatura { get; set; }
         public int Unidad { get; set; }
         public int Subunidad { get; set; }
 
-        // Método para verificar si una respuesta proporcionada es correcta
-        public bool EsRespuestaCorrecta(int indiceRespuesta)
+        public Pregunta() { }
+
+        // Constructor que recibe una línea del archivo CSV
+        public Pregunta(string linea)
         {
-            return RespuestaCorrecta == indiceRespuesta;
+            var datos = linea.Split(',');
+            PreguntaId = int.Parse(datos[0]);
+            Texto = datos[1];
+            Respuesta1 = datos[2];
+            Respuesta2 = datos[3];
+            Respuesta3 = datos[4];
+            Respuesta4 = datos[5];
+            RespuestaCorrecta = int.Parse(datos[6]);
+            Asignatura = datos[7];
+            Unidad = int.Parse(datos[8]);
+            Subunidad = int.Parse(datos[9]);
         }
 
-        public override string ToString()
+        // Genera un registro en formato CSV para guardar en el archivo
+        public string GenerarRegistro()
         {
-            return $"ID: {PreguntaId}\nPregunta: {TxtPregunta}\n1) {Respuesta1}\n2) {Respuesta2}\n3) {Respuesta3}\n4) {Respuesta4}\nAsignatura: {Asignatura}, Unidad: {Unidad}, Subunidad: {Subunidad}";
+            return $"{PreguntaId},{Texto},{Respuesta1},{Respuesta2},{Respuesta3},{Respuesta4},{RespuestaCorrecta},{Asignatura},{Unidad},{Subunidad}";
         }
     }
 }
