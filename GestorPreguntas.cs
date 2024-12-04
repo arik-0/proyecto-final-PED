@@ -82,24 +82,29 @@ namespace proyecto_final_PED
             return lista;
         }
 
-        public void ModificarPregunta(Pregunta preguntaModificada)
+        public void ModificarPregunta(Guid preguntaId, Pregunta nuevaPregunta)
         {
-            var preguntaOriginal = Preguntas.FirstOrDefault(p => p.PreguntaId == preguntaModificada.PreguntaId);
-            if (preguntaOriginal != null)
+            Pregunta preguntaAModificar = Preguntas.FirstOrDefault(p => p.PreguntaId == preguntaId);
+
+            if (preguntaAModificar != null)
             {
                 // Actualizar los datos de la pregunta
-                preguntaOriginal.TxtPregunta = preguntaModificada.TxtPregunta;
-                preguntaOriginal.Respuesta1 = preguntaModificada.Respuesta1;
-                preguntaOriginal.Respuesta2 = preguntaModificada.Respuesta2;
-                preguntaOriginal.Respuesta3 = preguntaModificada.Respuesta3;
-                preguntaOriginal.Respuesta4 = preguntaModificada.Respuesta4;
-                preguntaOriginal.RespuestaCorrecta = preguntaModificada.RespuestaCorrecta;
-                preguntaOriginal.Asignatura = preguntaModificada.Asignatura;
-                preguntaOriginal.Unidad = preguntaModificada.Unidad;
-                preguntaOriginal.Subunidad = preguntaModificada.Subunidad;
+                preguntaAModificar.TxtPregunta = nuevaPregunta.TxtPregunta;
+                preguntaAModificar.Respuesta1 = nuevaPregunta.Respuesta1;
+                preguntaAModificar.Respuesta2 = nuevaPregunta.Respuesta2;
+                preguntaAModificar.Respuesta3 = nuevaPregunta.Respuesta3;
+                preguntaAModificar.Respuesta4 = nuevaPregunta.Respuesta4;
+                preguntaAModificar.RespuestaCorrecta = nuevaPregunta.RespuestaCorrecta;
+                preguntaAModificar.Asignatura = nuevaPregunta.Asignatura;
+                preguntaAModificar.Unidad = nuevaPregunta.Unidad;
+                preguntaAModificar.Subunidad = nuevaPregunta.Subunidad;
 
                 // Guardar todos los cambios en el archivo
                 GuardarTodasLasPreguntas();
+            }
+            else
+            {
+                Console.WriteLine("La pregunta no se encontró.");
             }
         }
 

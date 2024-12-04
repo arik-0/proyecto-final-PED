@@ -171,6 +171,7 @@
             modificarPregbtn.TabIndex = 13;
             modificarPregbtn.Text = "Modificar Pregunta";
             modificarPregbtn.UseVisualStyleBackColor = true;
+            modificarPregbtn.Click += modificarPregbtn_Click_1;
             // 
             // borrarPregbtn
             // 

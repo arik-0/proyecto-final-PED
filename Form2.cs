@@ -145,5 +145,61 @@ namespace proyecto_final_PED
             int unidad = (int)unidadupdown.Value;
             MostrarPreguntasPorUnidad(unidad);
         }
+
+        private void modificarPregbtn_Click_1(object sender, EventArgs e)
+        {
+            // Verificar que haya una fila seleccionada en el DataGridView
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Obtener la fila seleccionada
+                DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
+                Pregunta preguntaSeleccionada = filaSeleccionada.DataBoundItem as Pregunta;
+
+                if (preguntaSeleccionada != null)
+                {
+                    // Confirmar la modificación con el usuario
+                    DialogResult resultado = MessageBox.Show(
+                        $"¿Deseas modificar la pregunta con ID {preguntaSeleccionada.PreguntaId}?",
+                        "Confirmación de modificación",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        // Crear una nueva instancia de Pregunta con los datos actualizados
+                        Pregunta nuevaPregunta = new Pregunta(
+                            preguntaSeleccionada.PreguntaId, // Mantener el mismo ID
+                            preguntatxt.Text.Trim(),
+                            respuesta1txt.Text.Trim(),
+                            respuesta2txt.Text.Trim(),
+                            respuesta3txt.Text.Trim(),
+                            respuesta4txt.Text.Trim(),
+                            (int)correctaupdown.Value - 1,
+                            asignaturatxt.Text.Trim(),
+                            (int)unidadupdown.Value,
+                            (int)subunidadupdown.Value
+                        );
+
+                        // Llamar al gestor para modificar la pregunta
+                        gestor.ModificarPregunta(preguntaSeleccionada.PreguntaId, nuevaPregunta);
+
+                        // Refrescar la lista y el DataGridView
+                        Preguntas = gestor.LeerPreguntas();
+                        MostrarPreguntas();
+
+                        MessageBox.Show("Pregunta modificada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo obtener la pregunta seleccionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
