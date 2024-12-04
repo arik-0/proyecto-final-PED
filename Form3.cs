@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,8 +32,11 @@ namespace proyecto_final_PED
             // Leer el intervalo de unidades desde el TextBox
             string intervaloTexto = unidadesIntervalotxt.Text.Trim();
 
+            DateTime fechaexamen = fechaexamencal.SelectionStart;
+            Console.WriteLine(asignaturaSeleccionada, intervaloTexto, fechaexamen);
+
             // Validar y procesar el intervalo de unidades
-            List<int> unidadesSeleccionadas = ProcesarIntervaloDeUnidades(intervaloTexto);
+            List<int> unidadesSeleccionadas = ProcesarUnidades(intervaloTexto);
 
             if (unidadesSeleccionadas.Count == 0)
             {
@@ -42,48 +46,41 @@ namespace proyecto_final_PED
 
             
             GestorExamenes gestorExamenes = new GestorExamenes(Preguntas);
-            Examen examenGenerado = gestorExamenes.GenerarExamen(asignaturaSeleccionada, unidadesSeleccionadas);
+            Examen examenGenerado = gestorExamenes.GenerarExamen(asignaturaSeleccionada,unidadesSeleccionadas, fechaexamen);
+            MessageBox.Show("El examen ha sido correctamente generado.");
 
             
-            MessageBox.Show($"Examen generado con ID: {examenGenerado.ExamenId} para la asignatura: {examenGenerado.Asignatura}",
-                            "Examen Generado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           // MessageBox.Show($"Examen generado con ID: {examenGenerado.ExamenId} para la asignatura: {examenGenerado.Asignatura}","Examen Generado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private List<int> ProcesarIntervaloDeUnidades(string intervaloTexto)
+        private List<int> ProcesarUnidades(string unidadesTexto)
         {
             List<int> unidades = new List<int>();
 
-            
-            if (intervaloTexto.Contains("-"))
+            // Verificar que el texto no esté vacío
+            if (string.IsNullOrWhiteSpace(unidadesTexto))
             {
-                
-                string[] partes = intervaloTexto.Split('-');
+                return unidades;
+            }
 
-                
-                if (partes.Length == 2)
+            // Separar el texto por el carácter '/' y convertir los valores en enteros
+            string[] unidadesArray = unidadesTexto.Split('/');
+
+            foreach (var unidad in unidadesArray)
+            {
+                if (int.TryParse(unidad.Trim(), out int unidadNumerica))
                 {
-                    
-                    if (int.TryParse(partes[0], out int inicio) && int.TryParse(partes[1], out int fin))
-                    {
-                        
-                        if (inicio <= fin)
-                        {
-                            
-                            for (int i = inicio; i <= fin; i++)
-                            {
-                                unidades.Add(i);
-                            }
-                        }
-                    }
+                    unidades.Add(unidadNumerica);
+                }
+                else
+                {
+                    // Si alguna unidad no es un número válido, mostrar un error
+                    MessageBox.Show($"La unidad '{unidad}' no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return new List<int>();  // Retornar lista vacía si hay un error
                 }
             }
 
             return unidades;
-        }
-
-        private void unidadesIntervalotxt_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

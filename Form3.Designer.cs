@@ -33,11 +33,13 @@
             asignaturatxt = new TextBox();
             label2 = new Label();
             unidadesIntervalotxt = new TextBox();
+            label3 = new Label();
+            fechaexamencal = new MonthCalendar();
             SuspendLayout();
             // 
             // generarExamenbtn
             // 
-            generarExamenbtn.Location = new Point(631, 92);
+            generarExamenbtn.Location = new Point(359, 258);
             generarExamenbtn.Name = "generarExamenbtn";
             generarExamenbtn.Size = new Size(75, 58);
             generarExamenbtn.TabIndex = 0;
@@ -50,9 +52,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(289, 90);
             label1.Name = "label1";
-            label1.Size = new Size(213, 15);
+            label1.Size = new Size(227, 15);
             label1.TabIndex = 2;
-            label1.Text = "Unidad de preguntas (en formato N-N)";
+            label1.Text = "Unidad de preguntas (en formato N/N/N)";
             // 
             // asignaturatxt
             // 
@@ -76,13 +78,29 @@
             unidadesIntervalotxt.Name = "unidadesIntervalotxt";
             unidadesIntervalotxt.Size = new Size(204, 23);
             unidadesIntervalotxt.TabIndex = 5;
-            unidadesIntervalotxt.TextChanged += unidadesIntervalotxt_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(110, 191);
+            label3.Name = "label3";
+            label3.Size = new Size(99, 15);
+            label3.TabIndex = 7;
+            label3.Text = "Fecha de examen";
+            // 
+            // fechaexamencal
+            // 
+            fechaexamencal.Location = new Point(44, 215);
+            fechaexamencal.Name = "fechaexamencal";
+            fechaexamencal.TabIndex = 8;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(fechaexamencal);
+            Controls.Add(label3);
             Controls.Add(unidadesIntervalotxt);
             Controls.Add(label2);
             Controls.Add(asignaturatxt);
@@ -101,5 +119,7 @@
         private TextBox asignaturatxt;
         private Label label2;
         private TextBox unidadesIntervalotxt;
+        private Label label3;
+        private MonthCalendar fechaexamencal;
     }
 }

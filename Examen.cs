@@ -13,10 +13,14 @@ namespace proyecto_final_PED
         public string Asignatura { get; set; }
         public List<Guid> IdPreguntas { get; set; }
 
-        public Examen(string asignatura)
+        /*public Examen() 
+        {
+            
+        }*/
+        public Examen(string asignatura, DateTime fecha)
         {
             ExamenId = Guid.NewGuid();
-            Fecha = DateTime.Now;
+            Fecha = fecha;
             Asignatura = asignatura;
             IdPreguntas = new List<Guid>();
         }

@@ -60,6 +60,40 @@ namespace proyecto_final_PED
 
         private void crearpreguntabtn_Click(object sender, EventArgs e)
         {
+            // Validación: Pregunta no puede estar vacía
+            if (string.IsNullOrWhiteSpace(preguntatxt.Text))
+            {
+                MessageBox.Show("El campo de la pregunta no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validación: Respuestas 1 y 2 no pueden estar vacías
+            if (string.IsNullOrWhiteSpace(respuesta1txt.Text) || string.IsNullOrWhiteSpace(respuesta2txt.Text))
+            {
+                MessageBox.Show("Las respuestas 1 y 2 deben estar completas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validación: Las respuestas no deben ser iguales entre ellas
+            if (respuesta1txt.Text == respuesta2txt.Text)
+            {
+                MessageBox.Show("Las respuestas 1 y 2 no deben ser iguales.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validación: Respuesta correcta debe estar dentro de las opciones (Respuesta1 = 0, Respuesta2 = 1, Respuesta3 = 2, Respuesta4 = 3)
+            if (correctaupdown.Value < 1 || correctaupdown.Value > 4)
+            {
+                MessageBox.Show("Debe seleccionar una respuesta correcta válida (entre 1 y 4).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(asignaturatxt.Text))
+            {
+                MessageBox.Show("Debe seleccionar una asignatura", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string textoPregunta = preguntatxt.Text.Trim();
             string respuesta1 = respuesta1txt.Text.Trim();
             string respuesta2 = respuesta2txt.Text.Trim();

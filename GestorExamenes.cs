@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace proyecto_final_PED
 {
@@ -16,10 +15,10 @@ namespace proyecto_final_PED
             Preguntas = preguntas;
         }
 
-        public Examen GenerarExamen(string asignatura, List<int> unidadesSeleccionadas)
+        /// <returns>Un objeto Examen con las preguntas seleccionadas.</returns>
+        public Examen GenerarExamen(string asignatura, List<int> unidadesSeleccionadas, DateTime fechaExamen)
         {
-            // Crear un examen para la asignatura seleccionada
-            Examen examen = new Examen(asignatura);
+            Examen examen = new Examen(asignatura, fechaExamen);
 
             // Filtrar las preguntas de las unidades seleccionadas
             foreach (var unidad in unidadesSeleccionadas)
