@@ -48,19 +48,10 @@
             label7 = new Label();
             unidadupdown = new NumericUpDown();
             subunidadupdown = new NumericUpDown();
-            asignaturaselect = new CheckedListBox();
             dataGridView1 = new DataGridView();
-            preguntaIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            txtPreguntaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            respuesta1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            respuesta2DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            respuesta3DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            respuesta4DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            respuestaCorrectaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            asignaturaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            unidadDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             preguntaBindingSource = new BindingSource(components);
+            asignaturatxt = new TextBox();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)correctaupdown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)unidadupdown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)subunidadupdown).BeginInit();
@@ -177,7 +168,6 @@
             modificarPregbtn.TabIndex = 13;
             modificarPregbtn.Text = "Modificar Pregunta";
             modificarPregbtn.UseVisualStyleBackColor = true;
-            modificarPregbtn.Click += modificarPregbtn_Click;
             // 
             // borrarPregbtn
             // 
@@ -187,7 +177,6 @@
             borrarPregbtn.TabIndex = 14;
             borrarPregbtn.Text = "Borrar pregunta";
             borrarPregbtn.UseVisualStyleBackColor = true;
-            borrarPregbtn.Click += borrarPregbtn_Click;
             // 
             // correctaupdown
             // 
@@ -237,24 +226,11 @@
             subunidadupdown.TabIndex = 19;
             subunidadupdown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // asignaturaselect
-            // 
-            asignaturaselect.FormattingEnabled = true;
-            asignaturaselect.Items.AddRange(new object[] { "Calculo I", "Programacion y Estructuras de datos", "Arquitectura de la Computacion II", "Historia de la Ciencia y la Tecnica" });
-            asignaturaselect.Location = new Point(459, 80);
-            asignaturaselect.Name = "asignaturaselect";
-            asignaturaselect.Size = new Size(227, 94);
-            asignaturaselect.TabIndex = 20;
-            asignaturaselect.UseCompatibleTextRendering = true;
-            asignaturaselect.ItemCheck += asignaturaselect_ItemCheck;
-            asignaturaselect.SelectedIndexChanged += asignaturaselect_SelectedIndexChanged;
-            // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { preguntaIdDataGridViewTextBoxColumn, txtPreguntaDataGridViewTextBoxColumn, respuesta1DataGridViewTextBoxColumn, respuesta2DataGridViewTextBoxColumn, respuesta3DataGridViewTextBoxColumn, respuesta4DataGridViewTextBoxColumn, respuestaCorrectaDataGridViewTextBoxColumn, asignaturaDataGridViewTextBoxColumn, unidadDataGridViewTextBoxColumn, dataGridViewTextBoxColumn1 });
             dataGridView1.DataSource = preguntaBindingSource;
             dataGridView1.Location = new Point(12, 286);
             dataGridView1.Name = "dataGridView1";
@@ -262,77 +238,31 @@
             dataGridView1.Size = new Size(776, 152);
             dataGridView1.TabIndex = 21;
             // 
-            // preguntaIdDataGridViewTextBoxColumn
+            // asignaturatxt
             // 
-            preguntaIdDataGridViewTextBoxColumn.DataPropertyName = "PreguntaId";
-            preguntaIdDataGridViewTextBoxColumn.HeaderText = "PreguntaId";
-            preguntaIdDataGridViewTextBoxColumn.Name = "preguntaIdDataGridViewTextBoxColumn";
+            asignaturatxt.Location = new Point(502, 79);
+            asignaturatxt.Name = "asignaturatxt";
+            asignaturatxt.Size = new Size(100, 23);
+            asignaturatxt.TabIndex = 22;
             // 
-            // txtPreguntaDataGridViewTextBoxColumn
+            // label8
             // 
-            txtPreguntaDataGridViewTextBoxColumn.DataPropertyName = "TxtPregunta";
-            txtPreguntaDataGridViewTextBoxColumn.HeaderText = "TxtPregunta";
-            txtPreguntaDataGridViewTextBoxColumn.Name = "txtPreguntaDataGridViewTextBoxColumn";
-            // 
-            // respuesta1DataGridViewTextBoxColumn
-            // 
-            respuesta1DataGridViewTextBoxColumn.DataPropertyName = "Respuesta1";
-            respuesta1DataGridViewTextBoxColumn.HeaderText = "Respuesta1";
-            respuesta1DataGridViewTextBoxColumn.Name = "respuesta1DataGridViewTextBoxColumn";
-            // 
-            // respuesta2DataGridViewTextBoxColumn
-            // 
-            respuesta2DataGridViewTextBoxColumn.DataPropertyName = "Respuesta2";
-            respuesta2DataGridViewTextBoxColumn.HeaderText = "Respuesta2";
-            respuesta2DataGridViewTextBoxColumn.Name = "respuesta2DataGridViewTextBoxColumn";
-            // 
-            // respuesta3DataGridViewTextBoxColumn
-            // 
-            respuesta3DataGridViewTextBoxColumn.DataPropertyName = "Respuesta3";
-            respuesta3DataGridViewTextBoxColumn.HeaderText = "Respuesta3";
-            respuesta3DataGridViewTextBoxColumn.Name = "respuesta3DataGridViewTextBoxColumn";
-            // 
-            // respuesta4DataGridViewTextBoxColumn
-            // 
-            respuesta4DataGridViewTextBoxColumn.DataPropertyName = "Respuesta4";
-            respuesta4DataGridViewTextBoxColumn.HeaderText = "Respuesta4";
-            respuesta4DataGridViewTextBoxColumn.Name = "respuesta4DataGridViewTextBoxColumn";
-            // 
-            // respuestaCorrectaDataGridViewTextBoxColumn
-            // 
-            respuestaCorrectaDataGridViewTextBoxColumn.DataPropertyName = "RespuestaCorrecta";
-            respuestaCorrectaDataGridViewTextBoxColumn.HeaderText = "RespuestaCorrecta";
-            respuestaCorrectaDataGridViewTextBoxColumn.Name = "respuestaCorrectaDataGridViewTextBoxColumn";
-            // 
-            // asignaturaDataGridViewTextBoxColumn
-            // 
-            asignaturaDataGridViewTextBoxColumn.DataPropertyName = "Asignatura";
-            asignaturaDataGridViewTextBoxColumn.HeaderText = "Asignatura";
-            asignaturaDataGridViewTextBoxColumn.Name = "asignaturaDataGridViewTextBoxColumn";
-            // 
-            // unidadDataGridViewTextBoxColumn
-            // 
-            unidadDataGridViewTextBoxColumn.DataPropertyName = "Unidad";
-            unidadDataGridViewTextBoxColumn.HeaderText = "Unidad";
-            unidadDataGridViewTextBoxColumn.Name = "unidadDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "Subunidad";
-            dataGridViewTextBoxColumn1.HeaderText = "Subunidad";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // preguntaBindingSource
-            // 
-            preguntaBindingSource.DataSource = typeof(Pregunta);
+            label8.AutoSize = true;
+            label8.Location = new Point(517, 47);
+            label8.Name = "label8";
+            label8.Size = new Size(64, 15);
+            label8.TabIndex = 23;
+            label8.Text = "Asignatura";
+            label8.Click += label8_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label8);
+            Controls.Add(asignaturatxt);
             Controls.Add(dataGridView1);
-            Controls.Add(asignaturaselect);
             Controls.Add(subunidadupdown);
             Controls.Add(label7);
             Controls.Add(unidadupdown);
@@ -354,7 +284,6 @@
             Controls.Add(volverAlMenubtn);
             Name = "Form2";
             Text = "Form2";
-            Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)correctaupdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)unidadupdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)subunidadupdown).EndInit();
@@ -386,7 +315,6 @@
         private Label label7;
         private NumericUpDown unidadupdown;
         private NumericUpDown subunidadupdown;
-        private CheckedListBox asignaturaselect;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn preguntaIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn txtPreguntaDataGridViewTextBoxColumn;
@@ -399,5 +327,7 @@
         private DataGridViewTextBoxColumn unidadDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private BindingSource preguntaBindingSource;
+        private TextBox asignaturatxt;
+        private Label label8;
     }
 }

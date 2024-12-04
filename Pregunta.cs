@@ -4,14 +4,15 @@ using System.Linq;
 using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
-using System;
 
-namespace ProyectoFinal
+namespace proyecto_final_PED
 {
     public class Pregunta
     {
-        public int PreguntaId { get; set; }
-        public string Texto { get; set; }
+        private string linea;
+
+        public Guid PreguntaId { get; set; }
+        public string TxtPregunta { get; set; }
         public string Respuesta1 { get; set; }
         public string Respuesta2 { get; set; }
         public string Respuesta3 { get; set; }
@@ -21,14 +22,26 @@ namespace ProyectoFinal
         public int Unidad { get; set; }
         public int Subunidad { get; set; }
 
-        public Pregunta() { }
+        //
+        public Pregunta(Guid idPregunta, string textoPregunta, string respuesta1, string respuesta2, string respuesta3, string respuesta4, int respuestaCorrecta, string asignatura, int unidad, int subunidad)
+        {
+            PreguntaId = idPregunta;
+            TxtPregunta = textoPregunta;
+            Respuesta1 = respuesta1;
+            Respuesta2 = respuesta2;
+            Respuesta3 = respuesta3;
+            Respuesta4 = respuesta4;
+            RespuestaCorrecta = respuestaCorrecta;
+            Asignatura = asignatura;
+            Unidad = unidad;
+            Subunidad = subunidad;
+        }
 
-        // Constructor que recibe una línea del archivo CSV
         public Pregunta(string linea)
         {
             var datos = linea.Split(',');
-            PreguntaId = int.Parse(datos[0]);
-            Texto = datos[1];
+            PreguntaId = Guid.Parse(datos[0]);
+            TxtPregunta = datos[1];
             Respuesta1 = datos[2];
             Respuesta2 = datos[3];
             Respuesta3 = datos[4];
@@ -39,10 +52,12 @@ namespace ProyectoFinal
             Subunidad = int.Parse(datos[9]);
         }
 
-        // Genera un registro en formato CSV para guardar en el archivo
+        // Constructor para inicializar desde una línea de texto
+
+        // Genera una línea para guardar en el archivo
         public string GenerarRegistro()
         {
-            return $"{PreguntaId},{Texto},{Respuesta1},{Respuesta2},{Respuesta3},{Respuesta4},{RespuestaCorrecta},{Asignatura},{Unidad},{Subunidad}";
+            return $"{PreguntaId},{TxtPregunta},{Respuesta1},{Respuesta2},{Respuesta3},{Respuesta4},{RespuestaCorrecta},{Asignatura},{Unidad},{Subunidad}";
         }
     }
 }

@@ -1,4 +1,9 @@
-﻿using ProyectoFinal;
+﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace proyecto_final_PED
 {
@@ -54,11 +59,11 @@ namespace proyecto_final_PED
 
         public List<Pregunta> LeerPreguntas()
         {
-            /* using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) // 'false' sobrescribe el archivo
+             using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) // 'false' sobrescribe el archivo
              {
                  // El archivo se sobrescribe vacío
                  writer.Write(string.Empty);
-             }*/
+             }
             List<Pregunta> lista = new List<Pregunta>();
 
             if (File.Exists(archivoPreguntas))

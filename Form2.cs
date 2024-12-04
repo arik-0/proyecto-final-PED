@@ -1,4 +1,4 @@
-﻿using ProyectoFinal;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,10 +22,30 @@ namespace proyecto_final_PED
             Preguntas = new List<Pregunta>();
             InitializeComponent();
         }
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void volverAlMenubtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        void MostrarPreguntas()
+        {
+            Preguntas = gestor.LeerPreguntas();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = Preguntas;
+        }
+        void MostrarPreguntasPorUnidad(int unidad)
+        {
+            Preguntas = gestor.LeerPreguntas();
+            var preguntasFiltradas = Preguntas.Where(p => p.Unidad == unidad).ToList();
+
+            // Actualizar el DataGridView
+            dataGridView1.DataSource = null; // Restablece el origen de datos
+            dataGridView1.DataSource = preguntasFiltradas;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -40,49 +60,72 @@ namespace proyecto_final_PED
             string respuesta2 = respuesta2txt.Text.Trim();
             string respuesta3 = respuesta3txt.Text.Trim();
             string respuesta4 = respuesta4txt.Text.Trim();
-            int respuestaCorrecta = Convert.ToInt32(correctaupdown.Value - 1);
-            string asignatura = string.Join(", ", asignaturaselect.CheckedItems.Cast<string>());
-            int unidad = (int)unidadupdown.Value;
-            int subunidad = (int)subunidadupdown.Value;
+            int respuestaCorrecta = (int)correctaupdown.Value - 1;
+            string asignatura = asignaturatxt.Text.Trim().ToUpper();
+            int unidad = Convert.ToInt32(unidadupdown.Value);
+            int subunidad = Convert.ToInt32(subunidadupdown.Value);
             // Crear una nueva pregunta
-            Pregunta nuevaPregunta = new Pregunta
-            {
-                PreguntaId = Preguntas.Count + 1, // Asignar ID único
-                TxtPregunta = textoPregunta,
-                Respuesta1 = respuesta1,
-                Respuesta2 = respuesta2,
-                Respuesta3 = respuesta3,
-                Respuesta4 = respuesta4,
-                Asignatura = asignatura, // Opcional: agregar campo para asignatura en el formulario
-                Unidad = unidad,                // Opcional: agregar unidad y subunidad en el formulario
-                Subunidad = subunidad,
-                RespuestaCorrecta = respuestaCorrecta
-            };
-
-            gestor.AgregarPregunta(nuevaPregunta);
+            Pregunta nuevaPregunta = new Pregunta(Guid.NewGuid(), textoPregunta, respuesta1, respuesta2, respuesta3, respuesta4, respuestaCorrecta, asignatura, unidad, subunidad);
+            gestor.GuardarPreguntas(nuevaPregunta);
+            gestor.LeerPreguntas();
+            MostrarPreguntas();
 
         }
-        private void asignaturaselect_ItemCheck(object sender, ItemCheckEventArgs e)
+        private void modificarpregbtn_Click(object sender, EventArgs e) 
         {
-            // Desmarcar todos los demás elementos excepto el que se está marcando
-            if (e.NewValue == CheckState.Checked)
+
+        }
+        private void borrarpreguntabtn_Click(object sender, EventArgs e) 
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                for (int i = 0; i < asignaturaselect.Items.Count; i++)
+                // Obtener la fila seleccionada
+                DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
+                Pregunta preguntaSeleccionada = filaSeleccionada.DataBoundItem as Pregunta;
+
+                if (preguntaSeleccionada != null)
                 {
-                    if (i != e.Index) // No modificar el elemento actual
+                    // Confirmar la eliminación con el usuario
+                    DialogResult resultado = MessageBox.Show(
+                        $"¿Estás seguro de que deseas eliminar la pregunta con ID {preguntaSeleccionada.PreguntaId}?",
+                        "Confirmación de eliminación",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (resultado == DialogResult.Yes)
                     {
-                        asignaturaselect.SetItemChecked(i, false);
+                        // Eliminar la pregunta utilizando el gestor
+                        gestor.EliminarPregunta(preguntaSeleccionada.PreguntaId);
+
+                        // Refrescar la lista y la grilla
+                        Preguntas = gestor.LeerPreguntas();
+                        MostrarPreguntas();
+
+                        MessageBox.Show("Pregunta eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("No se pudo obtener la pregunta seleccionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
         private void asignaturaselect_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
