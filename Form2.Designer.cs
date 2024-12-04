@@ -318,6 +318,7 @@
             Controls.Add(volverAlMenubtn);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load_1;
             ((System.ComponentModel.ISupportInitialize)correctaupdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)unidadupdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)subunidadupdown).EndInit();

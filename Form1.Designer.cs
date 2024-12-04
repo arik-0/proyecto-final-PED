@@ -55,9 +55,9 @@
             // 
             // adminPregbtn
             // 
-            adminPregbtn.Location = new Point(161, 228);
+            adminPregbtn.Location = new Point(224, 228);
             adminPregbtn.Name = "adminPregbtn";
-            adminPregbtn.Size = new Size(154, 49);
+            adminPregbtn.Size = new Size(95, 57);
             adminPregbtn.TabIndex = 2;
             adminPregbtn.Text = "Administrador de Preguntas";
             adminPregbtn.UseVisualStyleBackColor = true;
@@ -65,12 +65,13 @@
             // 
             // generadorExambtn
             // 
-            generadorExambtn.Location = new Point(348, 228);
+            generadorExambtn.Location = new Point(325, 228);
             generadorExambtn.Name = "generadorExambtn";
-            generadorExambtn.Size = new Size(75, 23);
+            generadorExambtn.Size = new Size(98, 57);
             generadorExambtn.TabIndex = 3;
             generadorExambtn.Text = "Generador de examenes";
             generadorExambtn.UseVisualStyleBackColor = true;
+            generadorExambtn.Click += generadorExambtn_Click;
             // 
             // Correctorbtn
             // 

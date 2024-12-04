@@ -1,4 +1,4 @@
-﻿
+﻿using proyecto_final_PED;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -200,6 +200,11 @@ namespace proyecto_final_PED
             {
                 MessageBox.Show("Por favor, selecciona una fila para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void Form2_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,22 +8,24 @@ namespace proyecto_final_PED
 {
     public class Examen
     {
-        public int ExamenId { get; set; }
+        public Guid ExamenId { get; set; }
         public DateTime Fecha { get; set; }
         public string Asignatura { get; set; }
-        public List<int> ListaPreguntas { get; set; }
+        public List<Guid> IdPreguntas { get; set; }
 
-        public Examen(int examenId, DateTime fecha, string asignatura, List<int> listaPreguntas)
+        public Examen(string asignatura)
         {
-            ExamenId = examenId;
-            Fecha = fecha;
+            ExamenId = Guid.NewGuid();
+            Fecha = DateTime.Now;
             Asignatura = asignatura;
-            ListaPreguntas = listaPreguntas;
+            IdPreguntas = new List<Guid>();
         }
 
-        public override string ToString()
+        // Genera el registro para guardar en el archivo Examenes.txt
+        public string GenerarRegistro()
         {
-            return $"Examen ID: {ExamenId}\nFecha: {Fecha}\nAsignatura: {Asignatura}\nPreguntas: {string.Join(", ", ListaPreguntas)}";
+            string preguntas = string.Join(",", IdPreguntas);
+            return $"{ExamenId},{Fecha},{Asignatura},{preguntas}";
         }
     }
 }
