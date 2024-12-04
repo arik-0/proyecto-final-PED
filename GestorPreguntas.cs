@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProyectoFinal;
 
 namespace proyecto_final_PED
 {
@@ -11,68 +7,73 @@ namespace proyecto_final_PED
     {
         private string archivoPreguntas = "Preguntas.txt";
         public List<Pregunta> Preguntas { get; private set; }
+        private int ultimoId;
 
         public GestorPreguntas()
         {
             Preguntas = new List<Pregunta>();
-            CargarPreguntas();
+            Preguntas = LeerPreguntas();
+            // ultimoId = Preguntas.Count > 0 ? Preguntas.Max(p => p.PreguntaId) : 0; // Establecer el último ID usado
         }
 
-        public void AgregarPregunta(Pregunta pregunta)
-        {
-            Preguntas.Add(pregunta);
-            GuardarPreguntas();
-        }
 
-        public void EliminarPregunta(int preguntaId)
+
+        public void EliminarPregunta(Guid preguntaId)
         {
             Preguntas.RemoveAll(p => p.PreguntaId == preguntaId);
-            GuardarPreguntas();
+            GuardarTodasLasPreguntas();
         }
 
-        public void GuardarPreguntas()
+        public void GuardarPreguntas(Pregunta unaPregunta)
         {
-            using (StreamWriter sw = new StreamWriter(archivoPreguntas))
+            // Verificar si el archivo no existe y crearlo vacío
+            if (!File.Exists(archivoPreguntas))
+            {
+                using (File.Create(archivoPreguntas)) { }
+            }
+
+            // Escribir en el archivo
+            using (StreamWriter writer = new StreamWriter(archivoPreguntas, true))
+            {
+                writer.WriteLine(unaPregunta.GenerarRegistro());
+            }
+            LeerPreguntas();
+        }
+
+        public void GuardarTodasLasPreguntas()
+        {
+            using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) // Sobrescribe el archivo
             {
                 foreach (var pregunta in Preguntas)
                 {
-                    // Formato: PreguntaId, TextoPregunta, Respuesta1, Respuesta2, Respuesta3, Respuesta4, RespuestaCorrecta, Asignatura, Unidad, Subunidad
-                    string linea = $"{pregunta.PreguntaId},{pregunta.TxtPregunta},{pregunta.Respuesta1},{pregunta.Respuesta2},{pregunta.Respuesta3},{pregunta.Respuesta4},{pregunta.RespuestaCorrecta},{pregunta.Asignatura},{pregunta.Unidad},{pregunta.Subunidad}";
-                    sw.WriteLine(linea);
+                    writer.WriteLine(pregunta.GenerarRegistro());
                 }
             }
+            LeerPreguntas();
         }
 
-
-        public void CargarPreguntas()
+        public List<Pregunta> LeerPreguntas()
         {
-            // Verifica si el archivo existe antes de intentar leerlo
-            if (!File.Exists(archivoPreguntas)) return;
+            /* using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) // 'false' sobrescribe el archivo
+             {
+                 // El archivo se sobrescribe vacío
+                 writer.Write(string.Empty);
+             }*/
+            List<Pregunta> lista = new List<Pregunta>();
 
-            using (StreamReader sr = new StreamReader(archivoPreguntas))
+            if (File.Exists(archivoPreguntas))
             {
-                string linea;
-                while ((linea = sr.ReadLine()) != null)
+                using (StreamReader reader = new StreamReader(archivoPreguntas))
                 {
-                    // Divide la línea en campos separados por comas
-                    var datos = linea.Split(',');
-
-                    // Crea una nueva instancia de Pregunta con los campos individuales
-                    Preguntas.Add(new Pregunta
+                    string linea;
+                    while ((linea = reader.ReadLine()) != null)
                     {
-                        PreguntaId = int.Parse(datos[0]),
-                        TxtPregunta = datos[1],
-                        Respuesta1 = datos[2],
-                        Respuesta2 = datos[3],
-                        Respuesta3 = datos[4],
-                        Respuesta4 = datos[5],
-                        RespuestaCorrecta = int.Parse(datos[6]),
-                        Asignatura = datos[7],
-                        Unidad = int.Parse(datos[8]),
-                        Subunidad = int.Parse(datos[9])
-                    });
+                        lista.Add(new Pregunta(linea));
+                    }
                 }
             }
+
+            return lista;
         }
 
     }
