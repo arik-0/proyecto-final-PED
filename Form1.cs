@@ -6,10 +6,12 @@ namespace proyecto_final_PED
     {
 
         GestorPreguntas gestorPreguntas = new GestorPreguntas();
-
+        GestorExamenes gestorExamenes;
         public Form1()
         {
             InitializeComponent();
+            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas();
+            gestorExamenes = new GestorExamenes(preguntas);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,13 +29,24 @@ namespace proyecto_final_PED
 
         private void generadorExambtn_Click(object sender, EventArgs e)
         {
-            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas(); // Obtén las preguntas de Form1
+            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas(); 
 
-            // Crear una nueva instancia de Form3 y pasar las preguntas
+            
             Form3 form3 = new Form3(preguntas);
 
             // Mostrar Form3
             form3.Show();
+        }
+
+        private void generadorArchivosbtn_Click(object sender, EventArgs e)
+        {
+            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas();
+            List<Examen> examenes = gestorExamenes.LeerExamen();
+
+            Form4 form4 = new Form4(preguntas, examenes);
+
+            // Mostrar Form4
+            form4.Show();
         }
     }
 }

@@ -33,6 +33,7 @@
             adminPregbtn = new Button();
             generadorExambtn = new Button();
             Correctorbtn = new Button();
+            generadorArchivosbtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -75,18 +76,29 @@
             // 
             // Correctorbtn
             // 
-            Correctorbtn.Location = new Point(429, 228);
+            Correctorbtn.Location = new Point(337, 291);
             Correctorbtn.Name = "Correctorbtn";
-            Correctorbtn.Size = new Size(75, 23);
+            Correctorbtn.Size = new Size(75, 57);
             Correctorbtn.TabIndex = 4;
             Correctorbtn.Text = "Corrector de examenes";
             Correctorbtn.UseVisualStyleBackColor = true;
+            // 
+            // generadorArchivosbtn
+            // 
+            generadorArchivosbtn.Location = new Point(429, 228);
+            generadorArchivosbtn.Name = "generadorArchivosbtn";
+            generadorArchivosbtn.Size = new Size(94, 57);
+            generadorArchivosbtn.TabIndex = 5;
+            generadorArchivosbtn.Text = "Generacion de Archivos \"examen\"";
+            generadorArchivosbtn.UseVisualStyleBackColor = true;
+            generadorArchivosbtn.Click += generadorArchivosbtn_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(generadorArchivosbtn);
             Controls.Add(Correctorbtn);
             Controls.Add(generadorExambtn);
             Controls.Add(adminPregbtn);
@@ -106,5 +118,6 @@
         private Button adminPregbtn;
         private Button generadorExambtn;
         private Button Correctorbtn;
+        private Button generadorArchivosbtn;
     }
 }

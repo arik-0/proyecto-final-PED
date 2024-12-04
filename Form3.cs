@@ -44,13 +44,13 @@ namespace proyecto_final_PED
                 return;
             }
 
-            
-            GestorExamenes gestorExamenes = new GestorExamenes(Preguntas);
-            Examen examenGenerado = gestorExamenes.GenerarExamen(asignaturaSeleccionada,unidadesSeleccionadas, fechaexamen);
-            MessageBox.Show("El examen ha sido correctamente generado.");
 
-            
-           // MessageBox.Show($"Examen generado con ID: {examenGenerado.ExamenId} para la asignatura: {examenGenerado.Asignatura}","Examen Generado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            GestorExamenes gestorExamenes = new GestorExamenes(Preguntas);
+            Examen examenGenerado = gestorExamenes.GenerarExamen(asignaturaSeleccionada, unidadesSeleccionadas, fechaexamen);
+
+
+
+            MessageBox.Show($"Examen generado con ID: {examenGenerado.ExamenId} para la asignatura: {examenGenerado.Asignatura}", "Examen Generado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private List<int> ProcesarUnidades(string unidadesTexto)
@@ -81,6 +81,16 @@ namespace proyecto_final_PED
             }
 
             return unidades;
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void volvermenubtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

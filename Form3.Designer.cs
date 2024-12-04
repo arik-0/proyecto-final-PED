@@ -35,11 +35,12 @@
             unidadesIntervalotxt = new TextBox();
             label3 = new Label();
             fechaexamencal = new MonthCalendar();
+            volvermenubtn = new Button();
             SuspendLayout();
             // 
             // generarExamenbtn
             // 
-            generarExamenbtn.Location = new Point(359, 258);
+            generarExamenbtn.Location = new Point(359, 215);
             generarExamenbtn.Name = "generarExamenbtn";
             generarExamenbtn.Size = new Size(75, 58);
             generarExamenbtn.TabIndex = 0;
@@ -94,11 +95,22 @@
             fechaexamencal.Name = "fechaexamencal";
             fechaexamencal.TabIndex = 8;
             // 
+            // volvermenubtn
+            // 
+            volvermenubtn.Location = new Point(359, 309);
+            volvermenubtn.Name = "volvermenubtn";
+            volvermenubtn.Size = new Size(75, 51);
+            volvermenubtn.TabIndex = 9;
+            volvermenubtn.Text = "Volver al menu";
+            volvermenubtn.UseVisualStyleBackColor = true;
+            volvermenubtn.Click += volvermenubtn_Click;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(volvermenubtn);
             Controls.Add(fechaexamencal);
             Controls.Add(label3);
             Controls.Add(unidadesIntervalotxt);
@@ -108,6 +120,7 @@
             Controls.Add(generarExamenbtn);
             Name = "Form3";
             Text = "Form3";
+            Load += Form3_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -121,5 +134,6 @@
         private TextBox unidadesIntervalotxt;
         private Label label3;
         private MonthCalendar fechaexamencal;
+        private Button volvermenubtn;
     }
 }

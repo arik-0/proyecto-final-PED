@@ -9,10 +9,12 @@ namespace proyecto_final_PED
     {
         private string archivoExamenes = "Examenes.txt";
         private List<Pregunta> Preguntas;
+        private List<Examen> Examenes;
 
         public GestorExamenes(List<Pregunta> preguntas)
         {
             Preguntas = preguntas;
+            Examenes = LeerExamen();
         }
 
         /// <returns>Un objeto Examen con las preguntas seleccionadas.</returns>
@@ -34,7 +36,7 @@ namespace proyecto_final_PED
                 // Agregar las preguntas seleccionadas al examen
                 foreach (var pregunta in preguntasPorSubunidad)
                 {
-                    examen.IdPreguntas.Add(pregunta.PreguntaId);
+                    examen.IdPreguntas.Add(pregunta.PreguntaId);//string preguntas = string.Join(",", IdPreguntas);
                 }
             }
 
@@ -59,5 +61,35 @@ namespace proyecto_final_PED
                 Console.WriteLine($"Error al guardar el examen: {ex.Message}");
             }
         }
+
+        public List<Examen> LeerExamen()
+        {
+            List<Examen> lista = new List<Examen>();
+
+            if (File.Exists(archivoExamenes))
+            {
+                using (StreamReader reader = new StreamReader(archivoExamenes))
+                {
+                    string linea;
+                    while ((linea = reader.ReadLine()) != null)
+                    {
+                        try
+                        {
+                            // Cada línea se convierte en un objeto Examen
+                            Examen examen = new Examen(linea);
+                            lista.Add(examen);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Manejar errores específicos de formato o contenido
+                            Console.WriteLine($"Error al procesar la línea: {linea}. Detalle: {ex.Message}");
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
     }
 }
