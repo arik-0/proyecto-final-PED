@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,7 +41,7 @@ namespace proyecto_final_PED
             {
                 writer.WriteLine(unaPregunta.GenerarRegistro());
             }
-            LeerPreguntas();
+            Preguntas.Add(unaPregunta);
         }
 
         public void GuardarTodasLasPreguntas()
@@ -54,16 +53,10 @@ namespace proyecto_final_PED
                     writer.WriteLine(pregunta.GenerarRegistro());
                 }
             }
-            LeerPreguntas();
         }
 
         public List<Pregunta> LeerPreguntas()
         {
-             using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) // 'false' sobrescribe el archivo
-             {
-                 // El archivo se sobrescribe vacío
-                 writer.Write(string.Empty);
-             }
             List<Pregunta> lista = new List<Pregunta>();
 
             if (File.Exists(archivoPreguntas))
@@ -73,7 +66,15 @@ namespace proyecto_final_PED
                     string linea;
                     while ((linea = reader.ReadLine()) != null)
                     {
-                        lista.Add(new Pregunta(linea));
+                        try
+                        {
+                            lista.Add(new Pregunta(linea));
+                        }
+                        catch (Exception ex)
+                        {
+                            // Manejar el error, por ejemplo, registrarlo y continuar
+                            Console.WriteLine($"Error al leer la línea: {linea}. Excepción: {ex.Message}");
+                        }
                     }
                 }
             }
@@ -81,5 +82,31 @@ namespace proyecto_final_PED
             return lista;
         }
 
+        public void ModificarPregunta(Pregunta preguntaModificada)
+        {
+            var preguntaOriginal = Preguntas.FirstOrDefault(p => p.PreguntaId == preguntaModificada.PreguntaId);
+            if (preguntaOriginal != null)
+            {
+                // Actualizar los datos de la pregunta
+                preguntaOriginal.TxtPregunta = preguntaModificada.TxtPregunta;
+                preguntaOriginal.Respuesta1 = preguntaModificada.Respuesta1;
+                preguntaOriginal.Respuesta2 = preguntaModificada.Respuesta2;
+                preguntaOriginal.Respuesta3 = preguntaModificada.Respuesta3;
+                preguntaOriginal.Respuesta4 = preguntaModificada.Respuesta4;
+                preguntaOriginal.RespuestaCorrecta = preguntaModificada.RespuestaCorrecta;
+                preguntaOriginal.Asignatura = preguntaModificada.Asignatura;
+                preguntaOriginal.Unidad = preguntaModificada.Unidad;
+                preguntaOriginal.Subunidad = preguntaModificada.Subunidad;
+
+                // Guardar todos los cambios en el archivo
+                GuardarTodasLasPreguntas();
+            }
+        }
+
+
     }
-}
+}/*using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) // 'false' sobrescribe el archivo
+             {
+                 // El archivo se sobrescribe vacío
+                 writer.Write(string.Empty);
+             }*/

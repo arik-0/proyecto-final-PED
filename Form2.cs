@@ -14,17 +14,19 @@ namespace proyecto_final_PED
     public partial class Form2 : Form
     {
         //variables globales
-        public List<Pregunta> Preguntas;
+        private List<Pregunta> Preguntas;
         GestorPreguntas gestor = new GestorPreguntas();
 
         public Form2()
         {
-            Preguntas = new List<Pregunta>();
             InitializeComponent();
+            Preguntas = new List<Pregunta>();
+            Preguntas = gestor.LeerPreguntas();
+            MostrarPreguntas();
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            MostrarPreguntas();
         }
 
         private void volverAlMenubtn_Click(object sender, EventArgs e)
@@ -42,10 +44,13 @@ namespace proyecto_final_PED
         {
             Preguntas = gestor.LeerPreguntas();
             var preguntasFiltradas = Preguntas.Where(p => p.Unidad == unidad).ToList();
-
+            if (preguntasFiltradas.Count == 0) { MessageBox.Show("No hay preguntas de esa unidad"); }
             // Actualizar el DataGridView
-            dataGridView1.DataSource = null; // Restablece el origen de datos
-            dataGridView1.DataSource = preguntasFiltradas;
+            else
+            {
+                dataGridView1.DataSource = null; // Restablece el origen de datos
+                dataGridView1.DataSource = preguntasFiltradas;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -71,11 +76,30 @@ namespace proyecto_final_PED
             MostrarPreguntas();
 
         }
-        private void modificarpregbtn_Click(object sender, EventArgs e) 
+        private void modificarpregbtn_Click(object sender, EventArgs e)
         {
 
         }
-        private void borrarpreguntabtn_Click(object sender, EventArgs e) 
+        private void borrarpreguntabtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void asignaturaselect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void borrarPregbtn_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -115,19 +139,11 @@ namespace proyecto_final_PED
                 MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void asignaturaselect_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void ordenarporunidadbtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
+            int unidad = (int)unidadupdown.Value;
+            MostrarPreguntasPorUnidad(unidad);
         }
     }
 }

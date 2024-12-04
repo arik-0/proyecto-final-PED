@@ -52,6 +52,9 @@
             preguntaBindingSource = new BindingSource(components);
             asignaturatxt = new TextBox();
             label8 = new Label();
+            button1 = new Button();
+            ordenarporunidadbtn = new Button();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)correctaupdown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)unidadupdown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)subunidadupdown).BeginInit();
@@ -177,6 +180,7 @@
             borrarPregbtn.TabIndex = 14;
             borrarPregbtn.Text = "Borrar pregunta";
             borrarPregbtn.UseVisualStyleBackColor = true;
+            borrarPregbtn.Click += borrarPregbtn_Click;
             // 
             // correctaupdown
             // 
@@ -229,9 +233,7 @@
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.DataSource = preguntaBindingSource;
             dataGridView1.Location = new Point(12, 286);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -255,11 +257,42 @@
             label8.Text = "Asignatura";
             label8.Click += label8_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(479, 194);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 24;
+            button1.Text = "Por Global";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // ordenarporunidadbtn
+            // 
+            ordenarporunidadbtn.Location = new Point(560, 194);
+            ordenarporunidadbtn.Name = "ordenarporunidadbtn";
+            ordenarporunidadbtn.Size = new Size(75, 23);
+            ordenarporunidadbtn.TabIndex = 25;
+            ordenarporunidadbtn.Text = "Por Unidad";
+            ordenarporunidadbtn.UseVisualStyleBackColor = true;
+            ordenarporunidadbtn.Click += ordenarporunidadbtn_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(531, 165);
+            label9.Name = "label9";
+            label9.Size = new Size(50, 15);
+            label9.TabIndex = 26;
+            label9.Text = "Ordenar";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label9);
+            Controls.Add(ordenarporunidadbtn);
+            Controls.Add(button1);
             Controls.Add(label8);
             Controls.Add(asignaturatxt);
             Controls.Add(dataGridView1);
@@ -329,5 +362,8 @@
         private BindingSource preguntaBindingSource;
         private TextBox asignaturatxt;
         private Label label8;
+        private Button button1;
+        private Button ordenarporunidadbtn;
+        private Label label9;
     }
 }
