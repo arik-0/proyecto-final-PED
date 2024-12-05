@@ -15,16 +15,18 @@ namespace proyecto_final_PED
     {
         private Impresion impresion;
         private GestorExamenes gestorExamenes;
+
         public Form4(List<Pregunta> preguntas, List<Examen> examenes)
         {
             InitializeComponent();
-            dataGridView1 = new DataGridView();
+            impresion = new Impresion();
+            gestorExamenes = new GestorExamenes(preguntas);
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            List<Examen> guiso = gestorExamenes.LeerExamen();
-            MostrarExamenes(guiso);
+            List<Examen> examenes = gestorExamenes.LeerExamen(); // Leer exámenes desde el gestor
+            MostrarExamenes(examenes);
         }
         private void MostrarExamenes(List<Examen> examenes)
         {
@@ -43,16 +45,45 @@ namespace proyecto_final_PED
         {
             string datosuni = datosUniversidadtxt.Text.Trim();
             string carrera = carreratxt.Text.Trim();
+
+            // Validar que haya datos en los campos de texto
+            if (string.IsNullOrWhiteSpace(datosuni) || string.IsNullOrWhiteSpace(carrera))
+            {
+                MessageBox.Show("Por favor, complete los datos de la universidad y la carrera.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar que hay una fila seleccionada
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 // Obtener la fila seleccionada
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
-                Examen preguntaSeleccionada = filaSeleccionada.DataBoundItem as Examen;
 
+                // Obtener el valor de la columna "ExamenId"
+                if (filaSeleccionada.Cells["ExamenId"].Value != null)
+                {
+                    string examenIdString = filaSeleccionada.Cells["ExamenId"].Value.ToString();
+
+                    // Intentar convertir el valor a GUID
+                    if (Guid.TryParse(examenIdString, out Guid examenId))
+                    {
+                        // Llamar al método para generar la impresión
+                        impresion.GenerarImpresion(examenId, datosuni, carrera);
+                        MessageBox.Show("La impresión se generó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El ID del examen no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El valor del ID del examen está vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Seleccione una fila");
+                MessageBox.Show("Por favor, seleccione una fila.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
