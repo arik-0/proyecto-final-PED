@@ -33,7 +33,7 @@ namespace proyecto_final_PED
             string intervaloTexto = unidadesIntervalotxt.Text.Trim();
 
             DateTime fechaexamen = fechaexamencal.SelectionStart;
-            Console.WriteLine(asignaturaSeleccionada, intervaloTexto, fechaexamen);
+           // Console.WriteLine(asignaturaSeleccionada, intervaloTexto, fechaexamen);
 
             // Validar y procesar el intervalo de unidades
             List<int> unidadesSeleccionadas = ProcesarUnidades(intervaloTexto);
