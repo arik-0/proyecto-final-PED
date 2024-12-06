@@ -82,6 +82,7 @@
             Correctorbtn.TabIndex = 4;
             Correctorbtn.Text = "Corrector de examenes";
             Correctorbtn.UseVisualStyleBackColor = true;
+            Correctorbtn.Click += Correctorbtn_Click;
             // 
             // generadorArchivosbtn
             // 

@@ -13,11 +13,7 @@ namespace proyecto_final_PED
 
         public Impresion()
         {
-            // Crear el directorio de impresiones si no existe
-            if (!Directory.Exists(directorioImpresiones))
-            {
-                Directory.CreateDirectory(directorioImpresiones);
-            }
+            
         }
 
         public void GenerarImpresion(Guid examenId, string universidad, string carrera)

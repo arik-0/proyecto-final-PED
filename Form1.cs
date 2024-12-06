@@ -29,9 +29,9 @@ namespace proyecto_final_PED
 
         private void generadorExambtn_Click(object sender, EventArgs e)
         {
-            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas(); 
+            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas();
 
-            
+
             Form3 form3 = new Form3(preguntas);
 
             // Mostrar Form3
@@ -47,6 +47,17 @@ namespace proyecto_final_PED
 
             // Mostrar Form4
             form4.Show();
+        }
+
+        private void Correctorbtn_Click(object sender, EventArgs e)
+        {
+            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas();
+            List<Examen> examenes = gestorExamenes.LeerExamen();
+
+            Form5 form5 = new Form5(preguntas, examenes);
+
+            // Mostrar Form4
+            form5.Show();
         }
     }
 }
