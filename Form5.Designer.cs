@@ -35,32 +35,34 @@
             groupBox2 = new GroupBox();
             button1 = new Button();
             label5 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            respuestaNumericUpDown = new NumericUpDown();
             label4 = new Label();
             siguientePregunta = new Button();
             label3 = new Label();
-            label2 = new Label();
+            preguntaLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)respuestaNumericUpDown).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(39, 89);
+            dataGridView1.Location = new Point(45, 119);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(279, 273);
+            dataGridView1.Size = new Size(319, 364);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(48, 43);
+            label1.Location = new Point(55, 57);
             label1.Name = "label1";
-            label1.Size = new Size(108, 15);
+            label1.Size = new Size(136, 20);
             label1.TabIndex = 1;
             label1.Text = "Seleccione examen";
             // 
@@ -69,17 +71,20 @@
             groupBox1.Controls.Add(examenSeleccionadobtn);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Location = new Point(12, 16);
+            groupBox1.Location = new Point(14, 21);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(361, 422);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(413, 563);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
             // examenSeleccionadobtn
             // 
-            examenSeleccionadobtn.Location = new Point(243, 382);
+            examenSeleccionadobtn.Location = new Point(278, 509);
+            examenSeleccionadobtn.Margin = new Padding(3, 4, 3, 4);
             examenSeleccionadobtn.Name = "examenSeleccionadobtn";
-            examenSeleccionadobtn.Size = new Size(75, 23);
+            examenSeleccionadobtn.Size = new Size(86, 31);
             examenSeleccionadobtn.TabIndex = 1;
             examenSeleccionadobtn.Text = "Seleccionar";
             examenSeleccionadobtn.UseVisualStyleBackColor = true;
@@ -89,23 +94,26 @@
             // 
             groupBox2.Controls.Add(button1);
             groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(numericUpDown1);
+            groupBox2.Controls.Add(respuestaNumericUpDown);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(siguientePregunta);
             groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Location = new Point(388, 16);
+            groupBox2.Controls.Add(preguntaLabel);
+            groupBox2.Location = new Point(443, 21);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(367, 422);
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(419, 563);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "idExamen";
             // 
             // button1
             // 
-            button1.Location = new Point(219, 372);
+            button1.Location = new Point(250, 496);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(86, 31);
             button1.TabIndex = 7;
             button1.Text = "Finalizar";
             button1.UseVisualStyleBackColor = true;
@@ -113,33 +121,35 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(31, 140);
+            label5.Location = new Point(35, 187);
             label5.Name = "label5";
-            label5.Size = new Size(128, 15);
+            label5.Size = new Size(160, 20);
             label5.TabIndex = 6;
             label5.Text = "Respuesta del Alumno:";
             // 
-            // numericUpDown1
+            // respuestaNumericUpDown
             // 
-            numericUpDown1.Location = new Point(92, 186);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 5;
+            respuestaNumericUpDown.Location = new Point(105, 248);
+            respuestaNumericUpDown.Margin = new Padding(3, 4, 3, 4);
+            respuestaNumericUpDown.Name = "respuestaNumericUpDown";
+            respuestaNumericUpDown.Size = new Size(137, 27);
+            respuestaNumericUpDown.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(77, 84);
+            label4.Location = new Point(88, 112);
             label4.Name = "label4";
-            label4.Size = new Size(85, 15);
+            label4.Size = new Size(106, 20);
             label4.TabIndex = 4;
             label4.Text = "TituloPregunta";
             // 
             // siguientePregunta
             // 
-            siguientePregunta.Location = new Point(110, 372);
+            siguientePregunta.Location = new Point(126, 496);
+            siguientePregunta.Margin = new Padding(3, 4, 3, 4);
             siguientePregunta.Name = "siguientePregunta";
-            siguientePregunta.Size = new Size(75, 23);
+            siguientePregunta.Size = new Size(86, 31);
             siguientePregunta.TabIndex = 3;
             siguientePregunta.Text = "Siguiente";
             siguientePregunta.UseVisualStyleBackColor = true;
@@ -147,28 +157,29 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(92, 44);
+            label3.Location = new Point(105, 59);
             label3.Name = "label3";
-            label3.Size = new Size(65, 15);
+            label3.Size = new Size(82, 20);
             label3.TabIndex = 1;
             label3.Text = "idpregunta";
             // 
-            // label2
+            // preguntaLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(31, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(55, 15);
-            label2.TabIndex = 0;
-            label2.Text = "Pregunta";
+            preguntaLabel.AutoSize = true;
+            preguntaLabel.Location = new Point(35, 57);
+            preguntaLabel.Name = "preguntaLabel";
+            preguntaLabel.Size = new Size(68, 20);
+            preguntaLabel.TabIndex = 0;
+            preguntaLabel.Text = "Pregunta";
             // 
             // Form5
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form5";
             Text = "Form5";
             Load += Form5_Load;
@@ -177,7 +188,7 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)respuestaNumericUpDown).EndInit();
             ResumeLayout(false);
         }
 
@@ -187,11 +198,11 @@
         private Label label1;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Label label2;
+        private Label preguntaLabel;
         private Button examenSeleccionadobtn;
         private Label label3;
         private Label label5;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown respuestaNumericUpDown;
         private Label label4;
         private Button siguientePregunta;
         private Button button1;
