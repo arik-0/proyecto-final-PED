@@ -89,7 +89,7 @@ namespace proyecto_final_PED
 
                 // Resetear el valor del UpDown para la respuesta
                 respuestaUpDown.Value = 0;
-                MessageBox.Show(txtPregunta);
+               // MessageBox.Show(txtPregunta);
             }
             else
             {

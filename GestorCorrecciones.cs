@@ -72,9 +72,11 @@ namespace proyecto_final_PED
         }
 
         // Devuelve la puntuación final
-        public int CalcularPuntuacion()
+        public float CalcularPuntuacion()
         {
-            return puntuacion;
+            float vueltas =(float)(indicePreguntaActual);
+            float correctas = (float)(puntuacion);
+            return (correctas/vueltas)*10;
         }
 
         // Guardar la corrección en un archivo de texto
