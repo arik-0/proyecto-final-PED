@@ -18,6 +18,7 @@ namespace proyecto_final_PED
             InitializeComponent();
             gestorPreguntas = new GestorPreguntas();
             gestorExamenes = new GestorExamenes(preguntas);
+            this.preguntas = preguntas;
         }
 
         private void Form5_Load(object sender, EventArgs e)

@@ -52,8 +52,10 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(39, 89);
+            dataGridView1.Location = new Point(45, 119);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(279, 214);
             dataGridView1.TabIndex = 0;
@@ -61,9 +63,9 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(48, 43);
+            label1.Location = new Point(55, 57);
             label1.Name = "label1";
-            label1.Size = new Size(108, 15);
+            label1.Size = new Size(136, 20);
             label1.TabIndex = 1;
             label1.Text = "Seleccione examen";
             // 
@@ -74,9 +76,11 @@
             groupBox1.Controls.Add(examenSeleccionadobtn);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Location = new Point(12, 16);
+            groupBox1.Location = new Point(14, 21);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(361, 422);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(413, 563);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
@@ -98,9 +102,10 @@
             // 
             // examenSeleccionadobtn
             // 
-            examenSeleccionadobtn.Location = new Point(243, 382);
+            examenSeleccionadobtn.Location = new Point(278, 509);
+            examenSeleccionadobtn.Margin = new Padding(3, 4, 3, 4);
             examenSeleccionadobtn.Name = "examenSeleccionadobtn";
-            examenSeleccionadobtn.Size = new Size(75, 23);
+            examenSeleccionadobtn.Size = new Size(86, 31);
             examenSeleccionadobtn.TabIndex = 1;
             examenSeleccionadobtn.Text = "Seleccionar";
             examenSeleccionadobtn.UseVisualStyleBackColor = true;
@@ -118,7 +123,8 @@
             groupBox2.Controls.Add(label2);
             groupBox2.Location = new Point(388, 16);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(367, 422);
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(419, 563);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "idExamen";
@@ -146,9 +152,9 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(31, 140);
+            label5.Location = new Point(35, 187);
             label5.Name = "label5";
-            label5.Size = new Size(128, 15);
+            label5.Size = new Size(160, 20);
             label5.TabIndex = 6;
             label5.Text = "Respuesta del Alumno:";
             // 
@@ -187,22 +193,23 @@
             idPreguntalbl.TabIndex = 1;
             idPreguntalbl.Text = "idpregunta";
             // 
-            // label2
+            // preguntaLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(31, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(55, 15);
-            label2.TabIndex = 0;
-            label2.Text = "Pregunta";
+            preguntaLabel.AutoSize = true;
+            preguntaLabel.Location = new Point(35, 57);
+            preguntaLabel.Name = "preguntaLabel";
+            preguntaLabel.Size = new Size(68, 20);
+            preguntaLabel.TabIndex = 0;
+            preguntaLabel.Text = "Pregunta";
             // 
             // Form5
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form5";
             Text = "Form5";
             Load += Form5_Load;
@@ -221,7 +228,7 @@
         private Label label1;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Label label2;
+        private Label preguntaLabel;
         private Button examenSeleccionadobtn;
         private Label idPreguntalbl;
         private Label label5;
