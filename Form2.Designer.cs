@@ -214,7 +214,6 @@
             // unidadupdown
             // 
             unidadupdown.Location = new Point(309, 175);
-            unidadupdown.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             unidadupdown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             unidadupdown.Name = "unidadupdown";
             unidadupdown.Size = new Size(39, 23);
@@ -224,7 +223,6 @@
             // subunidadupdown
             // 
             subunidadupdown.Location = new Point(365, 175);
-            subunidadupdown.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             subunidadupdown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             subunidadupdown.Name = "subunidadupdown";
             subunidadupdown.Size = new Size(39, 23);
@@ -266,6 +264,7 @@
             button1.TabIndex = 24;
             button1.Text = "Por Global";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // ordenarporunidadbtn
             // 

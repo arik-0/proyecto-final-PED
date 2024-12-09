@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,10 +23,10 @@ namespace proyecto_final_PED
             FechaCorreccion = DateTime.Now;
         }
 
-        public string GenerarRegistro()
+       public string GenerarRegistro()
         {
-            // Formato: ExamenId, Alumno, FechaCorreccion, Puntuacion, [PreguntaId:Resultado]
-            string resultados = string.Join(";", Resultados.Select(r => $"{r.Key}:{r.Value}"));
+           // Formato: ExamenId, Alumno, FechaCorreccion, Puntuacion, [PreguntaId:Resultado]
+            string resultados = string.Join(";", Resultados.Select(r => $"{r.IdPregunta}:{r.Resultado}"));
             return $"{ExamenId},{Alumno},{FechaCorreccion},{Puntuacion},{resultados}";
         }
     }

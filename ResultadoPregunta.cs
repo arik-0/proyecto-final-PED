@@ -9,6 +9,6 @@ namespace proyecto_final_PED
     public class ResultadoPregunta
     {
         public Guid IdPregunta { get; set; }
-        public string Resultado { get; set; }
+        public bool Resultado { get; set; }
     }
 }

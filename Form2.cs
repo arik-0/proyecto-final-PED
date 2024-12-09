@@ -240,5 +240,10 @@ namespace proyecto_final_PED
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MostrarPreguntas();
+        }
     }
 }

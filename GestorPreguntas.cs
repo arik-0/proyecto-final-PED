@@ -82,6 +82,7 @@ namespace proyecto_final_PED
             return lista;
         }
 
+
         public void ModificarPregunta(Guid preguntaId, Pregunta nuevaPregunta)
         {
             Pregunta preguntaAModificar = Preguntas.FirstOrDefault(p => p.PreguntaId == preguntaId);
@@ -107,7 +108,11 @@ namespace proyecto_final_PED
                 Console.WriteLine("La pregunta no se encontró.");
             }
         }
-
+        public Pregunta BuscarPreguntaPorId(Guid preguntaId)
+        {
+            // Buscar la pregunta por su ID
+            return Preguntas.FirstOrDefault(p => p.PreguntaId == preguntaId);
+        }
 
     }
 }/*using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) // 'false' sobrescribe el archivo

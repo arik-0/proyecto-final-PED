@@ -31,19 +31,22 @@
             dataGridView1 = new DataGridView();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            label6 = new Label();
+            apeynomtxt = new TextBox();
             examenSeleccionadobtn = new Button();
             groupBox2 = new GroupBox();
-            button1 = new Button();
+            volvermenubtn = new Button();
+            finalizarcorreccionbtn = new Button();
             label5 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            label4 = new Label();
-            siguientePregunta = new Button();
-            label3 = new Label();
+            respuestaUpDown = new NumericUpDown();
+            labelTituloPregunta = new Label();
+            siguientePreguntabtn = new Button();
+            idPreguntalbl = new Label();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)respuestaUpDown).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -52,7 +55,7 @@
             dataGridView1.Location = new Point(39, 89);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(279, 273);
+            dataGridView1.Size = new Size(279, 214);
             dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -66,6 +69,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(apeynomtxt);
             groupBox1.Controls.Add(examenSeleccionadobtn);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(dataGridView1);
@@ -74,6 +79,22 @@
             groupBox1.Size = new Size(361, 422);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(115, 323);
+            label6.Name = "label6";
+            label6.Size = new Size(107, 15);
+            label6.TabIndex = 3;
+            label6.Text = "Nombre y Apellido";
+            // 
+            // apeynomtxt
+            // 
+            apeynomtxt.Location = new Point(92, 341);
+            apeynomtxt.Name = "apeynomtxt";
+            apeynomtxt.Size = new Size(155, 23);
+            apeynomtxt.TabIndex = 2;
             // 
             // examenSeleccionadobtn
             // 
@@ -87,12 +108,13 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(button1);
+            groupBox2.Controls.Add(volvermenubtn);
+            groupBox2.Controls.Add(finalizarcorreccionbtn);
             groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(numericUpDown1);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(siguientePregunta);
-            groupBox2.Controls.Add(label3);
+            groupBox2.Controls.Add(respuestaUpDown);
+            groupBox2.Controls.Add(labelTituloPregunta);
+            groupBox2.Controls.Add(siguientePreguntabtn);
+            groupBox2.Controls.Add(idPreguntalbl);
             groupBox2.Controls.Add(label2);
             groupBox2.Location = new Point(388, 16);
             groupBox2.Name = "groupBox2";
@@ -101,14 +123,25 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "idExamen";
             // 
-            // button1
+            // volvermenubtn
             // 
-            button1.Location = new Point(219, 372);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 7;
-            button1.Text = "Finalizar";
-            button1.UseVisualStyleBackColor = true;
+            volvermenubtn.Location = new Point(273, 267);
+            volvermenubtn.Name = "volvermenubtn";
+            volvermenubtn.Size = new Size(75, 51);
+            volvermenubtn.TabIndex = 10;
+            volvermenubtn.Text = "Volver al menu";
+            volvermenubtn.UseVisualStyleBackColor = true;
+            volvermenubtn.Click += volvermenubtn_Click;
+            // 
+            // finalizarcorreccionbtn
+            // 
+            finalizarcorreccionbtn.Location = new Point(219, 372);
+            finalizarcorreccionbtn.Name = "finalizarcorreccionbtn";
+            finalizarcorreccionbtn.Size = new Size(75, 23);
+            finalizarcorreccionbtn.TabIndex = 7;
+            finalizarcorreccionbtn.Text = "Finalizar";
+            finalizarcorreccionbtn.UseVisualStyleBackColor = true;
+            finalizarcorreccionbtn.Click += finalizarcorreccionbtn_Click_1;
             // 
             // label5
             // 
@@ -119,39 +152,40 @@
             label5.TabIndex = 6;
             label5.Text = "Respuesta del Alumno:";
             // 
-            // numericUpDown1
+            // respuestaUpDown
             // 
-            numericUpDown1.Location = new Point(92, 186);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 5;
+            respuestaUpDown.Location = new Point(92, 186);
+            respuestaUpDown.Name = "respuestaUpDown";
+            respuestaUpDown.Size = new Size(120, 23);
+            respuestaUpDown.TabIndex = 5;
             // 
-            // label4
+            // labelTituloPregunta
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(77, 84);
-            label4.Name = "label4";
-            label4.Size = new Size(85, 15);
-            label4.TabIndex = 4;
-            label4.Text = "TituloPregunta";
+            labelTituloPregunta.AutoSize = true;
+            labelTituloPregunta.Location = new Point(77, 84);
+            labelTituloPregunta.Name = "labelTituloPregunta";
+            labelTituloPregunta.Size = new Size(85, 15);
+            labelTituloPregunta.TabIndex = 4;
+            labelTituloPregunta.Text = "TituloPregunta";
             // 
-            // siguientePregunta
+            // siguientePreguntabtn
             // 
-            siguientePregunta.Location = new Point(110, 372);
-            siguientePregunta.Name = "siguientePregunta";
-            siguientePregunta.Size = new Size(75, 23);
-            siguientePregunta.TabIndex = 3;
-            siguientePregunta.Text = "Siguiente";
-            siguientePregunta.UseVisualStyleBackColor = true;
+            siguientePreguntabtn.Location = new Point(110, 372);
+            siguientePreguntabtn.Name = "siguientePreguntabtn";
+            siguientePreguntabtn.Size = new Size(75, 23);
+            siguientePreguntabtn.TabIndex = 3;
+            siguientePreguntabtn.Text = "Siguiente";
+            siguientePreguntabtn.UseVisualStyleBackColor = true;
+            siguientePreguntabtn.Click += siguientePreguntabtn_Click_1;
             // 
-            // label3
+            // idPreguntalbl
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(92, 44);
-            label3.Name = "label3";
-            label3.Size = new Size(65, 15);
-            label3.TabIndex = 1;
-            label3.Text = "idpregunta";
+            idPreguntalbl.AutoSize = true;
+            idPreguntalbl.Location = new Point(92, 44);
+            idPreguntalbl.Name = "idPreguntalbl";
+            idPreguntalbl.Size = new Size(65, 15);
+            idPreguntalbl.TabIndex = 1;
+            idPreguntalbl.Text = "idpregunta";
             // 
             // label2
             // 
@@ -177,7 +211,7 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)respuestaUpDown).EndInit();
             ResumeLayout(false);
         }
 
@@ -189,11 +223,14 @@
         private GroupBox groupBox2;
         private Label label2;
         private Button examenSeleccionadobtn;
-        private Label label3;
+        private Label idPreguntalbl;
         private Label label5;
-        private NumericUpDown numericUpDown1;
-        private Label label4;
-        private Button siguientePregunta;
-        private Button button1;
+        private NumericUpDown respuestaUpDown;
+        private Label labelTituloPregunta;
+        private Button siguientePreguntabtn;
+        private Button finalizarcorreccionbtn;
+        private Label label6;
+        private TextBox apeynomtxt;
+        private Button volvermenubtn;
     }
 }
