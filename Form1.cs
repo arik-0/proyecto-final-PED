@@ -7,6 +7,9 @@ namespace proyecto_final_PED
 
         GestorPreguntas gestorPreguntas = new GestorPreguntas();
         GestorExamenes gestorExamenes;
+        private string archivoPreguntas = "Preguntas.txt";
+        private string archivoExamenes = "Examenes.txt";
+        private string archivoCorrecciones = "Correcciones.txt";
         public Form1()
         {
             InitializeComponent();
@@ -58,6 +61,26 @@ namespace proyecto_final_PED
 
             // Mostrar Form4
             form5.Show();
+        }
+
+        private void borrardatosbtn_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter writer = new StreamWriter(archivoPreguntas, false))
+             {
+                 // El archivo se sobrescribe vacío
+                 writer.Write(string.Empty);
+             }
+            using (StreamWriter writer = new StreamWriter(archivoExamenes, false)) 
+             {
+                 // El archivo se sobrescribe vacío
+                 writer.Write(string.Empty);
+             }
+            using (StreamWriter writer = new StreamWriter(archivoCorrecciones, false)) 
+             {
+                 // El archivo se sobrescribe vacío
+                 writer.Write(string.Empty);
+             }
+            MessageBox.Show("Se han borrado todos los datos.");
         }
     }
 }

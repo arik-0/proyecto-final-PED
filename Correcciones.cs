@@ -10,9 +10,9 @@ namespace proyecto_final_PED
     public class Correccion
     {
         public Guid ExamenId { get; set; }
-        public string Alumno { get; set; } // Nombre y apellido del alumno
-        public List<ResultadoPregunta> Resultados { get; set; } // Lista de Resultados de las preguntas
-        public int Puntuacion { get; set; } // Total de respuestas correctas
+        public string Alumno { get; set; } 
+        public List<ResultadoPregunta> Resultados { get; set; } 
+        public int Puntuacion { get; set; } 
         public DateTime FechaCorreccion { get; set; }
 
         public Correccion(Guid examenId, string alumno)

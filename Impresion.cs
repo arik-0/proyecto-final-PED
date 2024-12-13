@@ -13,7 +13,7 @@ namespace proyecto_final_PED
 
         public Impresion()
         {
-            
+
         }
 
         public void GenerarImpresion(Guid examenId, string universidad, string carrera)

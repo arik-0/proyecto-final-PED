@@ -108,6 +108,7 @@ namespace proyecto_final_PED
             gestor.GuardarPreguntas(nuevaPregunta);
             gestor.LeerPreguntas();
             MostrarPreguntas();
+            preguntatxt.Clear(); respuesta1txt.Clear(); respuesta2txt.Clear(); respuesta3txt.Clear();respuesta4txt.Clear(); asignaturatxt.Clear();
 
         }
         private void modificarpregbtn_Click(object sender, EventArgs e)

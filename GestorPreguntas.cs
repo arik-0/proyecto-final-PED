@@ -115,8 +115,4 @@ namespace proyecto_final_PED
         }
 
     }
-}/*using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) // 'false' sobrescribe el archivo
-             {
-                 // El archivo se sobrescribe vacío
-                 writer.Write(string.Empty);
-             }*/
+}

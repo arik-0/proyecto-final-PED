@@ -27,7 +27,7 @@ namespace proyecto_final_PED
         private void generarExamenbtn_Click(object sender, EventArgs e)
         {
             // Obtener la asignatura seleccionada
-            string asignaturaSeleccionada = asignaturatxt.Text.Trim();
+            string asignaturaSeleccionada = asignaturatxt.Text.Trim().ToUpper();
 
             // Leer el intervalo de unidades desde el TextBox
             string intervaloTexto = unidadesIntervalotxt.Text.Trim();

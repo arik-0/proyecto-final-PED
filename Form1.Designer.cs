@@ -34,6 +34,7 @@
             generadorExambtn = new Button();
             Correctorbtn = new Button();
             generadorArchivosbtn = new Button();
+            borrardatosbtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -56,7 +57,7 @@
             // 
             // adminPregbtn
             // 
-            adminPregbtn.Location = new Point(224, 228);
+            adminPregbtn.Location = new Point(283, 228);
             adminPregbtn.Name = "adminPregbtn";
             adminPregbtn.Size = new Size(95, 57);
             adminPregbtn.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             // generadorExambtn
             // 
-            generadorExambtn.Location = new Point(325, 228);
+            generadorExambtn.Location = new Point(382, 228);
             generadorExambtn.Name = "generadorExambtn";
             generadorExambtn.Size = new Size(98, 57);
             generadorExambtn.TabIndex = 3;
@@ -76,9 +77,9 @@
             // 
             // Correctorbtn
             // 
-            Correctorbtn.Location = new Point(337, 291);
+            Correctorbtn.Location = new Point(283, 291);
             Correctorbtn.Name = "Correctorbtn";
-            Correctorbtn.Size = new Size(75, 57);
+            Correctorbtn.Size = new Size(95, 57);
             Correctorbtn.TabIndex = 4;
             Correctorbtn.Text = "Corrector de examenes";
             Correctorbtn.UseVisualStyleBackColor = true;
@@ -86,7 +87,7 @@
             // 
             // generadorArchivosbtn
             // 
-            generadorArchivosbtn.Location = new Point(429, 228);
+            generadorArchivosbtn.Location = new Point(386, 291);
             generadorArchivosbtn.Name = "generadorArchivosbtn";
             generadorArchivosbtn.Size = new Size(94, 57);
             generadorArchivosbtn.TabIndex = 5;
@@ -94,11 +95,22 @@
             generadorArchivosbtn.UseVisualStyleBackColor = true;
             generadorArchivosbtn.Click += generadorArchivosbtn_Click;
             // 
+            // borrardatosbtn
+            // 
+            borrardatosbtn.Location = new Point(702, 394);
+            borrardatosbtn.Name = "borrardatosbtn";
+            borrardatosbtn.Size = new Size(75, 44);
+            borrardatosbtn.TabIndex = 6;
+            borrardatosbtn.Text = "Borrar datos";
+            borrardatosbtn.UseVisualStyleBackColor = true;
+            borrardatosbtn.Click += borrardatosbtn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(borrardatosbtn);
             Controls.Add(generadorArchivosbtn);
             Controls.Add(Correctorbtn);
             Controls.Add(generadorExambtn);
@@ -120,5 +132,6 @@
         private Button generadorExambtn;
         private Button Correctorbtn;
         private Button generadorArchivosbtn;
+        private Button borrardatosbtn;
     }
 }

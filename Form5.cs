@@ -88,7 +88,7 @@ namespace proyecto_final_PED
                 preguntaIdActual = idPregunta; // Guardamos el ID de la pregunta actual
 
                 // Resetear el valor del UpDown para la respuesta
-                respuestaUpDown.Value = 0;
+                respuestaUpDown.Value = 1;
               //  MessageBox.Show(txtPregunta);
             }
             else
@@ -116,7 +116,7 @@ namespace proyecto_final_PED
         {
             // Aquí podrías mostrar la puntuación final del alumno
             MessageBox.Show($"¡Examen finalizado! Tu puntuación es: {correcciones.CalcularPuntuacion()}");
-
+            correcciones.GuardarCorreccion();
             // Deshabilitar la sección de preguntas
             groupBox2.Enabled = false;
             groupBox1.Enabled = true;
@@ -129,7 +129,7 @@ namespace proyecto_final_PED
         private void siguientePreguntabtn_Click_1(object sender, EventArgs e)
         {
             // Obtener la respuesta del alumno
-            int respuestaAlumno = (int)respuestaUpDown.Value;
+            int respuestaAlumno = (int)respuestaUpDown.Value - 1;
 
             // Verificar si la respuesta es correcta
             bool esCorrecta = correcciones.VerificarRespuesta(preguntaIdActual, respuestaAlumno);
@@ -148,6 +148,7 @@ namespace proyecto_final_PED
             else
             {
                 MessageBox.Show("No hay más preguntas. Finalizando el examen.");
+                
                 FinalizarExamen();
             }
         }

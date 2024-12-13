@@ -31,12 +31,11 @@
             dataGridView1 = new DataGridView();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            volvermenubtn = new Button();
             label6 = new Label();
             apeynomtxt = new TextBox();
             examenSeleccionadobtn = new Button();
             groupBox2 = new GroupBox();
-            volvermenubtn = new Button();
-            finalizarcorreccionbtn = new Button();
             label5 = new Label();
             respuestaUpDown = new NumericUpDown();
             labelTituloPregunta = new Label();
@@ -69,6 +68,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(volvermenubtn);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(apeynomtxt);
             groupBox1.Controls.Add(examenSeleccionadobtn);
@@ -80,10 +80,20 @@
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
+            // volvermenubtn
+            // 
+            volvermenubtn.Location = new Point(6, 365);
+            volvermenubtn.Name = "volvermenubtn";
+            volvermenubtn.Size = new Size(75, 51);
+            volvermenubtn.TabIndex = 10;
+            volvermenubtn.Text = "Volver al menu";
+            volvermenubtn.UseVisualStyleBackColor = true;
+            volvermenubtn.Click += volvermenubtn_Click;
+            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(115, 323);
+            label6.Location = new Point(125, 323);
             label6.Name = "label6";
             label6.Size = new Size(107, 15);
             label6.TabIndex = 3;
@@ -91,7 +101,7 @@
             // 
             // apeynomtxt
             // 
-            apeynomtxt.Location = new Point(92, 341);
+            apeynomtxt.Location = new Point(99, 341);
             apeynomtxt.Name = "apeynomtxt";
             apeynomtxt.Size = new Size(155, 23);
             apeynomtxt.TabIndex = 2;
@@ -108,8 +118,6 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(volvermenubtn);
-            groupBox2.Controls.Add(finalizarcorreccionbtn);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(respuestaUpDown);
             groupBox2.Controls.Add(labelTituloPregunta);
@@ -123,26 +131,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "idExamen";
             // 
-            // volvermenubtn
-            // 
-            volvermenubtn.Location = new Point(273, 267);
-            volvermenubtn.Name = "volvermenubtn";
-            volvermenubtn.Size = new Size(75, 51);
-            volvermenubtn.TabIndex = 10;
-            volvermenubtn.Text = "Volver al menu";
-            volvermenubtn.UseVisualStyleBackColor = true;
-            volvermenubtn.Click += volvermenubtn_Click;
-            // 
-            // finalizarcorreccionbtn
-            // 
-            finalizarcorreccionbtn.Location = new Point(219, 372);
-            finalizarcorreccionbtn.Name = "finalizarcorreccionbtn";
-            finalizarcorreccionbtn.Size = new Size(75, 23);
-            finalizarcorreccionbtn.TabIndex = 7;
-            finalizarcorreccionbtn.Text = "Finalizar";
-            finalizarcorreccionbtn.UseVisualStyleBackColor = true;
-            finalizarcorreccionbtn.Click += finalizarcorreccionbtn_Click_1;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -155,9 +143,12 @@
             // respuestaUpDown
             // 
             respuestaUpDown.Location = new Point(92, 186);
+            respuestaUpDown.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            respuestaUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             respuestaUpDown.Name = "respuestaUpDown";
             respuestaUpDown.Size = new Size(120, 23);
             respuestaUpDown.TabIndex = 5;
+            respuestaUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // labelTituloPregunta
             // 
@@ -170,7 +161,7 @@
             // 
             // siguientePreguntabtn
             // 
-            siguientePreguntabtn.Location = new Point(110, 372);
+            siguientePreguntabtn.Location = new Point(137, 356);
             siguientePreguntabtn.Name = "siguientePreguntabtn";
             siguientePreguntabtn.Size = new Size(75, 23);
             siguientePreguntabtn.TabIndex = 3;
@@ -228,7 +219,6 @@
         private NumericUpDown respuestaUpDown;
         private Label labelTituloPregunta;
         private Button siguientePreguntabtn;
-        private Button finalizarcorreccionbtn;
         private Label label6;
         private TextBox apeynomtxt;
         private Button volvermenubtn;

@@ -22,7 +22,7 @@ namespace proyecto_final_PED
             Examenes = LeerExamen();
         }
 
-        /// <returns>Un objeto Examen con las preguntas seleccionadas.</returns>
+        
         public Examen GenerarExamen(string asignatura, List<int> unidadesSeleccionadas, DateTime fechaExamen)
         {
             Examen examen = new Examen(asignatura, fechaExamen);
