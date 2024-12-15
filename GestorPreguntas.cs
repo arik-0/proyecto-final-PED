@@ -30,13 +30,13 @@ namespace proyecto_final_PED
 
         public void GuardarPreguntas(Pregunta unaPregunta)
         {
-            // Verificar si el archivo no existe y crearlo vacío
+            
             if (!File.Exists(archivoPreguntas))
             {
                 using (File.Create(archivoPreguntas)) { }
             }
 
-            // Escribir en el archivo
+           
             using (StreamWriter writer = new StreamWriter(archivoPreguntas, true))
             {
                 writer.WriteLine(unaPregunta.GenerarRegistro());
@@ -46,7 +46,7 @@ namespace proyecto_final_PED
 
         public void GuardarTodasLasPreguntas()
         {
-            using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) // Sobrescribe el archivo
+            using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) 
             {
                 foreach (var pregunta in Preguntas)
                 {

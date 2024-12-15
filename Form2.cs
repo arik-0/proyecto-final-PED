@@ -13,7 +13,7 @@ namespace proyecto_final_PED
 {
     public partial class Form2 : Form
     {
-        //variables globales
+        //globales
         private List<Pregunta> Preguntas;
         GestorPreguntas gestor = new GestorPreguntas();
 
@@ -45,43 +45,38 @@ namespace proyecto_final_PED
             Preguntas = gestor.LeerPreguntas();
             var preguntasFiltradas = Preguntas.Where(p => p.Unidad == unidad).ToList();
             if (preguntasFiltradas.Count == 0) { MessageBox.Show("No hay preguntas de esa unidad"); }
-            // Actualizar el DataGridView
+            
             else
             {
-                dataGridView1.DataSource = null; // Restablece el origen de datos
+                dataGridView1.DataSource = null;
                 dataGridView1.DataSource = preguntasFiltradas;
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void crearpreguntabtn_Click(object sender, EventArgs e)
         {
-            // Validación: Pregunta no puede estar vacía
+            
             if (string.IsNullOrWhiteSpace(preguntatxt.Text))
             {
                 MessageBox.Show("El campo de la pregunta no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Validación: Respuestas 1 y 2 no pueden estar vacías
+            
             if (string.IsNullOrWhiteSpace(respuesta1txt.Text) || string.IsNullOrWhiteSpace(respuesta2txt.Text))
             {
                 MessageBox.Show("Las respuestas 1 y 2 deben estar completas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Validación: Las respuestas no deben ser iguales entre ellas
+            
             if (respuesta1txt.Text == respuesta2txt.Text)
             {
                 MessageBox.Show("Las respuestas 1 y 2 no deben ser iguales.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Validación: Respuesta correcta debe estar dentro de las opciones (Respuesta1 = 0, Respuesta2 = 1, Respuesta3 = 2, Respuesta4 = 3)
+            
             if (correctaupdown.Value < 1 || correctaupdown.Value > 4)
             {
                 MessageBox.Show("Debe seleccionar una respuesta correcta válida (entre 1 y 4).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -103,7 +98,7 @@ namespace proyecto_final_PED
             string asignatura = asignaturatxt.Text.Trim().ToUpper();
             int unidad = Convert.ToInt32(unidadupdown.Value);
             int subunidad = Convert.ToInt32(subunidadupdown.Value);
-            // Crear una nueva pregunta
+            
             Pregunta nuevaPregunta = new Pregunta(Guid.NewGuid(), textoPregunta, respuesta1, respuesta2, respuesta3, respuesta4, respuestaCorrecta, asignatura, unidad, subunidad);
             gestor.GuardarPreguntas(nuevaPregunta);
             gestor.LeerPreguntas();
@@ -111,40 +106,18 @@ namespace proyecto_final_PED
             preguntatxt.Clear(); respuesta1txt.Clear(); respuesta2txt.Clear(); respuesta3txt.Clear();respuesta4txt.Clear(); asignaturatxt.Clear();
 
         }
-        private void modificarpregbtn_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void borrarpreguntabtn_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void asignaturaselect_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void borrarPregbtn_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                // Obtener la fila seleccionada
+                
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
                 Pregunta preguntaSeleccionada = filaSeleccionada.DataBoundItem as Pregunta;
 
                 if (preguntaSeleccionada != null)
                 {
-                    // Confirmar la eliminación con el usuario
+                    
                     DialogResult resultado = MessageBox.Show(
                         $"¿Estás seguro de que deseas eliminar la pregunta con ID {preguntaSeleccionada.PreguntaId}?",
                         "Confirmación de eliminación",
@@ -153,11 +126,9 @@ namespace proyecto_final_PED
                     );
 
                     if (resultado == DialogResult.Yes)
-                    {
-                        // Eliminar la pregunta utilizando el gestor
+                    {  
                         gestor.EliminarPregunta(preguntaSeleccionada.PreguntaId);
-
-                        // Refrescar la lista y la grilla
+ 
                         Preguntas = gestor.LeerPreguntas();
                         MostrarPreguntas();
 
@@ -182,17 +153,14 @@ namespace proyecto_final_PED
         }
 
         private void modificarPregbtn_Click_1(object sender, EventArgs e)
-        {
-            // Verificar que haya una fila seleccionada en el DataGridView
+        {      
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                // Obtener la fila seleccionada
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
                 Pregunta preguntaSeleccionada = filaSeleccionada.DataBoundItem as Pregunta;
 
                 if (preguntaSeleccionada != null)
                 {
-                    // Confirmar la modificación con el usuario
                     DialogResult resultado = MessageBox.Show(
                         $"¿Deseas modificar la pregunta con ID {preguntaSeleccionada.PreguntaId}?",
                         "Confirmación de modificación",
@@ -202,9 +170,9 @@ namespace proyecto_final_PED
 
                     if (resultado == DialogResult.Yes)
                     {
-                        // Crear una nueva instancia de Pregunta con los datos actualizados
+                        
                         Pregunta nuevaPregunta = new Pregunta(
-                            preguntaSeleccionada.PreguntaId, // Mantener el mismo ID
+                            preguntaSeleccionada.PreguntaId,
                             preguntatxt.Text.Trim(),
                             respuesta1txt.Text.Trim(),
                             respuesta2txt.Text.Trim(),
@@ -215,11 +183,9 @@ namespace proyecto_final_PED
                             (int)unidadupdown.Value,
                             (int)subunidadupdown.Value
                         );
-
-                        // Llamar al gestor para modificar la pregunta
+   
                         gestor.ModificarPregunta(preguntaSeleccionada.PreguntaId, nuevaPregunta);
 
-                        // Refrescar la lista y el DataGridView
                         Preguntas = gestor.LeerPreguntas();
                         MostrarPreguntas();
 
@@ -235,11 +201,6 @@ namespace proyecto_final_PED
             {
                 MessageBox.Show("Por favor, selecciona una fila para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void Form2_Load_1(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

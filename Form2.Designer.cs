@@ -97,7 +97,6 @@
             label1.Size = new Size(55, 15);
             label1.TabIndex = 4;
             label1.Text = "Pregunta";
-            label1.Click += label1_Click;
             // 
             // respuesta4txt
             // 
@@ -254,7 +253,6 @@
             label8.Size = new Size(64, 15);
             label8.TabIndex = 23;
             label8.Text = "Asignatura";
-            label8.Click += label8_Click;
             // 
             // button1
             // 
@@ -317,7 +315,6 @@
             Controls.Add(volverAlMenubtn);
             Name = "Form2";
             Text = "Form2";
-            Load += Form2_Load_1;
             ((System.ComponentModel.ISupportInitialize)correctaupdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)unidadupdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)subunidadupdown).EndInit();

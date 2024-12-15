@@ -34,10 +34,10 @@ namespace proyecto_final_PED
         {
           //  List<Examen> Examenes = gestorExamenes.LeerExamen();
 
-            // Asignar la lista de exámenes al DataGridView
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = examenes;
         }
+
         private void volverAlMenubtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -48,28 +48,22 @@ namespace proyecto_final_PED
             string datosuni = datosUniversidadtxt.Text.Trim();
             string carrera = carreratxt.Text.Trim();
 
-            // Validar que haya datos en los campos de texto
             if (string.IsNullOrWhiteSpace(datosuni) || string.IsNullOrWhiteSpace(carrera))
             {
                 MessageBox.Show("Por favor, complete los datos de la universidad y la carrera.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Validar que hay una fila seleccionada
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                // Obtener la fila seleccionada
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
 
-                // Obtener el valor de la columna "ExamenId"
                 if (filaSeleccionada.Cells["ExamenId"].Value != null)
                 {
                     string examenIdString = filaSeleccionada.Cells["ExamenId"].Value.ToString();
 
-                    // Intentar convertir el valor a GUID
                     if (Guid.TryParse(examenIdString, out Guid examenId))
                     {
-                        // Llamar al método para generar la impresión
                         impresion.GenerarImpresion(examenId, datosuni, carrera);
                         MessageBox.Show("La impresión se generó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

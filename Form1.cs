@@ -33,8 +33,6 @@ namespace proyecto_final_PED
         private void generadorExambtn_Click(object sender, EventArgs e)
         {
             List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas();
-
-
             Form3 form3 = new Form3(preguntas);
 
             // Mostrar Form3
@@ -65,22 +63,38 @@ namespace proyecto_final_PED
 
         private void borrardatosbtn_Click(object sender, EventArgs e)
         {
-            using (StreamWriter writer = new StreamWriter(archivoPreguntas, false))
-             {
-                 // El archivo se sobrescribe vacío
-                 writer.Write(string.Empty);
-             }
-            using (StreamWriter writer = new StreamWriter(archivoExamenes, false)) 
-             {
-                 // El archivo se sobrescribe vacío
-                 writer.Write(string.Empty);
-             }
-            using (StreamWriter writer = new StreamWriter(archivoCorrecciones, false)) 
-             {
-                 // El archivo se sobrescribe vacío
-                 writer.Write(string.Empty);
-             }
             MessageBox.Show("Se han borrado todos los datos.");
+
+            DialogResult resultado = MessageBox.Show(
+                $"¿Deseas borrar todos los datos?",
+                "Confirmación de destruccion",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                using (StreamWriter writer = new StreamWriter(archivoPreguntas, false))
+                {
+                    // El archivo se sobrescribe vacío
+                    writer.Write(string.Empty);
+                }
+                using (StreamWriter writer = new StreamWriter(archivoExamenes, false))
+                {
+                    // El archivo se sobrescribe vacío
+                    writer.Write(string.Empty);
+                }
+                using (StreamWriter writer = new StreamWriter(archivoCorrecciones, false))
+                {
+                    // El archivo se sobrescribe vacío
+                    writer.Write(string.Empty);
+                }
+                MessageBox.Show("Se han borrado todos los datos.");
+            }
+            else
+            {
+                MessageBox.Show("aaaaa te cagaste");
+            }
         }
     }
 }

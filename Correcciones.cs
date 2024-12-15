@@ -24,10 +24,10 @@ namespace proyecto_final_PED
         }
 
        public string GenerarRegistro()
-        {
+       {
            // Formato: ExamenId, Alumno, FechaCorreccion, Puntuacion, [PreguntaId:Resultado]
             string resultados = string.Join(";", Resultados.Select(r => $"{r.IdPregunta}:{r.Resultado}"));
             return $"{ExamenId},{Alumno},{FechaCorreccion},{Puntuacion},{resultados}";
-        }
+       }
     }
 }
