@@ -10,7 +10,7 @@ namespace proyecto_final_PED
         private GestorPreguntas gestorPreguntas;
         private GestorExamenes gestorExamenes;
         private GestorCorrecciones correcciones;
-        private int indicePreguntaActual = 0; 
+        private int indicePreguntaActual = 0;
         private Guid preguntaIdActual;
 
         public Form5(List<Pregunta> preguntas, List<Examen> examenes)
@@ -24,7 +24,7 @@ namespace proyecto_final_PED
         {
             groupBox2.Enabled = false;
             groupBox1.Enabled = true;
-            List<Examen> examenes = gestorExamenes.LeerExamen(); 
+            List<Examen> examenes = gestorExamenes.LeerExamen();
             MostrarExamenes(examenes);
         }
 
@@ -36,7 +36,7 @@ namespace proyecto_final_PED
 
         private void examenSeleccionadobtn_Click(object sender, EventArgs e)
         {
-            
+
             string nombreAlumno = apeynomtxt.Text.Trim();
             if (string.IsNullOrWhiteSpace(nombreAlumno))
             {
@@ -44,13 +44,13 @@ namespace proyecto_final_PED
                 return;
             }
 
-            
+
             DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
             Examen examenSeleccionado = filaSeleccionada.DataBoundItem as Examen;
 
             if (examenSeleccionado != null && examenSeleccionado.IdPreguntas.Any())
             {
-                
+
                 List<Pregunta> preguntasExamen = gestorPreguntas.LeerPreguntas()
                     .Where(p => examenSeleccionado.IdPreguntas.Contains(p.PreguntaId))
                     .ToList();
@@ -62,7 +62,7 @@ namespace proyecto_final_PED
 
                 indicePreguntaActual = 0;
                 groupBox2.Text = examenSeleccionado.ExamenId.ToString();
-                
+
                 MostrarPreguntaActual();
             }
             else
@@ -73,16 +73,16 @@ namespace proyecto_final_PED
 
         private void MostrarPreguntaActual()
         {
-           
+
             var (txtPregunta, idPregunta) = correcciones.MostrarPreguntaActual();
 
-            
+
             if (idPregunta != Guid.Empty)
             {
-                
+
                 labelTituloPregunta.Text = $"Pregunta: {txtPregunta}";
                 idPreguntalbl.Text = $"ID: {idPregunta}";
-                preguntaIdActual = idPregunta; 
+                preguntaIdActual = idPregunta;
 
                 respuestaUpDown.Value = 1;
             }
@@ -97,25 +97,25 @@ namespace proyecto_final_PED
 
         private void GuardarCorreccion()
         {
-            
+
             string alumno = apeynomtxt.Text.Trim();
 
-            
+
             correcciones.GuardarCorreccion();
 
-            
+
             MessageBox.Show($"Los resultados de {alumno} han sido guardados correctamente.");
         }
 
         private void FinalizarExamen()
         {
-            
+
             MessageBox.Show($"¡Examen finalizado! Tu puntuación es: {correcciones.CalcularPuntuacion()}");
             correcciones.GuardarCorreccion();
-            
+
             groupBox2.Enabled = false;
             groupBox1.Enabled = true;
-            
+
             indicePreguntaActual = 0;
             labelTituloPregunta.Text = "Pregunta:";
             idPreguntalbl.Text = "ID:";
@@ -123,10 +123,10 @@ namespace proyecto_final_PED
 
         private void siguientePreguntabtn_Click_1(object sender, EventArgs e)
         {
-            
+
             int respuestaAlumno = (int)respuestaUpDown.Value - 1;
 
-            
+
             bool esCorrecta = correcciones.VerificarRespuesta(preguntaIdActual, respuestaAlumno);
 
             string resultado = esCorrecta ? "Correcta" : "Incorrecta";
@@ -141,14 +141,14 @@ namespace proyecto_final_PED
             else
             {
                 MessageBox.Show("No hay más preguntas. Finalizando el examen.");
-                
+
                 FinalizarExamen();
             }
         }
 
         private void finalizarcorreccionbtn_Click_1(object sender, EventArgs e)
         {
-            
+
             MessageBox.Show($"Tu puntuación final es: {correcciones.CalcularPuntuacion()}");
 
             GuardarCorreccion();
@@ -159,6 +159,11 @@ namespace proyecto_final_PED
         private void volvermenubtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

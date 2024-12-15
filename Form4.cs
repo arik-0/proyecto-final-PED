@@ -26,13 +26,13 @@ namespace proyecto_final_PED
 
         private void Form4_Load(object sender, EventArgs e)
         {
-           /* List<Examen> examenes = gestorExamenes.LeerExamen(); // Leer exámenes desde el gestor
-            MostrarExamenes(examenes);*/
+            /* List<Examen> examenes = gestorExamenes.LeerExamen(); // Leer exámenes desde el gestor
+             MostrarExamenes(examenes);*/
         }
 
         private void MostrarExamenes(List<Examen> examenes)
         {
-          //  List<Examen> Examenes = gestorExamenes.LeerExamen();
+            //  List<Examen> Examenes = gestorExamenes.LeerExamen();
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = examenes;

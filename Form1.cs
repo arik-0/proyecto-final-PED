@@ -63,8 +63,6 @@ namespace proyecto_final_PED
 
         private void borrardatosbtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se han borrado todos los datos.");
-
             DialogResult resultado = MessageBox.Show(
                 $"¿Deseas borrar todos los datos?",
                 "Confirmación de destruccion",

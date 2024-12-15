@@ -45,7 +45,7 @@ namespace proyecto_final_PED
             Preguntas = gestor.LeerPreguntas();
             var preguntasFiltradas = Preguntas.Where(p => p.Unidad == unidad).ToList();
             if (preguntasFiltradas.Count == 0) { MessageBox.Show("No hay preguntas de esa unidad"); }
-            
+
             else
             {
                 dataGridView1.DataSource = null;
@@ -55,28 +55,28 @@ namespace proyecto_final_PED
 
         private void crearpreguntabtn_Click(object sender, EventArgs e)
         {
-            
+
             if (string.IsNullOrWhiteSpace(preguntatxt.Text))
             {
                 MessageBox.Show("El campo de la pregunta no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            
+
             if (string.IsNullOrWhiteSpace(respuesta1txt.Text) || string.IsNullOrWhiteSpace(respuesta2txt.Text))
             {
                 MessageBox.Show("Las respuestas 1 y 2 deben estar completas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            
+
             if (respuesta1txt.Text == respuesta2txt.Text)
             {
                 MessageBox.Show("Las respuestas 1 y 2 no deben ser iguales.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            
+
             if (correctaupdown.Value < 1 || correctaupdown.Value > 4)
             {
                 MessageBox.Show("Debe seleccionar una respuesta correcta válida (entre 1 y 4).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -98,12 +98,12 @@ namespace proyecto_final_PED
             string asignatura = asignaturatxt.Text.Trim().ToUpper();
             int unidad = Convert.ToInt32(unidadupdown.Value);
             int subunidad = Convert.ToInt32(subunidadupdown.Value);
-            
+
             Pregunta nuevaPregunta = new Pregunta(Guid.NewGuid(), textoPregunta, respuesta1, respuesta2, respuesta3, respuesta4, respuestaCorrecta, asignatura, unidad, subunidad);
             gestor.GuardarPreguntas(nuevaPregunta);
             gestor.LeerPreguntas();
             MostrarPreguntas();
-            preguntatxt.Clear(); respuesta1txt.Clear(); respuesta2txt.Clear(); respuesta3txt.Clear();respuesta4txt.Clear(); asignaturatxt.Clear();
+            preguntatxt.Clear(); respuesta1txt.Clear(); respuesta2txt.Clear(); respuesta3txt.Clear(); respuesta4txt.Clear(); asignaturatxt.Clear();
 
         }
 
@@ -111,13 +111,13 @@ namespace proyecto_final_PED
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                
+
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
                 Pregunta preguntaSeleccionada = filaSeleccionada.DataBoundItem as Pregunta;
 
                 if (preguntaSeleccionada != null)
                 {
-                    
+
                     DialogResult resultado = MessageBox.Show(
                         $"¿Estás seguro de que deseas eliminar la pregunta con ID {preguntaSeleccionada.PreguntaId}?",
                         "Confirmación de eliminación",
@@ -126,9 +126,9 @@ namespace proyecto_final_PED
                     );
 
                     if (resultado == DialogResult.Yes)
-                    {  
+                    {
                         gestor.EliminarPregunta(preguntaSeleccionada.PreguntaId);
- 
+
                         Preguntas = gestor.LeerPreguntas();
                         MostrarPreguntas();
 
@@ -153,7 +153,7 @@ namespace proyecto_final_PED
         }
 
         private void modificarPregbtn_Click_1(object sender, EventArgs e)
-        {      
+        {
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
@@ -170,7 +170,7 @@ namespace proyecto_final_PED
 
                     if (resultado == DialogResult.Yes)
                     {
-                        
+
                         Pregunta nuevaPregunta = new Pregunta(
                             preguntaSeleccionada.PreguntaId,
                             preguntatxt.Text.Trim(),
@@ -183,7 +183,7 @@ namespace proyecto_final_PED
                             (int)unidadupdown.Value,
                             (int)subunidadupdown.Value
                         );
-   
+
                         gestor.ModificarPregunta(preguntaSeleccionada.PreguntaId, nuevaPregunta);
 
                         Preguntas = gestor.LeerPreguntas();
@@ -206,6 +206,11 @@ namespace proyecto_final_PED
         private void button1_Click(object sender, EventArgs e)
         {
             MostrarPreguntas();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

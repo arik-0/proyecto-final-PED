@@ -20,7 +20,7 @@ namespace proyecto_final_PED
         public Form3(List<Pregunta> preguntas)
         {
             InitializeComponent();
-            Preguntas = preguntas; 
+            Preguntas = preguntas;
             gestorExamenes = new GestorExamenes(Preguntas);
         }
 
@@ -69,7 +69,7 @@ namespace proyecto_final_PED
                 else
                 {
                     MessageBox.Show($"La unidad '{unidad}' no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return new List<int>();  
+                    return new List<int>();
                 }
             }
             return unidades;

@@ -42,6 +42,7 @@
             siguientePreguntabtn = new Button();
             idPreguntalbl = new Label();
             label2 = new Label();
+            groupBox3 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -51,7 +52,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(39, 89);
+            dataGridView1.Location = new Point(39, 79);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(279, 214);
@@ -60,11 +61,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(48, 43);
+            label1.Font = new Font("Segoe UI", 15F);
+            label1.Location = new Point(48, 33);
             label1.Name = "label1";
-            label1.Size = new Size(108, 15);
+            label1.Size = new Size(180, 28);
             label1.TabIndex = 1;
-            label1.Text = "Seleccione examen";
+            label1.Text = "Seleccione examen:";
             // 
             // groupBox1
             // 
@@ -93,7 +95,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(125, 323);
+            label6.Location = new Point(124, 315);
             label6.Name = "label6";
             label6.Size = new Size(107, 15);
             label6.TabIndex = 3;
@@ -101,14 +103,14 @@
             // 
             // apeynomtxt
             // 
-            apeynomtxt.Location = new Point(99, 341);
+            apeynomtxt.Location = new Point(100, 333);
             apeynomtxt.Name = "apeynomtxt";
             apeynomtxt.Size = new Size(155, 23);
             apeynomtxt.TabIndex = 2;
             // 
             // examenSeleccionadobtn
             // 
-            examenSeleccionadobtn.Location = new Point(243, 382);
+            examenSeleccionadobtn.Location = new Point(243, 379);
             examenSeleccionadobtn.Name = "examenSeleccionadobtn";
             examenSeleccionadobtn.Size = new Size(75, 23);
             examenSeleccionadobtn.TabIndex = 1;
@@ -124,6 +126,7 @@
             groupBox2.Controls.Add(siguientePreguntabtn);
             groupBox2.Controls.Add(idPreguntalbl);
             groupBox2.Controls.Add(label2);
+            groupBox2.Controls.Add(groupBox3);
             groupBox2.Location = new Point(388, 16);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(367, 422);
@@ -134,15 +137,16 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(31, 140);
+            label5.Font = new Font("Segoe UI", 15F);
+            label5.Location = new Point(31, 199);
             label5.Name = "label5";
-            label5.Size = new Size(128, 15);
+            label5.Size = new Size(209, 28);
             label5.TabIndex = 6;
             label5.Text = "Respuesta del Alumno:";
             // 
             // respuestaUpDown
             // 
-            respuestaUpDown.Location = new Point(92, 186);
+            respuestaUpDown.Location = new Point(120, 255);
             respuestaUpDown.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             respuestaUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             respuestaUpDown.Name = "respuestaUpDown";
@@ -161,9 +165,9 @@
             // 
             // siguientePreguntabtn
             // 
-            siguientePreguntabtn.Location = new Point(137, 356);
+            siguientePreguntabtn.Location = new Point(122, 323);
             siguientePreguntabtn.Name = "siguientePreguntabtn";
-            siguientePreguntabtn.Size = new Size(75, 23);
+            siguientePreguntabtn.Size = new Size(118, 56);
             siguientePreguntabtn.TabIndex = 3;
             siguientePreguntabtn.Text = "Siguiente";
             siguientePreguntabtn.UseVisualStyleBackColor = true;
@@ -181,16 +185,26 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F);
             label2.Location = new Point(31, 43);
             label2.Name = "label2";
-            label2.Size = new Size(55, 15);
+            label2.Size = new Size(65, 19);
             label2.TabIndex = 0;
             label2.Text = "Pregunta";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Location = new Point(0, 153);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(367, 269);
+            groupBox3.TabIndex = 7;
+            groupBox3.TabStop = false;
             // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -222,5 +236,6 @@
         private Label label6;
         private TextBox apeynomtxt;
         private Button volvermenubtn;
+        private GroupBox groupBox3;
     }
 }

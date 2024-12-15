@@ -92,7 +92,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(56, 63);
+            label1.Location = new Point(56, 59);
             label1.Name = "label1";
             label1.Size = new Size(55, 15);
             label1.TabIndex = 4;
@@ -100,7 +100,7 @@
             // 
             // respuesta4txt
             // 
-            respuesta4txt.Location = new Point(162, 183);
+            respuesta4txt.Location = new Point(162, 186);
             respuesta4txt.Name = "respuesta4txt";
             respuesta4txt.Size = new Size(100, 23);
             respuesta4txt.TabIndex = 5;
@@ -141,7 +141,7 @@
             // 
             // respuesta3txt
             // 
-            respuesta3txt.Location = new Point(56, 183);
+            respuesta3txt.Location = new Point(56, 186);
             respuesta3txt.Name = "respuesta3txt";
             respuesta3txt.Size = new Size(100, 23);
             respuesta3txt.TabIndex = 9;
@@ -184,7 +184,7 @@
             // 
             // correctaupdown
             // 
-            correctaupdown.Location = new Point(319, 80);
+            correctaupdown.Location = new Point(335, 135);
             correctaupdown.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             correctaupdown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             correctaupdown.Name = "correctaupdown";
@@ -195,16 +195,17 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(288, 47);
+            label6.Location = new Point(304, 100);
             label6.Name = "label6";
             label6.Size = new Size(106, 15);
             label6.TabIndex = 16;
             label6.Text = "Respuesta correcta";
+            label6.Click += label6_Click;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(304, 142);
+            label7.Location = new Point(304, 165);
             label7.Name = "label7";
             label7.Size = new Size(112, 15);
             label7.TabIndex = 18;
@@ -212,7 +213,7 @@
             // 
             // unidadupdown
             // 
-            unidadupdown.Location = new Point(309, 175);
+            unidadupdown.Location = new Point(309, 186);
             unidadupdown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             unidadupdown.Name = "unidadupdown";
             unidadupdown.Size = new Size(39, 23);
@@ -221,7 +222,7 @@
             // 
             // subunidadupdown
             // 
-            subunidadupdown.Location = new Point(365, 175);
+            subunidadupdown.Location = new Point(365, 186);
             subunidadupdown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             subunidadupdown.Name = "subunidadupdown";
             subunidadupdown.Size = new Size(39, 23);
@@ -240,7 +241,7 @@
             // 
             // asignaturatxt
             // 
-            asignaturatxt.Location = new Point(502, 79);
+            asignaturatxt.Location = new Point(502, 135);
             asignaturatxt.Name = "asignaturatxt";
             asignaturatxt.Size = new Size(100, 23);
             asignaturatxt.TabIndex = 22;
@@ -248,7 +249,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(517, 47);
+            label8.Location = new Point(517, 100);
             label8.Name = "label8";
             label8.Size = new Size(64, 15);
             label8.TabIndex = 23;
@@ -256,7 +257,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(479, 194);
+            button1.Location = new Point(473, 186);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 24;
@@ -266,7 +267,7 @@
             // 
             // ordenarporunidadbtn
             // 
-            ordenarporunidadbtn.Location = new Point(560, 194);
+            ordenarporunidadbtn.Location = new Point(554, 186);
             ordenarporunidadbtn.Name = "ordenarporunidadbtn";
             ordenarporunidadbtn.Size = new Size(75, 23);
             ordenarporunidadbtn.TabIndex = 25;
@@ -277,7 +278,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(531, 165);
+            label9.Location = new Point(524, 165);
             label9.Name = "label9";
             label9.Size = new Size(50, 15);
             label9.TabIndex = 26;
@@ -287,6 +288,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(label9);
             Controls.Add(ordenarporunidadbtn);

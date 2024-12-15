@@ -40,24 +40,26 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(294, 92);
+            label1.Font = new Font("Segoe UI", 20F);
+            label1.Location = new Point(190, 96);
             label1.Name = "label1";
-            label1.Size = new Size(186, 15);
+            label1.Size = new Size(420, 37);
             label1.TabIndex = 0;
             label1.Text = "Bienvenido al gestor de examenes";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(325, 157);
+            label2.Font = new Font("Segoe UI", 20F);
+            label2.Location = new Point(262, 160);
             label2.Name = "label2";
-            label2.Size = new Size(123, 15);
+            label2.Size = new Size(276, 37);
             label2.TabIndex = 1;
             label2.Text = "Seleccione el modulo:";
             // 
             // adminPregbtn
             // 
-            adminPregbtn.Location = new Point(283, 228);
+            adminPregbtn.Location = new Point(302, 228);
             adminPregbtn.Name = "adminPregbtn";
             adminPregbtn.Size = new Size(95, 57);
             adminPregbtn.TabIndex = 2;
@@ -67,9 +69,9 @@
             // 
             // generadorExambtn
             // 
-            generadorExambtn.Location = new Point(382, 228);
+            generadorExambtn.Location = new Point(405, 228);
             generadorExambtn.Name = "generadorExambtn";
-            generadorExambtn.Size = new Size(98, 57);
+            generadorExambtn.Size = new Size(94, 57);
             generadorExambtn.TabIndex = 3;
             generadorExambtn.Text = "Generador de examenes";
             generadorExambtn.UseVisualStyleBackColor = true;
@@ -77,7 +79,7 @@
             // 
             // Correctorbtn
             // 
-            Correctorbtn.Location = new Point(283, 291);
+            Correctorbtn.Location = new Point(302, 291);
             Correctorbtn.Name = "Correctorbtn";
             Correctorbtn.Size = new Size(95, 57);
             Correctorbtn.TabIndex = 4;
@@ -87,7 +89,7 @@
             // 
             // generadorArchivosbtn
             // 
-            generadorArchivosbtn.Location = new Point(386, 291);
+            generadorArchivosbtn.Location = new Point(405, 291);
             generadorArchivosbtn.Name = "generadorArchivosbtn";
             generadorArchivosbtn.Size = new Size(94, 57);
             generadorArchivosbtn.TabIndex = 5;
@@ -109,6 +111,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(borrardatosbtn);
             Controls.Add(generadorArchivosbtn);
