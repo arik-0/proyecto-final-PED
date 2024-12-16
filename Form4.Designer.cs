@@ -127,7 +127,7 @@
             Controls.Add(volverAlMenubtn);
             Controls.Add(dataGridView1);
             Name = "Form4";
-            Text = "Form4";
+            Text = "Modulo Impresor de examenes";
             Load += Form4_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);

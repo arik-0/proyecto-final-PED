@@ -316,7 +316,7 @@
             Controls.Add(crearpreguntabtn);
             Controls.Add(volverAlMenubtn);
             Name = "Form2";
-            Text = "Form2";
+            Text = "Modulo Generador de Preguntas";
             ((System.ComponentModel.ISupportInitialize)correctaupdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)unidadupdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)subunidadupdown).EndInit();

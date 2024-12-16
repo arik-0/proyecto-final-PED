@@ -209,7 +209,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "Form5";
-            Text = "Form5";
+            Text = "Modulo Corrector de Examenes";
             Load += Form5_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);

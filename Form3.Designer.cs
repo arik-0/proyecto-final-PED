@@ -133,7 +133,7 @@
             Controls.Add(generarExamenbtn);
             Controls.Add(groupBox1);
             Name = "Form3";
-            Text = "Form3";
+            Text = "Modulo Generador de Examenes";
             ResumeLayout(false);
             PerformLayout();
         }
