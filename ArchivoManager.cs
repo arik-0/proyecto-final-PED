@@ -10,6 +10,23 @@ public static class ArchivoManager
         var lineas = rubros.Select(r => $"{r.Nombre}|{r.Descripcion}");
         File.WriteAllLines(pathRubros, lineas);
     }
+    private static string pathCodigo = "ultimo_codigo.txt";
+
+    public static int ObtenerNuevoCodigo()
+    {
+        int ultimoCodigo = 0;
+
+        if (File.Exists(pathCodigo))
+        {
+            var contenido = File.ReadAllText(pathCodigo);
+            int.TryParse(contenido, out ultimoCodigo);
+        }
+
+        int nuevoCodigo = ultimoCodigo + 1;
+        File.WriteAllText(pathCodigo, nuevoCodigo.ToString());
+        return nuevoCodigo;
+    }
+
 
     public static List<Rubro> CargarRubros()
     {
@@ -55,16 +72,8 @@ public static class ArchivoManager
                 if (rubro == null)
                     rubro = new Rubro(nombreRubro, descRubro);
 
-                return new Producto
-                {
-                    Codigo = codigo,
-                    Nombre = nombre,
-                    Descripcion = descripcion,
-                    PrecioCompra = precioCompra,
-                    Stock = stock,
-                    Rubro = rubro,
-                    FechaVencimiento = fechaVto
-                };
+                return new Producto(codigo, nombre, descripcion, precioCompra, stock, rubro, fechaVto);
             }).ToList();
+
     }
 }

@@ -6,7 +6,8 @@
     public string Nombre
     {
         get => nombre;
-        set => nombre = value ?? throw new ArgumentNullException(nameof(Nombre));
+        set => nombre = value ?? throw new ArgumentNullException(nameof(Rubro));
+
     }
 
     public string Descripcion
@@ -20,6 +21,6 @@
         Nombre = nombre;
         Descripcion = descripcion;
     }
-
     public override string ToString() => Nombre;
+
 }

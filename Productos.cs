@@ -13,7 +13,19 @@ namespace proyecto_final_PED
         private Rubro rubro;
         private DateTime fechaVencimiento;
 
-        // 🔢 Código único del producto
+        // Constructor
+        public Producto(int codigo, string nombre, string descripcion, float precioCompra, int stock, Rubro rubro, DateTime fechaVencimiento)
+        {
+            Codigo = codigo;
+            Nombre = nombre;
+            Descripcion = descripcion;
+            PrecioCompra = precioCompra;
+            Stock = stock;
+            Rubro = rubro;
+            FechaVencimiento = fechaVencimiento;
+        }
+
+        // Propiedades
         public int Codigo
         {
             get => codigo;
@@ -53,6 +65,7 @@ namespace proyecto_final_PED
             }
         }
 
+        // Precio de venta calculado automáticamente (50% más)
         public float PrecioVenta => precioCompra * 1.5f;
 
         public int Stock
@@ -69,7 +82,7 @@ namespace proyecto_final_PED
         public Rubro Rubro
         {
             get => rubro;
-            set => rubro = value ?? throw new ArgumentNullException(nameof(Rubro));
+            set => rubro = value ?? throw new ArgumentNullException(nameof(Rubro), "El rubro no puede ser nulo.");
         }
 
         public DateTime FechaVencimiento
@@ -78,6 +91,7 @@ namespace proyecto_final_PED
             set => fechaVencimiento = value;
         }
 
+        // Propiedad de solo lectura: ¿está vencido?
         public bool EstaVencido => FechaVencimiento < DateTime.Today;
 
         public override string ToString()

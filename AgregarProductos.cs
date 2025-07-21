@@ -40,14 +40,18 @@ namespace proyecto_final_PED
 
         private void agregarProductosbtn_Click(object sender, EventArgs e)
         {
+            
             try
             {
-                var nuevoProd = new Producto();
-                nuevoProd.Nombre = nombretxt.Text.Trim();
-                nuevoProd.Descripcion = descripciontxt.Text.Trim();
-                nuevoProd.Stock = (int)stockud.Value;
-                nuevoProd.FechaVencimiento = fechavtocal.SelectionStart;
-                nuevoProd.PrecioCompra = (float)precioCompraud.Value;
+                 // ✅ OK
+                
+                
+                var codigo = ArchivoManager.ObtenerNuevoCodigo();
+                var nombre = nombretxt.Text.Trim();
+                var descripcion = descripciontxt.Text.Trim();
+                var stock = (int)stockud.Value;
+                var fechaVencimiento = fechavtocal.SelectionStart;
+                var precioCompra = (float)precioCompraud.Value;
 
                 if (rubroslstbx.CheckedItems.Count == 0)
                 {
@@ -62,7 +66,7 @@ namespace proyecto_final_PED
                     MessageBox.Show("Error al obtener el rubro seleccionado.");
                     return;
                 }
-                
+                var nuevoProd = new Producto(codigo, nombre, descripcion, precioCompra, stock, rubroSeleccionado, fechaVencimiento);
                 repo.AgregarProducto(nuevoProd);
                 MessageBox.Show("Producto agregado correctamente.");
                 // o limpiar campos
