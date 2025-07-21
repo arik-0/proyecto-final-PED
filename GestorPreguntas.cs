@@ -10,25 +10,25 @@ namespace proyecto_final_PED
     public class GestorPreguntas
     {
         private string archivoPreguntas = "Preguntas.txt";
-        public List<Pregunta> Preguntas { get; private set; }
+        public List<Producto> Preguntas { get; private set; }
         private int ultimoId;
 
         public GestorPreguntas()
         {
-            Preguntas = new List<Pregunta>();
-            Preguntas = LeerPreguntas();
+            Preguntas = new List<Producto>();/*
+            Preguntas = LeerPreguntas();*/
             // ultimoId = Preguntas.Count > 0 ? Preguntas.Max(p => p.PreguntaId) : 0; // Establecer el último ID usado
         }
 
 
 
-        public void EliminarPregunta(Guid preguntaId)
+      /*  public void EliminarPregunta(Guid preguntaId)
         {
-            Preguntas.RemoveAll(p => p.PreguntaId == preguntaId);
+            Preguntas.RemoveAll(p => p.codigo == preguntaId);
             GuardarTodasLasPreguntas();
         }
 
-        public void GuardarPreguntas(Pregunta unaPregunta)
+        public void GuardarPreguntas(Producto unaPregunta)
         {
             
             if (!File.Exists(archivoPreguntas))
@@ -42,9 +42,9 @@ namespace proyecto_final_PED
                 writer.WriteLine(unaPregunta.GenerarRegistro());
             }
             Preguntas.Add(unaPregunta);
-        }
+        }*/
 
-        public void GuardarTodasLasPreguntas()
+       /* public void GuardarTodasLasPreguntas()
         {
             using (StreamWriter writer = new StreamWriter(archivoPreguntas, false)) 
             {
@@ -53,11 +53,11 @@ namespace proyecto_final_PED
                     writer.WriteLine(pregunta.GenerarRegistro());
                 }
             }
-        }
+        }*/
 
-        public List<Pregunta> LeerPreguntas()
+       /* public List<Producto> LeerPreguntas()
         {
-            List<Pregunta> lista = new List<Pregunta>();
+            List<Producto> lista = new List<Producto>();
 
             if (File.Exists(archivoPreguntas))
             {
@@ -68,7 +68,7 @@ namespace proyecto_final_PED
                     {
                         try
                         {
-                            lista.Add(new Pregunta(linea));
+                            lista.Add(new Producto(linea));
                         }
                         catch (Exception ex)
                         {
@@ -80,12 +80,12 @@ namespace proyecto_final_PED
             }
 
             return lista;
-        }
+        }*/
 
 
-        public void ModificarPregunta(Guid preguntaId, Pregunta nuevaPregunta)
+       /* public void ModificarPregunta(Guid preguntaId, Productos nuevaPregunta)
         {
-            Pregunta preguntaAModificar = Preguntas.FirstOrDefault(p => p.PreguntaId == preguntaId);
+            Productos preguntaAModificar = Preguntas.FirstOrDefault(p => p.PreguntaId == preguntaId);
 
             if (preguntaAModificar != null)
             {
@@ -107,12 +107,13 @@ namespace proyecto_final_PED
             {
                 Console.WriteLine("La pregunta no se encontró.");
             }
-        }
-        public Pregunta BuscarPreguntaPorId(Guid preguntaId)
+        }*/
+       /*
+        public Productos BuscarPreguntaPorId(Guid preguntaId)
         {
             // Buscar la pregunta por su ID
             return Preguntas.FirstOrDefault(p => p.PreguntaId == preguntaId);
         }
-
+       */
     }
 }

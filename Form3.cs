@@ -14,13 +14,37 @@ namespace proyecto_final_PED
 {
     public partial class Form3 : Form
     {
-        private List<Pregunta> Preguntas;
-        private GestorExamenes gestorExamenes;
-
-        public Form3(List<Pregunta> preguntas)
+        private Repositorio repo;
+        public Form3(Repositorio repo)
         {
             InitializeComponent();
-            Preguntas = preguntas; 
+            this.repo = repo;
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void generarRubrobtn_Click(object sender, EventArgs e)
+        {
+            var nombre = nombreRubrotxt.Text;
+            var descripcion = descripcionRubrotxt.Text;
+            repo.AgregarRubro(nombre, descripcion);
+        }
+
+        private void volvermenubtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}/*
+private List<Productos> Preguntas;
+        private GestorExamenes gestorExamenes;
+
+        public Form3(List<Productos> preguntas)
+        {
+            InitializeComponent();
+            Preguntas = preguntas;
             gestorExamenes = new GestorExamenes(Preguntas);
         }
 
@@ -69,7 +93,7 @@ namespace proyecto_final_PED
                 else
                 {
                     MessageBox.Show($"La unidad '{unidad}' no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return new List<int>();  
+                    return new List<int>();
                 }
             }
             return unidades;
@@ -78,6 +102,4 @@ namespace proyecto_final_PED
         private void volvermenubtn_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-    }
-}
+        }*/

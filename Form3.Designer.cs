@@ -28,111 +28,116 @@
         /// </summary>
         private void InitializeComponent()
         {
-            generarExamenbtn = new Button();
+            generarRubrobtn = new Button();
             label1 = new Label();
-            asignaturatxt = new TextBox();
+            nombreRubrotxt = new TextBox();
             label2 = new Label();
-            unidadesIntervalotxt = new TextBox();
-            label3 = new Label();
-            fechaexamencal = new MonthCalendar();
+            descripcionRubrotxt = new TextBox();
             volvermenubtn = new Button();
+            groupBox1 = new GroupBox();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // generarExamenbtn
+            // generarRubrobtn
             // 
-            generarExamenbtn.Location = new Point(359, 215);
-            generarExamenbtn.Name = "generarExamenbtn";
-            generarExamenbtn.Size = new Size(75, 58);
-            generarExamenbtn.TabIndex = 0;
-            generarExamenbtn.Text = "Generar examen";
-            generarExamenbtn.UseVisualStyleBackColor = true;
-            generarExamenbtn.Click += generarExamenbtn_Click;
+            generarRubrobtn.Location = new Point(91, 393);
+            generarRubrobtn.Margin = new Padding(3, 4, 3, 4);
+            generarRubrobtn.Name = "generarRubrobtn";
+            generarRubrobtn.Size = new Size(201, 92);
+            generarRubrobtn.TabIndex = 0;
+            generarRubrobtn.Text = "Generar Rubro";
+            generarRubrobtn.UseVisualStyleBackColor = true;
+            generarRubrobtn.Click += generarRubrobtn_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(289, 90);
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(77, 150);
             label1.Name = "label1";
-            label1.Size = new Size(227, 15);
+            label1.Size = new Size(200, 28);
             label1.TabIndex = 2;
-            label1.Text = "Unidad de preguntas (en formato N/N/N)";
+            label1.Text = "Descripcion de Rubro";
             // 
-            // asignaturatxt
+            // nombreRubrotxt
             // 
-            asignaturatxt.Location = new Point(110, 124);
-            asignaturatxt.Name = "asignaturatxt";
-            asignaturatxt.Size = new Size(100, 23);
-            asignaturatxt.TabIndex = 3;
+            nombreRubrotxt.Location = new Point(48, 164);
+            nombreRubrotxt.Margin = new Padding(3, 4, 3, 4);
+            nombreRubrotxt.Name = "nombreRubrotxt";
+            nombreRubrotxt.Size = new Size(278, 27);
+            nombreRubrotxt.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(110, 90);
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(101, 113);
             label2.Name = "label2";
-            label2.Size = new Size(114, 15);
+            label2.Size = new Size(166, 28);
             label2.TabIndex = 4;
-            label2.Text = "Asignatura a evaluar";
+            label2.Text = "Nombre de rubro";
             // 
-            // unidadesIntervalotxt
+            // descripcionRubrotxt
             // 
-            unidadesIntervalotxt.Location = new Point(296, 127);
-            unidadesIntervalotxt.Name = "unidadesIntervalotxt";
-            unidadesIntervalotxt.Size = new Size(204, 23);
-            unidadesIntervalotxt.TabIndex = 5;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(110, 191);
-            label3.Name = "label3";
-            label3.Size = new Size(99, 15);
-            label3.TabIndex = 7;
-            label3.Text = "Fecha de examen";
-            // 
-            // fechaexamencal
-            // 
-            fechaexamencal.Location = new Point(44, 215);
-            fechaexamencal.Name = "fechaexamencal";
-            fechaexamencal.TabIndex = 8;
+            descripcionRubrotxt.Location = new Point(34, 191);
+            descripcionRubrotxt.Margin = new Padding(3, 4, 3, 4);
+            descripcionRubrotxt.Multiline = true;
+            descripcionRubrotxt.Name = "descripcionRubrotxt";
+            descripcionRubrotxt.Size = new Size(278, 95);
+            descripcionRubrotxt.TabIndex = 5;
             // 
             // volvermenubtn
             // 
-            volvermenubtn.Location = new Point(359, 309);
+            volvermenubtn.Location = new Point(271, 519);
+            volvermenubtn.Margin = new Padding(3, 4, 3, 4);
             volvermenubtn.Name = "volvermenubtn";
-            volvermenubtn.Size = new Size(75, 51);
+            volvermenubtn.Size = new Size(86, 68);
             volvermenubtn.TabIndex = 9;
             volvermenubtn.Text = "Volver al menu";
             volvermenubtn.UseVisualStyleBackColor = true;
             volvermenubtn.Click += volvermenubtn_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(descripcionRubrotxt);
+            groupBox1.Location = new Point(14, 81);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(343, 412);
+            groupBox1.TabIndex = 10;
+            groupBox1.TabStop = false;
+            // 
             // Form3
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(374, 600);
             Controls.Add(volvermenubtn);
-            Controls.Add(fechaexamencal);
-            Controls.Add(label3);
-            Controls.Add(unidadesIntervalotxt);
             Controls.Add(label2);
-            Controls.Add(asignaturatxt);
-            Controls.Add(label1);
-            Controls.Add(generarExamenbtn);
+            Controls.Add(nombreRubrotxt);
+            Controls.Add(generarRubrobtn);
+            Controls.Add(groupBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form3";
             Text = "Form3";
+            Load += Form3_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button generarExamenbtn;
+        private Button generarRubrobtn;
         private Label label1;
-        private TextBox asignaturatxt;
+        private TextBox nombreRubrotxt;
         private Label label2;
-        private TextBox unidadesIntervalotxt;
-        private Label label3;
-        private MonthCalendar fechaexamencal;
+        private TextBox descripcionRubrotxt;
         private Button volvermenubtn;
+        private GroupBox groupBox1;
     }
 }

@@ -5,13 +5,13 @@ using System.Linq;
 
 namespace proyecto_final_PED
 {
-    public class Impresion
+    public class Reportes
     {
         private string archivoExamenes = "Examenes.txt";
         private string archivoPreguntas = "Preguntas.txt";
-        private string directorioImpresiones = "Impresiones";
+        private string directorioImpresiones = "Reportes";
 
-        public Impresion()
+        public Reportes()
         {
 
         }
@@ -30,10 +30,10 @@ namespace proyecto_final_PED
                 }
 
                 // Leer todas las preguntas desde Preguntas.txt
-                List<Pregunta> preguntas = LeerPreguntas();
+               // List<Producto> productos = LeerPreguntas();
 
                 // Filtrar las preguntas correspondientes al examen
-                var preguntasDelExamen = preguntas.Where(p => examen.IdPreguntas.Contains(p.PreguntaId)).ToList();
+               // var preguntasDelExamen = producto.Where(p => examen.IdPreguntas.Contains(p.PreguntaId)).ToList();
 
                 // Obtener un nombre único para el archivo de impresión
                 string archivoImpresion = ObtenerNombreArchivoUnico();
@@ -52,7 +52,7 @@ namespace proyecto_final_PED
 
                     // Escribir las preguntas
                     int contador = 1;
-                    foreach (var pregunta in preguntasDelExamen)
+                   /* foreach (var pregunta in preguntasDelExamen)
                     {
                         writer.WriteLine($"Pregunta {contador}: {pregunta.TxtPregunta}");
                         writer.WriteLine($"  a) {pregunta.Respuesta1}");
@@ -67,7 +67,7 @@ namespace proyecto_final_PED
                         writer.WriteLine(); // Espacio entre preguntas
                         contador++;
                     }
-
+                   */
                     writer.WriteLine("=================================================");
                     writer.WriteLine("Fin del examen.");
                 }
@@ -116,9 +116,9 @@ namespace proyecto_final_PED
             return null;
         }
 
-        private List<Pregunta> LeerPreguntas()
+       /* private List<Producto> LeerPreguntas()
         {
-            List<Pregunta> lista = new List<Pregunta>();
+            List<Producto> lista = new List<Producto>();
 
             if (File.Exists(archivoPreguntas))
             {
@@ -129,7 +129,7 @@ namespace proyecto_final_PED
                     {
                         try
                         {
-                            lista.Add(new Pregunta(linea));
+                            lista.Add(new Producto(linea));
                         }
                         catch (Exception ex)
                         {
@@ -140,6 +140,6 @@ namespace proyecto_final_PED
             }
 
             return lista;
-        }
+        }*/
     }
 }

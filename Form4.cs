@@ -12,27 +12,27 @@ using System.Windows.Forms;
 namespace proyecto_final_PED
 {
     public partial class Form4 : Form
-    {
-        private Impresion impresion;
+    {/*
+        private Reportes impresion;
         private GestorExamenes gestorExamenes;
 
-        public Form4(List<Pregunta> preguntas, List<Examen> examenes)
+        public Form4(List<Productos> preguntas, List<Examen> examenes)
         {
             InitializeComponent();
-            impresion = new Impresion();
+            impresion = new Reportes();
             gestorExamenes = new GestorExamenes(preguntas);
             MostrarExamenes(examenes);
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
-           /* List<Examen> examenes = gestorExamenes.LeerExamen(); // Leer exámenes desde el gestor
-            MostrarExamenes(examenes);*/
+            /* List<Examen> examenes = gestorExamenes.LeerExamen(); // Leer exámenes desde el gestor
+             MostrarExamenes(examenes);
         }
 
         private void MostrarExamenes(List<Examen> examenes)
         {
-          //  List<Examen> Examenes = gestorExamenes.LeerExamen();
+            //  List<Examen> Examenes = gestorExamenes.LeerExamen();
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = examenes;
@@ -81,6 +81,6 @@ namespace proyecto_final_PED
             {
                 MessageBox.Show("Por favor, seleccione una fila.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-    }
+        }*/
+    } 
 }

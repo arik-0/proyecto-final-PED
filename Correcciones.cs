@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace proyecto_final_PED
 {
-    public class Correccion
+   /* public class Correccion
     {
         public Guid ExamenId { get; set; }
         public string Alumno { get; set; } 
-        public List<ResultadoPregunta> Resultados { get; set; } 
+        public List<Rubro> Resultados { get; set; } 
         public int Puntuacion { get; set; } 
         public DateTime FechaCorreccion { get; set; }
 
@@ -19,7 +19,7 @@ namespace proyecto_final_PED
         {
             ExamenId = examenId;
             Alumno = alumno;
-            Resultados = new List<ResultadoPregunta>();
+            Resultados = new List<Rubro>();
             FechaCorreccion = DateTime.Now;
         }
 
@@ -29,5 +29,5 @@ namespace proyecto_final_PED
             string resultados = string.Join(";", Resultados.Select(r => $"{r.IdPregunta}:{r.Resultado}"));
             return $"{ExamenId},{Alumno},{FechaCorreccion},{Puntuacion},{resultados}";
        }
-    }
+    }*/
 }

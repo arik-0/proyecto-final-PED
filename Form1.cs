@@ -5,54 +5,64 @@ namespace proyecto_final_PED
     public partial class Form1 : Form
     {
 
-        GestorPreguntas gestorPreguntas = new GestorPreguntas();
-        GestorExamenes gestorExamenes;
-        private string archivoPreguntas = "Preguntas.txt";
+        private Repositorio repo = new();
+            
+        private string archivoProductos = "Preguntas.txt";
         private string archivoExamenes = "Examenes.txt";
         private string archivoCorrecciones = "Correcciones.txt";
         public Form1()
         {
             InitializeComponent();
-            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas();
-            gestorExamenes = new GestorExamenes(preguntas);
+            // List<Producto> preguntas = gestorPreguntas.LeerPreguntas();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+            private void gestionProdbtn_Click_1(object sender, EventArgs e)
+            {
+                Form2 form2 = new Form2(repo);
 
-        private void adminPregbtn_Click(object sender, EventArgs e)
-        {
-            Form2 nuevoFormulario = new Form2();
+                // Mostrar el formulario
+                form2.Show();
+            }
 
-            // Mostrar el formulario
-            nuevoFormulario.Show();
-        }
+            private void salirbtn_Click(object sender, EventArgs e)
+            {
+                Environment.Exit(0);
+            }
 
-        private void generadorExambtn_Click(object sender, EventArgs e)
-        {
-            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas();
-            Form3 form3 = new Form3(preguntas);
+            private void gestionRubrosbtn_Click(object sender, EventArgs e)
+            {
+                Form3 form3 = new Form3(repo);
+                form3.Show();
+            }
+        /*  private void generadorExambtn_Click(object sender, EventArgs e)
+          {
+              /*List<Producto> productos = gestorPreguntas.LeerProductos();
+              Form3 form3 = new Form3(productos);
 
-            // Mostrar Form3
-            form3.Show();
-        }
+              // Mostrar Form3
+              form3.Show();
+          }*/
 
         private void generadorArchivosbtn_Click(object sender, EventArgs e)
         {
-            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas();
-            List<Examen> examenes = gestorExamenes.LeerExamen();
+            /* List<Productos> preguntas = gestorPreguntas.LeerPreguntas();
+             List<Examen> examenes = gestorExamenes.LeerExamen();
 
-            Form4 form4 = new Form4(preguntas, examenes);
+             Form4 form4 = new Form4(preguntas, examenes);
 
-            // Mostrar Form4
-            form4.Show();
+             // Mostrar Form4
+             form4.Show();*/
         }
 
         private void Correctorbtn_Click(object sender, EventArgs e)
         {
-            List<Pregunta> preguntas = gestorPreguntas.LeerPreguntas();
+            /*
+            List<Productos> preguntas = gestorPreguntas.LeerPreguntas();
             List<Examen> examenes = gestorExamenes.LeerExamen();
 
             Form5 form5 = new Form5(preguntas, examenes);
@@ -63,8 +73,6 @@ namespace proyecto_final_PED
 
         private void borrardatosbtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se han borrado todos los datos.");
-
             DialogResult resultado = MessageBox.Show(
                 $"¿Deseas borrar todos los datos?",
                 "Confirmación de destruccion",
@@ -94,7 +102,9 @@ namespace proyecto_final_PED
             else
             {
                 MessageBox.Show("aaaaa te cagaste");
-            }
+            }*/
         }
+
+        
     }
 }
