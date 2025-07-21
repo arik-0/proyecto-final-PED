@@ -27,7 +27,7 @@ namespace proyecto_final_PED
         private void Form2_Load(object sender, EventArgs e)
         {
             //MostrarPreguntas();
-            
+
         }
 
         private void volverAlMenubtn_Click(object sender, EventArgs e)
@@ -53,10 +53,17 @@ namespace proyecto_final_PED
 
         private void modificarProductobtn_Click(object sender, EventArgs e)
         {
-
+            ModificarProductos modificarProductos = new ModificarProductos(repo);
+            modificarProductos.Show();
         }
 
         private void consultaProductosbtn_Click(object sender, EventArgs e)
+        {
+            ConsultaProductos consultaProductos = new ConsultaProductos(repo);
+            consultaProductos.Show();
+        }
+
+        private void Form2_Load_1(object sender, EventArgs e)
         {
 
         }

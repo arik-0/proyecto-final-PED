@@ -26,8 +26,7 @@ namespace proyecto_final_PED
 
         }
         private void generarRubrobtn_Click(object sender, EventArgs e)
-        {
-            
+        {            
             var nombre = nombreRubrotxt.Text;
             var descripcion = descripcionRubrotxt.Text;
             Rubro nuevoRubro = new(nombre, descripcion);

@@ -6,10 +6,6 @@ namespace proyecto_final_PED
     {
 
         private Repositorio repo = new();
-            
-        private string archivoProductos = "Preguntas.txt";
-        private string archivoExamenes = "Examenes.txt";
-        private string archivoCorrecciones = "Correcciones.txt";
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +15,7 @@ namespace proyecto_final_PED
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
             private void gestionProdbtn_Click_1(object sender, EventArgs e)
             {

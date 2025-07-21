@@ -29,34 +29,38 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            button1 = new Button();
+            eliminarProductobtn = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(40, 35);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(720, 352);
             dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // eliminarProductobtn
             // 
-            button1.Location = new Point(666, 409);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "Eliminar Producto";
-            button1.UseVisualStyleBackColor = true;
+            eliminarProductobtn.Location = new Point(666, 409);
+            eliminarProductobtn.Name = "eliminarProductobtn";
+            eliminarProductobtn.Size = new Size(94, 29);
+            eliminarProductobtn.TabIndex = 1;
+            eliminarProductobtn.Text = "Eliminar Producto";
+            eliminarProductobtn.UseVisualStyleBackColor = true;
+            eliminarProductobtn.Click += eliminarProductobtn_Click;
             // 
             // EliminarProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
+            Controls.Add(eliminarProductobtn);
             Controls.Add(dataGridView1);
             Name = "EliminarProductos";
             Text = "EliminarProductos";
@@ -68,6 +72,6 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
+        private Button eliminarProductobtn;
     }
 }

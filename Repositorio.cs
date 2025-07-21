@@ -21,41 +21,48 @@ namespace proyecto_final_PED
         public List<Rubro> ObtenerRubros() => rubros;
         public List<Producto> ObtenerProductos() => productos;
 
+        //Operaciones de Producto
         public void AgregarProducto(Producto p)
         {
             productos.Add(p);
             ArchivoManager.GuardarProductos(productos);
         }
+        public void EliminarProducto(int codigo)
+        {
+            productos.RemoveAll(p => p.Codigo == codigo);
+            ArchivoManager.GuardarProductos(productos);
+        }
+        public void ModificarProducto(Producto productoModificado)
+        {
+            var p = productos.FirstOrDefault(x => x.Codigo == productoModificado.Codigo);
+            if (p != null)
+            {
+                p.Nombre = productoModificado.Nombre;
+                p.Descripcion = productoModificado.Descripcion;
+                p.PrecioCompra = productoModificado.PrecioCompra;
+                p.Stock = productoModificado.Stock;
+                p.Rubro = productoModificado.Rubro;
+                p.FechaVencimiento = productoModificado.FechaVencimiento;
+                ArchivoManager.GuardarProductos(productos);
+            }
+        }
 
+        //Operaciones de Rubro
         public void AgregarRubro(Rubro r)
         {
             rubros.Add(r);
             ArchivoManager.GuardarRubros(rubros);
         }
-        /*public void Auxiliar()
+        public void EliminarRubro(string nombre)
         {
-             Rubro r1 = new Rubro();
-             r1.Nombre = "Electrónica";
-             r1.Descripcion = "Productos electrónicos";
-             Rubros.Add(r1);
-        }*/
-       
-       /*public void AgregarProducto(string nombre, string descripcion, int stock,DateTime fechaVto,float precioCompra,Rubro rubroSeleccionado)
-       {
-            if (rubroSeleccionado == null)
-            {
-                MessageBox.Show("No se puede agregar producto sin un rubro válido.");
-                return;
-            }
-            Producto nuevoProd = new();
-            nuevoProd.Rubro = rubroSeleccionado;
-            nuevoProd.Nombre = nombre;
-            nuevoProd.Descripcion = descripcion;
-            nuevoProd.FechaVencimiento = fechaVto;
-            nuevoProd.PrecioCompra = precioCompra;
-            nuevoProd.Stock = stock;
-            AgregarProducto(nuevoProd);
-
-       }*/
+            rubros.RemoveAll(p => p.Nombre == nombre);
+            ArchivoManager.GuardarRubros(rubros);
+        }
+        public List<Producto> BuscarProductoPorNombre(string nombre)
+        {
+            return productos
+                .Where(p => p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase))
+                .ToList(); 
+        }
     }
 }

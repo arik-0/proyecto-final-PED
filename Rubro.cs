@@ -7,7 +7,6 @@
     {
         get => nombre;
         set => nombre = value ?? throw new ArgumentNullException(nameof(Rubro));
-
     }
 
     public string Descripcion
