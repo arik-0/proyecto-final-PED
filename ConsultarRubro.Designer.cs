@@ -1,6 +1,6 @@
 ﻿namespace proyecto_final_PED
 {
-    partial class EliminarProductos
+    partial class ConsultarRubro
     {
         /// <summary>
         /// Required designer variable.
@@ -29,50 +29,48 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            eliminarProductobtn = new Button();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(40, 35);
+            dataGridView1.Location = new Point(17, 26);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(720, 352);
-            dataGridView1.TabIndex = 0;
+            dataGridView1.Size = new Size(479, 373);
+            dataGridView1.TabIndex = 2;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // eliminarProductobtn
+            // groupBox1
             // 
-            eliminarProductobtn.Location = new Point(666, 409);
-            eliminarProductobtn.Name = "eliminarProductobtn";
-            eliminarProductobtn.Size = new Size(94, 29);
-            eliminarProductobtn.TabIndex = 1;
-            eliminarProductobtn.Text = "Eliminar";
-            eliminarProductobtn.UseVisualStyleBackColor = true;
-            eliminarProductobtn.Click += eliminarProductobtn_Click;
+            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Location = new Point(145, 18);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(511, 415);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
             // 
-            // EliminarProductos
+            // ConsultarRubro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(eliminarProductobtn);
-            Controls.Add(dataGridView1);
-            Name = "EliminarProductos";
-            Text = "EliminarProductos";
-            Load += EliminarProductos_Load;
+            Controls.Add(groupBox1);
+            Name = "ConsultarRubro";
+            Text = "ConsultarRubro";
+            Load += ConsultarRubro_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private DataGridView dataGridView1;
-        private Button eliminarProductobtn;
+        private GroupBox groupBox1;
     }
 }

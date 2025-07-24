@@ -28,63 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            generarRubrobtn = new Button();
-            label1 = new Label();
-            nombreRubrotxt = new TextBox();
-            label2 = new Label();
-            descripcionRubrotxt = new TextBox();
             volvermenubtn = new Button();
-            groupBox1 = new GroupBox();
-            groupBox1.SuspendLayout();
+            agregarRubrosbtn = new Button();
+            modificarRubrosbtn = new Button();
+            eliminarRubrosbtn = new Button();
+            consultarRubrosbtn = new Button();
             SuspendLayout();
-            // 
-            // generarRubrobtn
-            // 
-            generarRubrobtn.Location = new Point(91, 393);
-            generarRubrobtn.Margin = new Padding(3, 4, 3, 4);
-            generarRubrobtn.Name = "generarRubrobtn";
-            generarRubrobtn.Size = new Size(201, 92);
-            generarRubrobtn.TabIndex = 0;
-            generarRubrobtn.Text = "Generar Rubro";
-            generarRubrobtn.UseVisualStyleBackColor = true;
-            generarRubrobtn.Click += generarRubrobtn_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(77, 150);
-            label1.Name = "label1";
-            label1.Size = new Size(200, 28);
-            label1.TabIndex = 2;
-            label1.Text = "Descripcion de Rubro";
-            // 
-            // nombreRubrotxt
-            // 
-            nombreRubrotxt.Location = new Point(48, 164);
-            nombreRubrotxt.Margin = new Padding(3, 4, 3, 4);
-            nombreRubrotxt.Name = "nombreRubrotxt";
-            nombreRubrotxt.Size = new Size(278, 27);
-            nombreRubrotxt.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(101, 113);
-            label2.Name = "label2";
-            label2.Size = new Size(166, 28);
-            label2.TabIndex = 4;
-            label2.Text = "Nombre de rubro";
-            // 
-            // descripcionRubrotxt
-            // 
-            descripcionRubrotxt.Location = new Point(34, 191);
-            descripcionRubrotxt.Margin = new Padding(3, 4, 3, 4);
-            descripcionRubrotxt.Multiline = true;
-            descripcionRubrotxt.Name = "descripcionRubrotxt";
-            descripcionRubrotxt.Size = new Size(278, 95);
-            descripcionRubrotxt.TabIndex = 5;
             // 
             // volvermenubtn
             // 
@@ -97,17 +46,45 @@
             volvermenubtn.UseVisualStyleBackColor = true;
             volvermenubtn.Click += volvermenubtn_Click;
             // 
-            // groupBox1
+            // agregarRubrosbtn
             // 
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(descripcionRubrotxt);
-            groupBox1.Location = new Point(14, 81);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(343, 412);
-            groupBox1.TabIndex = 10;
-            groupBox1.TabStop = false;
+            agregarRubrosbtn.Location = new Point(75, 216);
+            agregarRubrosbtn.Name = "agregarRubrosbtn";
+            agregarRubrosbtn.Size = new Size(94, 57);
+            agregarRubrosbtn.TabIndex = 10;
+            agregarRubrosbtn.Text = "Agregar Rubros";
+            agregarRubrosbtn.UseVisualStyleBackColor = true;
+            agregarRubrosbtn.Click += agregarRubrosbtn_Click;
+            // 
+            // modificarRubrosbtn
+            // 
+            modificarRubrosbtn.Location = new Point(75, 274);
+            modificarRubrosbtn.Name = "modificarRubrosbtn";
+            modificarRubrosbtn.Size = new Size(94, 57);
+            modificarRubrosbtn.TabIndex = 11;
+            modificarRubrosbtn.Text = "Modificar Rubros";
+            modificarRubrosbtn.UseVisualStyleBackColor = true;
+            modificarRubrosbtn.Click += modificarRubrosbtn_Click;
+            // 
+            // eliminarRubrosbtn
+            // 
+            eliminarRubrosbtn.Location = new Point(175, 216);
+            eliminarRubrosbtn.Name = "eliminarRubrosbtn";
+            eliminarRubrosbtn.Size = new Size(94, 57);
+            eliminarRubrosbtn.TabIndex = 12;
+            eliminarRubrosbtn.Text = "Eliminar Rubros";
+            eliminarRubrosbtn.UseVisualStyleBackColor = true;
+            eliminarRubrosbtn.Click += eliminarRubrosbtn_Click;
+            // 
+            // consultarRubrosbtn
+            // 
+            consultarRubrosbtn.Location = new Point(175, 274);
+            consultarRubrosbtn.Name = "consultarRubrosbtn";
+            consultarRubrosbtn.Size = new Size(94, 57);
+            consultarRubrosbtn.TabIndex = 13;
+            consultarRubrosbtn.Text = "Consultar Rubros";
+            consultarRubrosbtn.UseVisualStyleBackColor = true;
+            consultarRubrosbtn.Click += consultarRubrosbtn_Click;
             // 
             // Form3
             // 
@@ -115,29 +92,23 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(374, 600);
+            Controls.Add(consultarRubrosbtn);
+            Controls.Add(eliminarRubrosbtn);
+            Controls.Add(modificarRubrosbtn);
+            Controls.Add(agregarRubrosbtn);
             Controls.Add(volvermenubtn);
-            Controls.Add(label2);
-            Controls.Add(nombreRubrotxt);
-            Controls.Add(generarRubrobtn);
-            Controls.Add(groupBox1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form3";
             Text = "Form3";
             Load += Form3_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Button generarRubrobtn;
-        private Label label1;
-        private TextBox nombreRubrotxt;
-        private Label label2;
-        private TextBox descripcionRubrotxt;
         private Button volvermenubtn;
-        private GroupBox groupBox1;
+        private Button agregarRubrosbtn;
+        private Button modificarRubrosbtn;
+        private Button eliminarRubrosbtn;
+        private Button consultarRubrosbtn;
     }
 }

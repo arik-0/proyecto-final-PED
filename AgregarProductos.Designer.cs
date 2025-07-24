@@ -33,21 +33,19 @@
             descripciontxt = new TextBox();
             stockud = new NumericUpDown();
             precioCompraud = new NumericUpDown();
-            fechavtocal = new MonthCalendar();
             rubroslstbx = new CheckedListBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)stockud).BeginInit();
             ((System.ComponentModel.ISupportInitialize)precioCompraud).BeginInit();
             SuspendLayout();
             // 
             // agregarProductosbtn
             // 
-            agregarProductosbtn.Location = new Point(395, 43);
+            agregarProductosbtn.Location = new Point(266, 138);
             agregarProductosbtn.Name = "agregarProductosbtn";
             agregarProductosbtn.Size = new Size(91, 87);
             agregarProductosbtn.TabIndex = 0;
@@ -73,6 +71,7 @@
             // stockud
             // 
             stockud.Location = new Point(54, 113);
+            stockud.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             stockud.Name = "stockud";
             stockud.Size = new Size(150, 27);
             stockud.TabIndex = 4;
@@ -80,15 +79,10 @@
             // precioCompraud
             // 
             precioCompraud.Location = new Point(54, 169);
+            precioCompraud.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             precioCompraud.Name = "precioCompraud";
             precioCompraud.Size = new Size(150, 27);
             precioCompraud.TabIndex = 5;
-            // 
-            // fechavtocal
-            // 
-            fechavtocal.Location = new Point(226, 154);
-            fechavtocal.Name = "fechavtocal";
-            fechavtocal.TabIndex = 6;
             // 
             // rubroslstbx
             // 
@@ -97,6 +91,7 @@
             rubroslstbx.Name = "rubroslstbx";
             rubroslstbx.Size = new Size(150, 114);
             rubroslstbx.TabIndex = 8;
+            rubroslstbx.ItemCheck += rubroslstbx_ItemCheck;
             // 
             // label1
             // 
@@ -143,28 +138,17 @@
             label5.TabIndex = 13;
             label5.Text = "Descripcion";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(226, 133);
-            label6.Name = "label6";
-            label6.Size = new Size(72, 20);
-            label6.TabIndex = 14;
-            label6.Text = "Fecha vto";
-            // 
             // AgregarProductos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(538, 391);
-            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(rubroslstbx);
-            Controls.Add(fechavtocal);
             Controls.Add(precioCompraud);
             Controls.Add(stockud);
             Controls.Add(descripciontxt);
@@ -186,13 +170,11 @@
         private TextBox descripciontxt;
         private NumericUpDown stockud;
         private NumericUpDown precioCompraud;
-        private MonthCalendar fechavtocal;
         private CheckedListBox rubroslstbx;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
-        private Label label6;
     }
 }

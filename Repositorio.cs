@@ -1,6 +1,8 @@
-﻿using System;
+﻿using proyecto_final_PED.proyecto_final_PED;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -11,16 +13,21 @@ namespace proyecto_final_PED
     {
         private List<Rubro> rubros;
         private List<Producto> productos;
-
+        private List<Proveedor> proveedores;
+        private List<MovimientoStock> movimientosStock;
+        
         public Repositorio()
         {
             rubros = ArchivoManager.CargarRubros();
             productos = ArchivoManager.CargarProductos(rubros);
+            proveedores = ArchivoManager.CargarProveedores();
+            movimientosStock = ArchivoManager.CargarMovimientos(productos, proveedores);
         }
 
         public List<Rubro> ObtenerRubros() => rubros;
         public List<Producto> ObtenerProductos() => productos;
-
+        public List<Proveedor> ObtenerProveedores() => proveedores;
+        public List<MovimientoStock> ObtenerMovimientos() => movimientosStock;
         //Operaciones de Producto
         public void AgregarProducto(Producto p)
         {
@@ -32,6 +39,17 @@ namespace proyecto_final_PED
             productos.RemoveAll(p => p.Codigo == codigo);
             ArchivoManager.GuardarProductos(productos);
         }
+        public void ModificarRubro(Rubro rubroModificado)
+        {
+            var rubroExistente = rubros.FirstOrDefault(r => r.Nombre == rubroModificado.Nombre);
+            if (rubroExistente == null)
+                throw new ArgumentException("El rubro a modificar no existe.");
+
+            rubroExistente.Descripcion = rubroModificado.Descripcion;
+
+            ArchivoManager.GuardarRubros(rubros);
+        }
+
         public void ModificarProducto(Producto productoModificado)
         {
             var p = productos.FirstOrDefault(x => x.Codigo == productoModificado.Codigo);
@@ -42,8 +60,30 @@ namespace proyecto_final_PED
                 p.PrecioCompra = productoModificado.PrecioCompra;
                 p.Stock = productoModificado.Stock;
                 p.Rubro = productoModificado.Rubro;
-                p.FechaVencimiento = productoModificado.FechaVencimiento;
                 ArchivoManager.GuardarProductos(productos);
+            }
+        }
+        //Operaciones de proveedor
+        public void AgregarProveedor(Proveedor p)
+        {
+            proveedores.Add(p);
+            ArchivoManager.GuardarProveedores(proveedores);
+        }
+        public void EliminarProveedor(Guid id)
+        {
+            proveedores.RemoveAll(p => p.Id == id);
+            ArchivoManager.GuardarProveedores(proveedores);
+        }
+        public void ModificarProveedor(Proveedor proveedorModificado)
+        {
+            var p = proveedores.FirstOrDefault(x => x.Id == proveedorModificado.Id);
+            if (p != null)
+            {
+                p.Nombre = proveedorModificado.Nombre;
+                p.Contacto = proveedorModificado.Contacto;
+                p.Telefono = proveedorModificado.Telefono;
+                p.Direccion = proveedorModificado.Direccion;
+                ArchivoManager.GuardarProveedores(proveedores);
             }
         }
 
@@ -58,11 +98,50 @@ namespace proyecto_final_PED
             rubros.RemoveAll(p => p.Nombre == nombre);
             ArchivoManager.GuardarRubros(rubros);
         }
+        //Operaciones con Movimientos
+        public void AgregarMovimiento(MovimientoStock r)
+        { 
+            if(r is EgresoStock egreso) { r.Cantidad = -egreso.Cantidad; }
+            movimientosStock.Add(r);
+           
+            ArchivoManager.GuardarMovimientos(movimientosStock);
+            ActualizarStock(r.Cantidad, r.Producto.Codigo);
+        }
+        public void ActualizarStock(int productosEntrantes, int idProducto)
+        {
+            Producto productoEntrante = productos.FirstOrDefault(p => p.Codigo == idProducto);
+            productoEntrante.Stock = productoEntrante.Stock + productosEntrantes;
+            ModificarProducto(productoEntrante);
+        }
+
         public List<Producto> BuscarProductoPorNombre(string nombre)
         {
             return productos
                 .Where(p => p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase))
                 .ToList(); 
         }
+        public List<Producto> BuscarProductosPorNombreDeRubro(string nombreRubro)
+        {
+            return productos
+                .Where(p => p.Rubro != null &&
+                            p.Rubro.Nombre.Equals(nombreRubro, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+        public List<Proveedor> BuscarProveedorPorNombre(string nombre)
+        {
+            return proveedores
+                .Where(p => p.Nombre != null &&
+                            p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+        public List<MovimientoStock> BuscarMovimientosPorNombreProducto(string nombre)
+        {
+            return movimientosStock
+                .Where(m => m.Producto.Nombre != null &&
+                            m.Producto.Nombre.IndexOf(nombre, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
+        }
+
+
     }
 }

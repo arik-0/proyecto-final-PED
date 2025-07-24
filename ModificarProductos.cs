@@ -1,4 +1,5 @@
-﻿using System;
+﻿using proyecto_final_PED.proyecto_final_PED;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,7 +46,6 @@ namespace proyecto_final_PED
             var nombre = nombretxt.Text.Trim();
             var descripcion = descripciontxt.Text.Trim();
             var stock = (int)stockud.Value;
-            var fechaVencimiento = fechavtocal.SelectionStart;
             var precioCompra = (float)precioCompraud.Value;
 
             if (rubroslstbx.CheckedItems.Count == 0)
@@ -61,11 +61,57 @@ namespace proyecto_final_PED
                 MessageBox.Show("Error al obtener el rubro seleccionado.");
                 return;
             }
-            var nuevoProd = new Producto(codigo, nombre, descripcion, precioCompra, stock, rubroSeleccionado, fechaVencimiento);
+            var nuevoProd = new Producto(codigo, nombre, descripcion, precioCompra, stock, rubroSeleccionado);
             MessageBox.Show("Producto modificado correctamente.");
             repo.ModificarProducto(nuevoProd);
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = repo.ObtenerProductos();
+        }
+
+        private void rubroslstbx_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int i = 0; i < rubroslstbx.Items.Count; i++)
+            {
+                if (i != e.Index)
+                {
+                    rubroslstbx.SetItemChecked(i, false);
+                }
+            }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow?.DataBoundItem is Producto producto)
+            {
+                Producto productoSeleccionado = producto;
+
+                nombretxt.Text = producto.Nombre;
+                descripciontxt.Text = producto.Descripcion;
+                stockud.Value = productoSeleccionado.Stock;
+                precioCompraud.Value = (int)productoSeleccionado.PrecioCompra;
+                // Primero desmarcar todos
+                for (int i = 0; i < rubroslstbx.Items.Count; i++)
+                {
+                    rubroslstbx.SetItemChecked(i, false);
+                }
+
+                // Luego marcar el que coincide
+                for (int i = 0; i < rubroslstbx.Items.Count; i++)
+                {
+                    if (rubroslstbx.Items[i] is Rubro rubro &&
+                        rubro.Nombre == productoSeleccionado.Rubro.Nombre)
+                    {
+                        rubroslstbx.SetItemChecked(i, true);
+                        break;
+                    }
+                }
+
+            }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

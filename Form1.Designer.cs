@@ -91,7 +91,7 @@
             gestionProveedoresbtn.TabIndex = 4;
             gestionProveedoresbtn.Text = "Gestion de Proveedores";
             gestionProveedoresbtn.UseVisualStyleBackColor = true;
-            gestionProveedoresbtn.Click += Correctorbtn_Click;
+            gestionProveedoresbtn.Click += gestionProveedoresbtn_Click;
             // 
             // gestionMovimientosbtn
             // 
@@ -102,7 +102,7 @@
             gestionMovimientosbtn.TabIndex = 5;
             gestionMovimientosbtn.Text = "Gestion de Movimientos de Stock";
             gestionMovimientosbtn.UseVisualStyleBackColor = true;
-            gestionMovimientosbtn.Click += generadorArchivosbtn_Click;
+            gestionMovimientosbtn.Click += gestionMovimientosbtn_Click;
             // 
             // borrardatosbtn
             // 
@@ -123,6 +123,7 @@
             reportesbtn.TabIndex = 7;
             reportesbtn.Text = "Reportes";
             reportesbtn.UseVisualStyleBackColor = true;
+            reportesbtn.Click += reportesbtn_Click;
             // 
             // salirbtn
             // 

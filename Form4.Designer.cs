@@ -28,119 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            volverAlMenubtn = new Button();
-            generarImpresionbtn = new Button();
-            datosUniversidadtxt = new TextBox();
-            label1 = new Label();
-            carreratxt = new TextBox();
-            label2 = new Label();
-            groupBox1 = new GroupBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox1.SuspendLayout();
+            consultarProveedoresbtn = new Button();
+            modificarProveedorbtn = new Button();
+            agregarProveedorbtn = new Button();
+            eliminarProveedorbtn = new Button();
             SuspendLayout();
             // 
-            // dataGridView1
+            // consultarProveedoresbtn
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(385, 34);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(403, 333);
-            dataGridView1.TabIndex = 22;
+            consultarProveedoresbtn.Location = new Point(442, 184);
+            consultarProveedoresbtn.Name = "consultarProveedoresbtn";
+            consultarProveedoresbtn.Size = new Size(103, 78);
+            consultarProveedoresbtn.TabIndex = 3;
+            consultarProveedoresbtn.Text = "Consultar Proveedores";
+            consultarProveedoresbtn.UseVisualStyleBackColor = true;
+            consultarProveedoresbtn.Click += consultarProveedoresbtn_Click;
             // 
-            // volverAlMenubtn
+            // modificarProveedorbtn
             // 
-            volverAlMenubtn.Location = new Point(713, 383);
-            volverAlMenubtn.Name = "volverAlMenubtn";
-            volverAlMenubtn.Size = new Size(75, 65);
-            volverAlMenubtn.TabIndex = 23;
-            volverAlMenubtn.Text = "Volver al menu";
-            volverAlMenubtn.UseVisualStyleBackColor = true;
+            modificarProveedorbtn.Location = new Point(342, 184);
+            modificarProveedorbtn.Name = "modificarProveedorbtn";
+            modificarProveedorbtn.Size = new Size(103, 78);
+            modificarProveedorbtn.TabIndex = 4;
+            modificarProveedorbtn.Text = "Modificar Proveedor";
+            modificarProveedorbtn.UseVisualStyleBackColor = true;
+            modificarProveedorbtn.Click += modificarProveedorbtn_Click;
             // 
-            // generarImpresionbtn
+            // agregarProveedorbtn
             // 
-            generarImpresionbtn.Location = new Point(60, 261);
-            generarImpresionbtn.Name = "generarImpresionbtn";
-            generarImpresionbtn.Size = new Size(210, 57);
-            generarImpresionbtn.TabIndex = 0;
-            generarImpresionbtn.Text = "Generar Impresion";
-            generarImpresionbtn.UseVisualStyleBackColor = true;
+            agregarProveedorbtn.Location = new Point(342, 100);
+            agregarProveedorbtn.Name = "agregarProveedorbtn";
+            agregarProveedorbtn.Size = new Size(103, 78);
+            agregarProveedorbtn.TabIndex = 5;
+            agregarProveedorbtn.Text = "Agregar proveedor";
+            agregarProveedorbtn.UseVisualStyleBackColor = true;
+            agregarProveedorbtn.Click += agregarProveedorbtn_Click;
             // 
-            // datosUniversidadtxt
+            // eliminarProveedorbtn
             // 
-            datosUniversidadtxt.Location = new Point(79, 101);
-            datosUniversidadtxt.Name = "datosUniversidadtxt";
-            datosUniversidadtxt.Size = new Size(173, 23);
-            datosUniversidadtxt.TabIndex = 24;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(16, 43);
-            label1.Name = "label1";
-            label1.Size = new Size(299, 37);
-            label1.TabIndex = 25;
-            label1.Text = "Datos de la Universidad";
-            // 
-            // carreratxt
-            // 
-            carreratxt.Location = new Point(79, 195);
-            carreratxt.Name = "carreratxt";
-            carreratxt.Size = new Size(173, 23);
-            carreratxt.TabIndex = 26;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 20F);
-            label2.Location = new Point(114, 144);
-            label2.Name = "label2";
-            label2.Size = new Size(103, 37);
-            label2.TabIndex = 27;
-            label2.Text = "Carrera";
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(carreratxt);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(datosUniversidadtxt);
-            groupBox1.Controls.Add(generarImpresionbtn);
-            groupBox1.Location = new Point(37, 34);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(331, 333);
-            groupBox1.TabIndex = 28;
-            groupBox1.TabStop = false;
+            eliminarProveedorbtn.Location = new Point(442, 100);
+            eliminarProveedorbtn.Name = "eliminarProveedorbtn";
+            eliminarProveedorbtn.Size = new Size(103, 78);
+            eliminarProveedorbtn.TabIndex = 6;
+            eliminarProveedorbtn.Text = "Eliminar Proveedor";
+            eliminarProveedorbtn.UseVisualStyleBackColor = true;
+            eliminarProveedorbtn.Click += eliminarProveedorbtn_Click;
             // 
             // Form4
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(800, 450);
-            Controls.Add(groupBox1);
-            Controls.Add(volverAlMenubtn);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(914, 403);
+            Controls.Add(eliminarProveedorbtn);
+            Controls.Add(agregarProveedorbtn);
+            Controls.Add(modificarProveedorbtn);
+            Controls.Add(consultarProveedoresbtn);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form4";
             Text = "Form4";
-           // Load += Form4_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            Load += Form4_Load;
             ResumeLayout(false);
         }
 
         #endregion
-        private DataGridView dataGridView1;
-        private Button volverAlMenubtn;
-        private Button generarImpresionbtn;
-        private TextBox datosUniversidadtxt;
-        private Label label1;
-        private TextBox carreratxt;
-        private Label label2;
-        private GroupBox groupBox1;
+
+        private Button consultarProveedoresbtn;
+        private Button modificarProveedorbtn;
+        private Button agregarProveedorbtn;
+        private Button eliminarProveedorbtn;
     }
 }

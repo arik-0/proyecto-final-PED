@@ -40,17 +40,16 @@ namespace proyecto_final_PED
 
         private void agregarProductosbtn_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
-                 // ✅ OK
-                
-                
+                // ✅ OK
+
+
                 var codigo = ArchivoManager.ObtenerNuevoCodigo();
                 var nombre = nombretxt.Text.Trim();
                 var descripcion = descripciontxt.Text.Trim();
                 var stock = (int)stockud.Value;
-                var fechaVencimiento = fechavtocal.SelectionStart;
                 var precioCompra = (float)precioCompraud.Value;
 
                 if (rubroslstbx.CheckedItems.Count == 0)
@@ -66,7 +65,7 @@ namespace proyecto_final_PED
                     MessageBox.Show("Error al obtener el rubro seleccionado.");
                     return;
                 }
-                var nuevoProd = new Producto(codigo, nombre, descripcion, precioCompra, stock, rubroSeleccionado, fechaVencimiento);
+                var nuevoProd = new Producto(codigo, nombre, descripcion, precioCompra, stock, rubroSeleccionado);
                 repo.AgregarProducto(nuevoProd);
                 MessageBox.Show("Producto agregado correctamente.");
                 // o limpiar campos
@@ -77,5 +76,15 @@ namespace proyecto_final_PED
             }
         }
 
+        private void rubroslstbx_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int i = 0; i < rubroslstbx.Items.Count; i++)
+            {
+                if (i != e.Index)
+                {
+                    rubroslstbx.SetItemChecked(i, false);
+                }
+            }
+        }
     }
 }

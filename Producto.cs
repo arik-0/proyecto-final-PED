@@ -11,10 +11,9 @@ namespace proyecto_final_PED
         private float precioCompra;
         private int stock;
         private Rubro rubro;
-        private DateTime fechaVencimiento;
 
         // Constructor
-        public Producto(int codigo, string nombre, string descripcion, float precioCompra, int stock, Rubro rubro, DateTime fechaVencimiento)
+        public Producto(int codigo, string nombre, string descripcion, float precioCompra, int stock, Rubro rubro)
         {
             Codigo = codigo;
             Nombre = nombre;
@@ -22,7 +21,6 @@ namespace proyecto_final_PED
             PrecioCompra = precioCompra;
             Stock = stock;
             Rubro = rubro;
-            FechaVencimiento = fechaVencimiento;
         }
 
         // Propiedades
@@ -85,18 +83,11 @@ namespace proyecto_final_PED
             set => rubro = value ?? throw new ArgumentNullException(nameof(Rubro), "El rubro no puede ser nulo.");
         }
 
-        public DateTime FechaVencimiento
-        {
-            get => fechaVencimiento;
-            set => fechaVencimiento = value;
-        }
-
-        // Propiedad de solo lectura: ¿está vencido?
-        public bool EstaVencido => FechaVencimiento < DateTime.Today;
+       
 
         public override string ToString()
         {
-            return $"Cod: {Codigo} | {Nombre} | Stock: {Stock} | P. Venta: ${PrecioVenta:0.00} | Vence: {FechaVencimiento:dd/MM/yyyy}";
+            return $"Cod: {Codigo} | {Nombre} | Stock: {Stock} | P. Venta: ${PrecioVenta:0.00} ";
         }
     }
 }

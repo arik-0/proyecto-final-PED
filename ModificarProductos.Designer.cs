@@ -31,8 +31,8 @@
             groupBox1 = new GroupBox();
             dataGridView1 = new DataGridView();
             groupBox2 = new GroupBox();
-            label6 = new Label();
-            fechavtocal = new MonthCalendar();
+            codigotxt = new TextBox();
+            label7 = new Label();
             label5 = new Label();
             modificarProductosbtn = new Button();
             label4 = new Label();
@@ -44,8 +44,6 @@
             label1 = new Label();
             precioCompraud = new NumericUpDown();
             rubroslstbx = new CheckedListBox();
-            codigotxt = new TextBox();
-            label7 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
@@ -71,13 +69,12 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(360, 394);
             dataGridView1.TabIndex = 0;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(codigotxt);
             groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(fechavtocal);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(modificarProductosbtn);
             groupBox2.Controls.Add(label4);
@@ -95,21 +92,23 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "groupBox2";
+            groupBox2.Enter += groupBox2_Enter;
             // 
-            // label6
+            // codigotxt
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(178, 144);
-            label6.Name = "label6";
-            label6.Size = new Size(72, 20);
-            label6.TabIndex = 27;
-            label6.Text = "Fecha vto";
+            codigotxt.Location = new Point(6, 380);
+            codigotxt.Name = "codigotxt";
+            codigotxt.Size = new Size(125, 27);
+            codigotxt.TabIndex = 28;
             // 
-            // fechavtocal
+            // label7
             // 
-            fechavtocal.Location = new Point(178, 165);
-            fechavtocal.Name = "fechavtocal";
-            fechavtocal.TabIndex = 20;
+            label7.AutoSize = true;
+            label7.Location = new Point(6, 360);
+            label7.Name = "label7";
+            label7.Size = new Size(58, 20);
+            label7.TabIndex = 29;
+            label7.Text = "Codigo";
             // 
             // label5
             // 
@@ -175,6 +174,7 @@
             // stockud
             // 
             stockud.Location = new Point(6, 122);
+            stockud.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             stockud.Name = "stockud";
             stockud.Size = new Size(150, 27);
             stockud.TabIndex = 18;
@@ -191,6 +191,7 @@
             // precioCompraud
             // 
             precioCompraud.Location = new Point(6, 178);
+            precioCompraud.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             precioCompraud.Name = "precioCompraud";
             precioCompraud.Size = new Size(150, 27);
             precioCompraud.TabIndex = 19;
@@ -202,22 +203,7 @@
             rubroslstbx.Name = "rubroslstbx";
             rubroslstbx.Size = new Size(150, 114);
             rubroslstbx.TabIndex = 21;
-            // 
-            // codigotxt
-            // 
-            codigotxt.Location = new Point(6, 380);
-            codigotxt.Name = "codigotxt";
-            codigotxt.Size = new Size(125, 27);
-            codigotxt.TabIndex = 28;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(6, 360);
-            label7.Name = "label7";
-            label7.Size = new Size(58, 20);
-            label7.TabIndex = 29;
-            label7.Text = "Codigo";
+            rubroslstbx.ItemCheck += rubroslstbx_ItemCheck;
             // 
             // ModificarProductos
             // 
@@ -243,8 +229,6 @@
         private GroupBox groupBox1;
         private DataGridView dataGridView1;
         private GroupBox groupBox2;
-        private Label label6;
-        private MonthCalendar fechavtocal;
         private Label label5;
         private Button modificarProductosbtn;
         private Label label4;

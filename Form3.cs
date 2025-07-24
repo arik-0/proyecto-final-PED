@@ -26,16 +26,39 @@ namespace proyecto_final_PED
 
         }
         private void generarRubrobtn_Click(object sender, EventArgs e)
-        {            
-            var nombre = nombreRubrotxt.Text;
-            var descripcion = descripcionRubrotxt.Text;
-            Rubro nuevoRubro = new(nombre, descripcion);
-            repo.AgregarRubro(nuevoRubro);
+        {
+
         }
 
         private void volvermenubtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void agregarRubrosbtn_Click(object sender, EventArgs e)
+        {
+            AgregarRubro agregarRubro = new(repo);
+
+            // Mostrar el formulario
+            agregarRubro.Show();
+        }
+
+        private void eliminarRubrosbtn_Click(object sender, EventArgs e)
+        {
+            EliminarRubro eliminarRubro = new(repo);
+            eliminarRubro.Show();
+        }
+
+        private void modificarRubrosbtn_Click(object sender, EventArgs e)
+        {
+            ModificarRubro modificarRubro = new(repo);
+            modificarRubro.Show();
+        }
+
+        private void consultarRubrosbtn_Click(object sender, EventArgs e)
+        {
+            ConsultarRubro consultarRubro = new(repo);
+            consultarRubro.Show();
         }
     }
 }/*

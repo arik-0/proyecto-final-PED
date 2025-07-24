@@ -1,30 +1,24 @@
-﻿using proyecto_final_PED.proyecto_final_PED;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace proyecto_final_PED
 {
-    public partial class EliminarProductos : Form
+    public partial class EliminarRubro : Form
     {
         private Repositorio repo;
-        public EliminarProductos(Repositorio repo)
+        public EliminarRubro(Repositorio repo)
         {
             InitializeComponent();
             this.repo = repo;
-        }
-
-        private void EliminarProductos_Load(object sender, EventArgs e)
-        {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = repo.ObtenerProductos();
+            dataGridView1.DataSource = repo.ObtenerRubros();
         }
 
         private void eliminarProductobtn_Click(object sender, EventArgs e)
@@ -33,13 +27,13 @@ namespace proyecto_final_PED
             {
                 // Obtener la fila seleccionada
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
-                Producto productoSeleccionado = filaSeleccionada.DataBoundItem as Producto;
+                Rubro rubroSeleccionado = filaSeleccionada.DataBoundItem as Rubro;
 
-                if (productoSeleccionado != null)
+                if (rubroSeleccionado != null)
                 {
                     // Confirmar la eliminación con el usuario
                     DialogResult resultado = MessageBox.Show(
-                        $"¿Estás seguro de que deseas eliminar la pregunta con ID {productoSeleccionado.Codigo}?",
+                        $"¿Estás seguro de que deseas eliminar el rubro con nombre {rubroSeleccionado.Nombre}?",
                         "Confirmación de eliminación",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning
@@ -48,29 +42,24 @@ namespace proyecto_final_PED
                     if (resultado == DialogResult.Yes)
                     {
                         // Eliminar la pregunta utilizando el gestor
-                        repo.EliminarProducto(productoSeleccionado.Codigo);
+                        repo.EliminarRubro(rubroSeleccionado.Nombre);
 
                         // Refrescar la lista y la grilla
                         dataGridView1.DataSource = null;
-                        dataGridView1.DataSource = repo.ObtenerProductos();
+                        dataGridView1.DataSource = repo.ObtenerRubros();
 
-                        MessageBox.Show("Producto eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Rubro eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo obtener el Producto seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se pudo obtener el Rubro seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
                 MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

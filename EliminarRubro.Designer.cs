@@ -1,6 +1,6 @@
 ﻿namespace proyecto_final_PED
 {
-    partial class EliminarProductos
+    partial class EliminarRubro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,51 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
             eliminarProductobtn = new Button();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+            // 
+            // eliminarProductobtn
+            // 
+            eliminarProductobtn.Location = new Point(666, 398);
+            eliminarProductobtn.Name = "eliminarProductobtn";
+            eliminarProductobtn.Size = new Size(94, 29);
+            eliminarProductobtn.TabIndex = 3;
+            eliminarProductobtn.Text = "Eliminar Producto";
+            eliminarProductobtn.UseVisualStyleBackColor = true;
+            eliminarProductobtn.Click += eliminarProductobtn_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(40, 35);
+            dataGridView1.Location = new Point(40, 24);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(720, 352);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.TabIndex = 2;
             // 
-            // eliminarProductobtn
-            // 
-            eliminarProductobtn.Location = new Point(666, 409);
-            eliminarProductobtn.Name = "eliminarProductobtn";
-            eliminarProductobtn.Size = new Size(94, 29);
-            eliminarProductobtn.TabIndex = 1;
-            eliminarProductobtn.Text = "Eliminar";
-            eliminarProductobtn.UseVisualStyleBackColor = true;
-            eliminarProductobtn.Click += eliminarProductobtn_Click;
-            // 
-            // EliminarProductos
+            // EliminarRubro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(eliminarProductobtn);
             Controls.Add(dataGridView1);
-            Name = "EliminarProductos";
-            Text = "EliminarProductos";
-            Load += EliminarProductos_Load;
+            Name = "EliminarRubro";
+            Text = "EliminarRubro";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
         private Button eliminarProductobtn;
+        private DataGridView dataGridView1;
     }
 }

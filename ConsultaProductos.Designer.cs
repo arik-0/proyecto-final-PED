@@ -70,6 +70,7 @@
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "groupBox2";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // nombreProdtxt
             // 
@@ -96,6 +97,7 @@
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
             groupBox3.Text = "groupBox3";
+            groupBox3.Enter += groupBox3_Enter;
             // 
             // rubroslstbx
             // 
@@ -104,6 +106,7 @@
             rubroslstbx.Name = "rubroslstbx";
             rubroslstbx.Size = new Size(150, 114);
             rubroslstbx.TabIndex = 22;
+            rubroslstbx.ItemCheck += rubroslstbx_ItemCheck;
             // 
             // buscarbtn
             // 

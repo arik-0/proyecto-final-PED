@@ -12,38 +12,53 @@ using System.Windows.Forms;
 namespace proyecto_final_PED
 {
     public partial class Form4 : Form
-    {/*
-        private Reportes impresion;
-        private GestorExamenes gestorExamenes;
+    {
+        private Repositorio repo;
 
-        public Form4(List<Productos> preguntas, List<Examen> examenes)
+        public Form4(Repositorio repo)
         {
             InitializeComponent();
-            impresion = new Reportes();
-            gestorExamenes = new GestorExamenes(preguntas);
-            MostrarExamenes(examenes);
+            this.repo = repo;
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            /* List<Examen> examenes = gestorExamenes.LeerExamen(); // Leer exámenes desde el gestor
-             MostrarExamenes(examenes);
+
         }
 
-        private void MostrarExamenes(List<Examen> examenes)
-        {
-            //  List<Examen> Examenes = gestorExamenes.LeerExamen();
 
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = examenes;
-        }
 
         private void volverAlMenubtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void generarImpresionbtn_Click(object sender, EventArgs e)
+        private void agregarProveedorbtn_Click(object sender, EventArgs e)
+        {
+            AgregarProveedor agregarProveedor = new(repo);
+            agregarProveedor.Show();
+        }
+
+        private void eliminarProveedorbtn_Click(object sender, EventArgs e)
+        {
+            EliminarProveedor eliminarProveedor = new(repo);
+            eliminarProveedor.Show();
+        }
+
+        private void modificarProveedorbtn_Click(object sender, EventArgs e)
+        {
+            ModificarProveedor modificarProveedor = new(repo);
+            modificarProveedor.Show();
+        }
+
+        private void consultarProveedoresbtn_Click(object sender, EventArgs e)
+        {
+            ConsultaProveedor consultaProveedor = new(repo);
+            consultaProveedor.Show();
+        }
+    }
+}
+/* private void generarImpresionbtn_Click(object sender, EventArgs e)
         {
             string datosuni = datosUniversidadtxt.Text.Trim();
             string carrera = carreratxt.Text.Trim();
@@ -80,7 +95,4 @@ namespace proyecto_final_PED
             else
             {
                 MessageBox.Show("Por favor, seleccione una fila.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }*/
-    } 
-}
+            }*/
