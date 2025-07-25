@@ -141,6 +141,40 @@ namespace proyecto_final_PED
                             m.Producto.Nombre.IndexOf(nombre, StringComparison.OrdinalIgnoreCase) >= 0)
                 .ToList();
         }
+        public void DescontarStockDeProductosVencidos()
+        {
+            DateTime hoy = DateTime.Today;
+
+            var ingresosVencidos = movimientosStock
+                .OfType<IngresoStock>()
+                .Where(m => m.FechaVencimiento < hoy)
+                .ToList();
+
+            foreach (var ingreso in ingresosVencidos)
+            {
+                // Verificamos cuánto stock queda para ese lote
+                int stockDisponibleDelLote = movimientosStock
+                    .Where(m => m.Producto.Codigo == ingreso.Producto.Codigo &&
+                                m is IngresoStock i && i.FechaVencimiento == ingreso.FechaVencimiento)
+                    .Sum(m => m.Cantidad);
+
+                if (stockDisponibleDelLote > 0)
+                {
+                    // Creamos egreso automático por vencimiento
+                    var egresoVencido = new EgresoStock
+                    {
+                        Producto = ingreso.Producto,
+                        Cantidad = stockDisponibleDelLote,
+                        Observacion = "Descontado automáticamente por vencimiento",
+                        Fecha = DateTime.Now
+                    };
+
+                    movimientosStock.Add(egresoVencido);
+                }
+            }
+
+            ArchivoManager.GuardarMovimientos(movimientosStock);
+        }
 
 
     }

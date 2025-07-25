@@ -100,7 +100,7 @@ namespace proyecto_final_PED
             // Crear el movimiento
             IngresoStock nuevoIngreso = new IngresoStock
             {
-                FechaVencimiento = fechaVencimiento, 
+                FechaVencimiento = fechaVencimiento,
                 Fecha = DateTime.Now,
                 Cantidad = nuevoStock,
                 Lote = Guid.NewGuid(),
@@ -141,6 +141,22 @@ namespace proyecto_final_PED
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void proveedoreslstbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void proveedoreslstbx_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int i = 0; i < proveedoreslstbx.Items.Count; i++)
+            {
+                if (i != e.Index)
+                {
+                    proveedoreslstbx.SetItemChecked(i, false);
+                }
+            }
         }
     }
 }

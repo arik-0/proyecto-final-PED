@@ -80,5 +80,10 @@ namespace proyecto_final_PED
                 MessageBox.Show("Reporte generado correctamente.");
             }
         }
+
+        private void FormReportes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

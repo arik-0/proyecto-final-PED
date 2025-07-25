@@ -37,7 +37,7 @@
             // 
             // stockActualPorProdbtn
             // 
-            stockActualPorProdbtn.Location = new Point(238, 168);
+            stockActualPorProdbtn.Location = new Point(238, 114);
             stockActualPorProdbtn.Name = "stockActualPorProdbtn";
             stockActualPorProdbtn.Size = new Size(94, 78);
             stockActualPorProdbtn.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // stockPorRubrobtn
             // 
-            stockPorRubrobtn.Location = new Point(353, 168);
+            stockPorRubrobtn.Location = new Point(353, 114);
             stockPorRubrobtn.Name = "stockPorRubrobtn";
             stockPorRubrobtn.Size = new Size(94, 78);
             stockPorRubrobtn.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // MovimientosPorProvbtn
             // 
-            MovimientosPorProvbtn.Location = new Point(238, 252);
+            MovimientosPorProvbtn.Location = new Point(238, 198);
             MovimientosPorProvbtn.Name = "MovimientosPorProvbtn";
             MovimientosPorProvbtn.Size = new Size(94, 78);
             MovimientosPorProvbtn.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // objetosConBajoStockbtn
             // 
-            objetosConBajoStockbtn.Location = new Point(353, 252);
+            objetosConBajoStockbtn.Location = new Point(353, 198);
             objetosConBajoStockbtn.Name = "objetosConBajoStockbtn";
             objetosConBajoStockbtn.Size = new Size(94, 78);
             objetosConBajoStockbtn.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             // historialDeMovimientosPorProdbtn
             // 
-            historialDeMovimientosPorProdbtn.Location = new Point(293, 336);
+            historialDeMovimientosPorProdbtn.Location = new Point(293, 282);
             historialDeMovimientosPorProdbtn.Name = "historialDeMovimientosPorProdbtn";
             historialDeMovimientosPorProdbtn.Size = new Size(118, 102);
             historialDeMovimientosPorProdbtn.TabIndex = 4;
@@ -97,6 +97,7 @@
             Controls.Add(stockActualPorProdbtn);
             Name = "FormReportes";
             Text = "FormReportes";
+            Load += FormReportes_Load;
             ResumeLayout(false);
         }
 

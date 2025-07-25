@@ -14,7 +14,7 @@ namespace proyecto_final_PED
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            repo.DescontarStockDeProductosVencidos();
         }
         private void gestionProdbtn_Click_1(object sender, EventArgs e)
         {

@@ -98,6 +98,8 @@
             proveedoreslstbx.Name = "proveedoreslstbx";
             proveedoreslstbx.Size = new Size(375, 136);
             proveedoreslstbx.TabIndex = 1;
+            proveedoreslstbx.ItemCheck += proveedoreslstbx_ItemCheck;
+            proveedoreslstbx.SelectedIndexChanged += proveedoreslstbx_SelectedIndexChanged;
             // 
             // dataGridView1
             // 
